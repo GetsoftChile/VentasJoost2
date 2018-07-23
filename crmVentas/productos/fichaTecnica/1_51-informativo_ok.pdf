@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta charset="utf-8" /><title>
+	Sistema Fotográfico
+</title><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" /><meta name="author" />
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" /><link href="assets/css/docs.css" rel="stylesheet" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+
+    <style type="text/css">
+           .modalBackground 
+            {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+                z-index: 10000;
+            }
+            
+    </style>
+
+    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico" />
+</head>
+
+<body>
+
+
+    <form method="post" action="Carro.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNzgxNjIxOTIzD2QWAmYPZBYCAgMPZBYCAgEPZBYCZg9kFgYCBQ8PFgIeBFRleHQFBWxkaWF6ZGQCIQ9kFgICAQ9kFgJmD2QWBAIFDzwrABECAA8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudAIBZAEQFgAWABYAFgJmD2QWBAIBD2QWDmYPZBYCAgMPDxYCHghJbWFnZVVybAUrYXNzZXRzL2ltZy9pbWFnZW5lc0V4dGVuc2lvbmVzL2ljb25fcGRmLnBuZ2RkAgEPZBYGAgEPDxYCHwAFD0luZm9ybWF0aXZvIDEyMmRkAgMPDxYCHwAFFTUxLWluZm9ybWF0aXZvX29rLnBkZmRkAgUPDxYCHwAFAjUxZGQCAg9kFgICAQ8PFgIfAAUDcGRmZGQCBA9kFgICAQ8PFgIfAAUFMjI4NDdkZAIFD2QWAgIBDw8WAh8AZWRkAgYPZBYEAgEPDxYCHwBlZGQCBQ8PFgYfAAUNUE9SIFNPTElDSVRBUh4IQ3NzQ2xhc3MFFWxhYmVsIGxhYmVsLWltcG9ydGFudB4EXyFTQgICZGQCBw9kFgICAQ8PFgIeB1Zpc2libGVnZGQCAg8PFgIfBmhkZAIVD2QWAgIBDw8WAh8ABVhDb3VsZCBub3QgZmluZCBmaWxlICdcXDEwLjExLjIuMTM1XEZvdG9zU0tfT2NcSW1hZ2VuZXNcdGh1bWJuYWlsXDUxLWluZm9ybWF0aXZvX29rLnBkZicuZGQCIw8PFgIfAAUEMjAxNWRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYKBRBjdGwwMCRpYnRuSW5pY2lvBR9jdGwwMCRNYWluQ29udGVudCRpYnRuSW1wcmVzb3JhBSljdGwwMCRNYWluQ29udGVudCRncnZDYXJybyRjdGwwMSRjaGVja0FsbAUvY3RsMDAkTWFpbkNvbnRlbnQkZ3J2Q2Fycm8kY3RsMDIkY2hrU2VsZWNjaW9uYXIFKGN0bDAwJE1haW5Db250ZW50JGdydkNhcnJvJGN0bDAyJHJiTWVkaWEFKGN0bDAwJE1haW5Db250ZW50JGdydkNhcnJvJGN0bDAyJHJiTWVkaWEFLmN0bDAwJE1haW5Db250ZW50JGdydkNhcnJvJGN0bDAyJGlidG5Tb2xpY2l0YXIFLWN0bDAwJE1haW5Db250ZW50JGdydkNhcnJvJGN0bDAyJGltZ0Rlc2NhcmdhcgUsY3RsMDAkTWFpbkNvbnRlbnQkZ3J2Q2Fycm8kY3RsMDIkaW1nRWxpbWluYXIFHGN0bDAwJE1haW5Db250ZW50JGltZ0FjZXB0YXIFGmN0bDAwJE1haW5Db250ZW50JGdydkNhcnJvDzwrAAwBCAIBZIlCbukVypF9Vdx6vRdcq2QvKfxFh5O8Ld5Go2P+X28S" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/SistemaFotografico/WebResource.axd?d=O3uF4dS2ElXWW7eq5B9TYSEqeGj69NZs9ggelRb0NoONYuAwie4Yx-BZ7vR4WhYQ_zJUq195ShdVvLYrCt_UJnoDwul_CBu3-OwEpih0z8I1&amp;t=635329512664063033" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"es-CL","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":".","CurrencySymbol":"$","NaNSymbol":"NeuN","CurrencyNegativePattern":9,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infinito","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":".","CurrencyPositivePattern":2,"PositiveInfinitySymbol":"Infinito","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":".","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135589600000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"-","FirstDayOfWeek":0,"CalendarWeekRule":0,"FullDateTimePattern":"dddd, dd\u0027 de \u0027MMMM\u0027 de \u0027yyyy H:mm:ss","LongDatePattern":"dddd, dd\u0027 de \u0027MMMM\u0027 de \u0027yyyy","LongTimePattern":"H:mm:ss","MonthDayPattern":"dd MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd-MM-yyyy","ShortTimePattern":"H:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM\u0027 de \u0027yyyy","AbbreviatedDayNames":["dom","lun","mar","mié","jue","vie","sáb"],"ShortestDayNames":["do","lu","ma","mi","ju","vi","sá"],"DayNames":["domingo","lunes","martes","miércoles","jueves","viernes","sábado"],"AbbreviatedMonthNames":["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""],"MonthNames":["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""],"IsReadOnly":true,"NativeCalendarName":"calendario gregoriano","AbbreviatedMonthGenitiveNames":["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic",""],"MonthGenitiveNames":["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre",""]},"eras":[1,"d.C.",null,0]};//]]>
+</script>
+
+<script src="/SistemaFotografico/ScriptResource.axd?d=TIN_p9c1bZaaha0iso7x76lWSp9LxnuNr-D1m9_WE2u_XRxWVRHhBLUgnNjJDw1VmzusZrBIAh70fvJ5WTTHAwxyx_oOViHfIJlupNjhaJSNtU-jGtDQmsGbApWTgR_6-fFFDDVEQ-31Vg6g3Eg0gQ2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/SistemaFotografico/ScriptResource.axd?d=gMn6D5rA-jBNH6Cf5UsUBN45XIAhTvvDmmE9VK_HdweRewzc8StFLIKC3cxWqjEqBfmQlMi8AZ7F761_IW6tTZo7rhXqwkVzcV5ptFPuJC1tOW-0W2lJRPxApu3INPYeVuwV1kEtVjC6q6xRkDBLDQ2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=KG7jsfwLEFfsXOeX4w3Rm1DaSPUHnIdwlrlAi7azBda8S4oMxkyFC5Nj0vsC-GEG7O_0k-E11qj_5NysWY2I7XFm4eMbGCGRGLsf8MTmjrINhQJbN1Avc7M97VgGDMj2H00O5l7bwD_EV1Z0MUui-g2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=UKbxcgtuvhRnW3oqEWoskD_mWxEDeNKm9ngmp1AeeDK9CNJmm3Ghdy0JtyNPdi94f65pReY1IuxI3sBzkmWEFtyPlXWEZXDvSYJFZQGko552URy1DkkF-rsV1KpRAP0LgJ_YUpYHT4-hisAXIwLwPA2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=ermBvP0xaJoJelJHRFm7zSTf0AIPWNaHmjRzpTfAN5UHp0cjO_0jI30An9ACpUHvcSVBPrOKG55nxadVi8Es1ApbL1HQ5Gd0QEuTvkQLG8nmX8CWre6MKOfIVfcQbM6K3Qbg_ldxAjvWwvdxEdwrHg2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=atajeao4YDRNHh3p7lx4Ndn5d1hTPLrScGN6eeXzNZ7A8Y5bNc1KaC7coTmK0LhU2IdYfdH5YRCBVeg1Mbsd_L4ZWjCVpbHoVcHuQvJkmCxac5iq9Z_lolvGFGsGtSw8J1-4FrDjAFqTzcVuLpaPYg2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=7_izQIq5Q9sKuSF5sPICve2qFtTqkUYEHWYFl_bpgpELidc5xXc_5vQv8-gJdHw7ZqAFd3sPQYNig7fQUkeoMHkqkCGRzyVLQwkH-m_9w1VttJ6C3rAUR_ZkuLCgG3EZo6_trSLOsMFQydlDi5A7TYalSldkZKZOuEmkR07r5Hc1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=Q-PE-Kn99s3eHayGztzmgK6iuEqftQrGDIIxuE6PPXezSTIUFAqxPuoYFwBTB_GJ0BCg0WFCXLFn-u95N9Jx2oZIUk9Wu9UcWJ96STl8tj26y3apsIzYwdP8aVmoFGIK2ojpGjcdB2dHkwNKFYsdtq27ho7KZCwSaLUiJVRWnsgJCSVUlkXeP2wfZWRdDK0U0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=YAG9I7qe8VMVRj80iWl8WjOD6IgCFqDazW29S8CgYv5OD_L5y6VxK6xwY8vuMYum2jdYV-XmA3BJ_MIPIhNfswAXAZTli1KOoBJG3BEAUVVLnmph7nzol4ZPbqo_6lBZALjyrb6n96ddwKLJ60hwEayeh-FzJXCtw-4Jp1YbJJnAkJg1pBhVOKt2q2lN4ZRM0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=bet7DC-SI__3Y0RhZQ14KD2SpnPoH0ukqlNgKk7Kco8o8exQyFRMpRCcBkgTCryk0ZOhDz2AQYag1YX6WtBCqYS8uJsjJHbdK7_ej9uWEx3cqLrcGD1X0C4gnJpVvI7bB0wE574XMtQqBfSGbQNTtvFn0WJNNS7-ICbcUNNIVob8zCv8gZ6DLUQtzQGyrpEC0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=hwUV6-T1_IzSt1NZ3VyHk9x72QJ3VNdj5mtgpvwgPnuZp0L8Jm_LB2qPmfPcHeEULVwarbzi0X9XdKnnegN_KHTdqGqN9o9G_Tc38vT24jXJx5-SwY48p9cBXYgL4ci3ktxI63Q1o9ymvceDyEUQadmXtLELOJKtjDkprtzAZao1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=Vry9hZeuyD9i1qKoalIMRmM1NKEInzStWnAZcakQrKUwarpAF7Wi5uDsrVnXEYFSunkJ9VGYcurEYm83pegRtK8vuuxcII6OFFPZXTzNp7vvYrBwtRkc6hoWQ9_pBFOj_i4NAVwb3YVyekt6yTipVhQYESH7rFEo6_iP3sZCB3g1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=kstahJzTl0BvHW6NnwPcHkd9kNeSXYTWGhKSrch4GUAs2TXmPknFV3sCRyGxublUEDjWY_qhfnRsR5T3oxqqqKlLOI63RmQhWJO5cW6F7gLcp93UbpOO7xm3nTxhCiijZfvtsb3-FVRDXX3J21ho-htQogr-QYrjF8JhYh43Vfo1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=MlXBZrlCZm_ioBzIYtAVaQ2Z6eEAJn2SEv41YkRbvd9ffymD66Rwf664e8il8KBm6jcgQLhBByvIXblemSB6cVgOlKfwg-yX2rvx5TSRtBO39K0vCGujoK8nnZ1kf6b4UTxyfQoCMN1Op2be_RGjhOiSlGDCy62I8PZJfTzSlPI1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=RQQCxOsUUqzx0efD7b4z0lgy7y4QvCPSBPh7NBbH9wNc2hv5JnSG3_kthd6CGwLedKPBPXuZYZOoOU055Q_KhpXs2AUgwfm4cf_1d6g8mDJe33tGDCbhcr6wt1-JQvE7whFOHW3zh6c6HJTspd-wL3fQD6xxn-OozI5I3iIqWKo1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=OvwxRblWwN61YKWgGom-lTzy7STv0PkAos_L5AnwOqtqc7Ps6IZvGDQN5Z48ksbwMBmGz10s3KFEEJOKNQXRJ-M1StUrhla4MQARuS3nc1OQ1HOqpST-kkHH6j--D7PhgHY9zhhRLpCUlJgF-W_tx43XfrPkqbvR9wD5iuxGFi06vBAjEM_nNV_7YYRg6ImD0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=pWdzzEeS11mt1EroqeI3-sjhzNZHWfsDXzYMkuaYH3Y7lOlv2wfSLWMuqVllQioT4iQZaM2uQ2ju3BBlsb8RNMfdPjKhrdDk_P3TDWwnsuZpncFTFxyPWQKXfnCvWmFk9oMQ6UqLLGoGAO15okfbCFM9tsSvY65FVGjhkHnmHac1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=NFmSQGZypwIlXg0O09NBaB8VH3t2AcPpsGUDWRe8QglmjKcZ-tN8zPpMnAVcCVTytAIVCsKORNtbTcgBVKl3rwgVv4_eaeBVDkvy64tgSIhMrQDMWbqTFcOyOL0_f8e7i2iWwpAX9tFgyAGI0wXxbA2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=oe-H9gi8No7VfljVhAsxAyjVbK_ZOCix_7KuLtVXXU3vXzJ61EaGrKUpjE5d3zq-0HjLOArRfQYmeRWoFkfU7sOVSeGXFEd7xylgTgdf9dziqEKSCAjYqqLbXJ2Im8fTLu97OfL7yNSo2sSA-wAMN9jE6p7GCfktU9HNhyntZnk1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=SHQpawbHoUbRGwbhOT3j71nNuMn0nwAaFcu2dSB8g25h-41wihFIDzKSldi12SHU6veumKSvudsyvx6DnSOhMZp2mNfR-npWIoLACADJ0tgLGuEDAnAS5FjJV6HemCcMrDhGtrbTNBe6rqd9jaic2SPvZMeYAkTyl9OCyHVAdmU1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=ZGnhIsjg1I2sQPHJT3mfpJzvr7wXaU5IPIDM4wlc_TkjEcehQoSLlYhP2j6DNXVsGDs72Wkj3R_2gaxu-yKYpuk4-YB70MwatHFWqOl-6mOlyl39Fmhs3iWQd3T5R3PKlSvyEb8ECfD0ThyHwaREyNAmqDzS9pqFneU7RFJdAWE1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=1mNeML2qQbJxMWRtnq1DJk_dfMUbKGg4Yeldy7Tc50WnJmOlrOWikWTICn5WVnV_ZNkpVLuYJyYvMhRPWcPVx8pzY_b_keIPGoPTrjsgTUUYdFS0iUahgQL0qGy1jz_rVr_1ii4f6Suzy4Bp1u9AlPE369XiH6WfRyZd9X2_qcc1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=0jlu5QGBtqHmS-qz9nFK0KbA3g6yeJHai9zE7EcR28eeiPusBu_oS_12OvcrHfYcS7-7pwHZ8fuU8XokrC5A8gUma3Azxd0vRRzf8JtfdOnMm7rNc5ro9MSwjagBkK9l8em6LI7objDWjK_NL94hyb4lPdJgc78V8uxR12YkeX01&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=LwqkJ7fg9bgHH7g9h3seqCZch1MSofE0lFugdfOzz1OQMDoxKg8I0LSjLuazN309yo141TQJb0SSisTkx9zRJzmjtFnb2mhzX-mp2qg8nf3mYX6MY-g4CiOuJVgPvD8dUPoyO4ExirR63rDq7FVvIA2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=2RmPWnCjdbM85CdsYZ8axGGTr10lMsnR1fJQd4sMEUU11oE9YZJ0Wbn7927clgtjRzOAI24MRwR7NWN1Uf9SyrR58YQCIj5Lw7n31U_G_puibcT9XO8ErHPVVVyP936VRKBPZ9K4K4U7CJAkRFnvXQ2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=WiOStbZiO4ieWsMylcJYT9X254Psv5VMChEQIE-TIntItZ91KXhvCHR1fMOZXamjiPRUatGvu4LSVb0lopp3WPqcZjaEVQjEbUPkfAJJiXxPg9zJ7eh46XrTOWNZCrvoYBUxOsbEQClGSPoO-C6x2w2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=qbWglMcYZlW54fYxZLDaq7Zi_Aa1mAIw2EHQrChXwRnC-j33eUBN9t70_KGNYFdgypOXVyu7MfxLMTDGLoyfQUFiK-rxfJia4FC0RJrtIyhooIrsu2oGEFzMYWYKY1MFes_6x8Mw3dJqDQHw9zLlNA2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=MSXhGon0SL3dkymPYegbQ75u3XNPtyTMmaPys9n6kgMOR7Jvgp1ibCMTgMj3f3A5jRQp3mF0BZZVMHY2bYD-kTY1ydQE_Gu535FeYp0389GyyR3ir1F77kJoIuR5AYnbtHq30P_KpJbU6515Ha4Z-w2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=PP7uxoE-suYRTsad_Z9T--99Fne8JNiOT_weCbGbTJY-KlNgORmXI8NQMzqAEvUummSCZEbxgSk0hMlGvfBvWm3kA3AelWfeZ5jZazM9gCkgFqaYQTFGq2xy6ifAFy0RyHn_5TipTcnQNbH0hFaOJiNB3QMr3rMLnftufnYnuugHmgTZdb8Ixm2lndEfjk_u0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=WhpNFnbl05D1YAVEXiheAYoMcTwCRFCta7hD7VwaIQoaNQTHWEi-lF6DF6FLPh0QEcIr5TsB_nxYjwINGZsFniDXH8sIw3q422IL6-gBXbJPgGLrzwyQ-Wes0bpdaNqsYgdHl_R1IGYrnEh78Z7fuAlAE4OtLrcZXKgdlX5zJhU1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=E7ZdcIP8-s64D5nrTwK6R7U0OxEkkI8j_ytkMwY6YGqnVIwsJbn2rAzuC4Ge0yOymTeeprPo2MChgvEsdbxunbnwqIOEP6JsbK4jZU-b1-OAqJ-0ivL6ll8iWaoEVEczIF9c9eU6uxpuNrAteVCR43ERYUqYqvJ8HVG8KveTYuk1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=qfzrqPSEn-4EYjnJmr23wxqa4v7yDfYhB-aWmMXiz9U3HpYBSTcOj7JDNkd4mJV0dpJO64lZw07Em7u44OALRGY2vn0ysBTQ9Uq7jSu7NaeDxWH3fK2wPlGXlAX__wGOj01Es4eYb90QOhvUQm_5uw2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=CXQPgNJHkr4aUP8tnugeAkbb-leBRpllMCG4vxDWiK8Z4iaTa214rZNQjs1vq8A40HFKsAPJu7i-UL_Ewxs4qBW4scDa7zaKQatztZR_b09j7ylNjpcPvJEx01ArwXY7VorYIPgUAgvzi9x0Vj77CwAfNK5ejClYAotYUz5t3Sk1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=sH-99Amn8G73TvE-iJi-tAmMZLsMbiorzc98b10FTVLf4zn1WHH3fxjAQwgUr3w6OheID12xQaLEhUdAARNsoa_suDaO-6b7iymnKdcjzw48GVGNnjRa33rIeWg_NvLFWN8_f0L1BpFHMOuGYnT1WVaRcL7EnO9skirkSypwckA1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=rH70SKLmzMa4eWv_LvkSyn4p--8RZH7hZwnk1MY2ZdwTrQQQUNY_bTUC3HHIxkWkXIGQzCLbtkINZoANm7zJULSHxfLo48TXXmkd4PBcfSjCaJ8J1giHzI3PW-X6WQECiq3viM8EeXDLPk8BmZ7j_bZLggOHlnkix6GVCXaoAz81&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=X_T46gKsK7f_RrPD30ixZPAgADpLnevEeq5nIRfva0DbFeCBwITqHrcfj01KTfipNhHGyu05UTiWzjHyLrNBj4QclMk7sNTSOWcAEoc-itSFRRVHsiikZUJNpMqsCxv3f62MuQGkIcPyIGc2prhzJh57dc25fnYg-_CILZxjAmg1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=8WCtsFvSs4r5d9duJxLna_HPOIVIyLr3Bf_rDmH_hSZBrwGSewkgxj3bvnCPSn5YPTDHCibhrTJpNw-OKq_9fQNZB4KnWwNVsDscQzqO5XxkjSYiZLXtwEnSRV9nZLTfAdUgOvDtA0DK8xQDFgwYyg2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=_wP8WbuwPwH5pAL2NK_Hdc5KO6ntCaafyygB4RvpJjjxqEBvpzPCx_AcupBvHNE3STgA2qwqaAeNk_ImLhxUhtZxwD-o8B2Ri9GRHCHVuXaAYttgbUASIuqBYrNCpNzRt2bcqAsv5v6iHSVGNWxDMrvYRO8Wum_Q-N66pQR_zZw1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=tLmdW5VBBOMKG0sAHJYeh1tJIX3E65aTFbJ2OWTl_LLoS76b5e21GFWJG09ChLAA50HrmYdeo4rqFNQ_u59tu9Lf3tt8gAtanPIRCDatXS36pE4XUynmA9mSioeJDq1X9sBSL619HREDjjo3T1LZedia3XTzJ2Jh82hBMnvG9PI1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=hmGneNMMT8vTGWGQysDe1KQhEOcWqbErPcx2RKzQ5sP4iCm-jbJuUYogs3gJa-l88lsFi_xRLYYEIhozG3RmG4wy_y3KqSTQqYhdt9sDicSVURO0PTPsqJdPjMd2-i5km2hPVQj-y1OVAV3bkIjLg8azIzbjZ3Sp3DJkNq4YoHE1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=79LT3FL8UaDLAe4ccfQcpa15BlVadXL-SfFngev2BbI6pqxBKO_KUwdvSNyPeZnf2UgD4VLMRjyeyzvdbCoXHTgFXaSGjfg5tb2m4zKYXAtRww90LJKBamv06PRDwjZ0oVPz3V41QB5sicOP9hlGpHOaTCrarb_MeUjATRKf1QU1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=2PxoKyBTCnS2H29Dvh_5e3zJZGngrD6Vak2dCxzospo0uGplmpYwgXXAiIoczNVnXoOVGvbyQCWJmAYDTXRk8RA53ukYlNl2B0dxWRRc0bhArXsu15RUsegfF3Sx4j08DKLXu_pW1Dk_9JXU5dVjfg2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=A0bAVQft8D7GIq1pWaByz47RrCLePzZfSsvrm8J0K85UqNX4aJCZQRvxqUDSToggcs3IQYt8yujSAqxit1B8o5gQYOisuJbMmAjHT7D9Yp-iy4DLJ7YYUeERbXfAHAoP4VoyhRB7H_sMYPbNkLL3pM-xjVBkRFhhXw5vJxou-WgV3WDz1Q18W68uNyNcd6_r0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=RkqiZ7KzRMkspyEs89KB3zVxe1LghQdi1Lp33W-j1Q0Gr20wejBGOxuiqn-l1-G1QMCmHb2tSbfQoYHX1AlbLE7D03Js8KKal5ELXB51GTZqTcWdQJq7OTUpSUKS5iDHgSdiYtbBOv87H6leo1OErw2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=_vyEE1Cz0KNp0BZdLjkGIxAP1NClKzxNGzjLlOjoy0N5-X_SF_0lgMeRCMyydEQ8KmHVB0k4oUj8KgBWFgaVmvkytB7BnX8ezMcgSQY6JcyNMY7U4mTo56JRQOddTNZ54BMHRJpTvjO72jvXIkOKhxgESTEK50GQH2mGe2PbL8U1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=nouY1ALQbSt0vOaQQPYaFWxZsXr0aYdLA7KUKlLvtmtA2Q2s4-AeDrgUzwWLU10JVcgU04T4OyagCrvFpw1FPNDzKMz1n4-UYjNW894m23-hAKgxJFmIkNWt0Rm1fEf4nHK_tsd-IpY43tzBeAw2bapAFs6AIUSi3oigROavICE1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=NSGjjEWkFGLlEDMj17JAfbCTOxvGG4GCih-ncTsKv1IZUYOcJIXhFx6b312LZVOVTbxFjAjMSeiMONBp7rRAR2lz_9HvaIJascYPt1HolTCl8MvJZfyNyg6ZiEe8Gccu2efTK-I7x4KU0X273QJpFn7WRy3ierGktAcv-5UbYoQ1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=W5XDBI3MSAgOjnTxQs9gtCIaFH06032345rUY7yzHvGmOlroW-u8a1l7g3zD9aOaGnwFb_bXzZF3oszyL0GnRqv-Vadl3jSxAEcGRJDXZ9MtoUZ3QClCGc5aXNNCSEZNqIoI6gPUsBLKe6hSN-N-CeyEDgr9brFSAFVnyXbOvrU1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=nVsXgCV9AUCx3HgzkAKGUDZy5nMryZHJAsHHB6kSX7AB4aRhP2N2qKLxSIsBgyM1jHEtUQxoWn0sMiVE6AF1G0MPsVp3enQEkX722DWUdoiF_6SKQkY8o7GbYIOnxcPfryFGX1ZlYgj5YfYXsbxDufOX0NVqgLIoTIXRyVQ9aZg1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=ObI4irl-Nms8_qTqNyJvlq1al8QTR-vaToV5ct0ZWovteSSwwrPa4wGD3UeFBqPEvulQl7FxiwpGKb_j1PIcp11N_5HW7IBtbxuRYVKJiz-FxxgP3mwGNGw5LTHlJZo5vtPsmy83p8ZhKyDYg0lzJjTUQLarTpjpzV8EdyJZFIlIOHXjx7_JQcx7H71lgky10&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=mkGwR6f-3l4mrFS58SEZu60WNF7fsk8zEgVQkGOw_t7bURWCi3ZCd2Wg1X_PbNTTCQ9kNTr6d39BoY8QmaDGE2pnDlNszbplL8rnNWl6z8E1DPgCSVm1Ys6u034VV96I6vHmXhfwgwWoSMx8E6kBnM0KRe1H4lu8rKVtxiLwTb5Y4xySj1NQ7nKa92Z3GD8dCh_SSWBpmIQmcaBDyclPBQ2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=RQ578yfANwyDt8PYbMa4Z9iQ1T_t8r42aulSPml_tLY99DHBy0iTgBrsQ90i1Nlez56FOhkurtnSxHL47_nANySO_5Tl9L8xC-px_GiCQE33bIwjRVsSK-Dzw_0CbYHfXUXuoPSklg12TKpjfpfFRw2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=5sXCP9TuyMBG3NcTaKb8GvTV7Kiw14ifFw3JiIsWRSgyPBrdovoh_m1uIFEV8_T1RFR-qdAf460PrajKX2P32k8d4gcOMG-M_yh0ZwnhM6DHwRvP0ubfQ3-fdOC9H-CSJQ5gELVtHViOWlx4B823zrOgsepIf_tX75eB83bUvIE1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=yd8BfY4trkjPICUskAYzXMgfwELBKRvRbmlbBfRx832UsYyTkGxFbE9CR3v4Bc30gzaCJnDX-IAk7FajRwbV2mxFA9WVEplbh-lx-3R3fe7SZSe4u4qREAfYd4pACru5UxSr3XDinYD-ze3XRfM6dwiDnilErsrZW6bbRXV1NHodyBTzk2y_HaaUsd0A5oi-0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=G0OS3c-O-BqLOjCA5EAFNHBD3iM9vRoAP9EgBZKQphth0q5gFJFXfy86c2yassULUC4VMGmYl1SccJp8utgK4uZcJ26Cl90muXI8c6QZx-CMekSSl-C-Ujet77ce3RCoVO4WOxf18hrz5pNDQ6MvP5Hi87J7Vl7Q_2PGiY1YxMV607yHowboMCKheG0RPKgI0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=90G-TjTs1C1cY6BSQPN6S7dEoBu3KOzIvvYUYIuCoxlcyPKKkF4bvBVnhPLgd_AQNMDsPXH2Gq-3KtdsIpXggEMMR54Gy3TRFWU2xYutKO3Bky3ceVzrdlO0CTD7Zksdrky81ucYbpDJHzAh7EoyAw2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=qCeoPDL4iZQV04TaXo6qlGNy-7JefBsT56eVqJjTYrAjpArRY3Xk-S0t3R8u3QreXT-JFBdd_enLBIdYZdGwcT8p7puHOSFoss0muKkByKPfsESbYSjuE5zxiTk7GkULAAjcmNCn9JzBSxGcrb4-Gw2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=7xPKLSp-WBAL8g1B0-GNt3MMszH2YRhcHGLbXcFXKZhkwhvO_ZI46MV3B_si-8aOjrP1c7G21HK-C60qDb9UFjnj95pYan5d-FWbWzCAMsVBZZyOXTL4oqnvHhefhTscGl0ZL62FkMNWRRKiSy8T6RiuKwxkPBWu-tNI3rVaivM1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=9A-W-Syag1WkYqGxiXUG3tFxT6n_dL5tMlEw436dJn9CDoa-XoLHxtcNyGPyPXX8Mw_nah8eRoU-DRRd_W4xAuxP7tKUxgpleuYBCdn1VzlQFBEQqLVCTMr4okEbF1mq8lnQE-j7qA7G7d_WnE95aLywmnElE0X6OcwPtpKqhbI1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=_bxF5QTquhHYv8o5fhPvoc_NiBveNKfLMyO1xIgqcebVKHxZOgWJOvjk7TkPgS-0FH1WZMWdflVqJ-sg_Z86S4Fs8wnanSYXIBAM1EqGxjsk2TMMzVOycXK0qb4Q-h1bqXe2w7kyxw79R2Gt8qeOjXqc43L1MHIXuxa7-IQswRs1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=OaGVQYyu-PORTSxpo7g2tG-PiXC4KKlJFEUDAQL2j0V8dqLtUNlX-ALlAUj4vedVOua2otL2VXSLIfUpeHCL6qfda-335YyF2K72hey6zUO0zMsuOw4-PCmJtYVP-WhBmQ42sPSGsQe1JcYEapIZ7w2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=dqJioA-ibsaHIphX8ozXa38JoCfAnKrgU2OHQX5mM7s9NAIKRZJZuJBzDGlQEjrKJfYyLMG8jrB6oa3pHdTLtEFoIX1AkYR2Q9rBdkUou-puhe5ZsMYbxlni-4ocY-TBCCAavEKxEcVLkzk4c6YOGbSPJcf6cy4TQKQPglffWbA1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=DcKnfBKxZFzC-Qr1n_NrXiDdjxV5hj72X9wA989YH9p5FQHQC6p1EV141M92pwulTsOhKhhXTgHgdT5t-2iDryVKSdPbrBdwGsxWVLTu0iwLNfHNLJVie7wltBQjXTTkrR7YR5tbLSaxS-jQjKUW2gDZSfKw9ehF1FFv2J8YhTo1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=9havsQ-47OgBO6hLLJN64Xf8_QSrNZOZh7wgTjq6-XCjTPvK-gtWJ7vqGX5tC47K_Kwic1wLVo8qXP_9ACaWN5lU_1RIAhlVOjZTPkXtPNbYnACzKgJcQJhXwhhfiuhelzWePQreNQ__j5M0uLdY5w2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=GbLl7J0XQgnq8kb8X-CPRhNj5qRcRV9Z0Ei1HvWnQck7JTyFEN2dKFXUA6pZBUm1P7t90m2THFWy5jmlCjHYy4SS4HeSxZ9b4_lA7RzcTsTfOc0AOKXSI6Jeos8Dopy4yDWP4_EP2_cP0TZ-mM7I-V_BG0X-i5kkrJR9-TcZWHs1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=C5Yn7rpGvOLaCEIfkWAlxuDJp239bRyUa_4OzWXEtjvGLG_v-M3FUjzj_f_FTqeegVvuKVb6humqSGDbjcpX6cQ7tSW2chxFmwWM_uuGfas6yeW0hM4w0lLXHwo1VwHBCrN8Bj84_Nsay_HvODqyLg2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=IdvvAhy1sEEpl91HvDs2O3EGg2JWJYph511eHY7VYm7hnBrTmb4LBXSj7_LnIE_Xjsf0kofeggbvGc7sYtm9NyjTr5vfkCUkFrd5OJWtThJ_BjNuXv_gLtAHy1jAkvI203QHX2t1iUz790VQub7QNPg7rUoqIYib_76khVCMT_c1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=-5amNolbJEthHityF7ApniebAUKTcBuuSddlmSRv-MWEhX6RsCcuE4IYPblSj6OVDbkpATI3_VNQHkOKvULJTBcEGvm7mXcO_Yjn_BhTEnrFI5kAdRUJh8ziZ6rL8MrvIqAVghaDF_IVl0Ysru18vGHJlLyJ0WL4JcFF656bRSc1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=xULMsGEcbr0ZF_Xi3ipHHj7cP6U_dmW8-GeqHbMXlzR89j0jnqf16LVutALzm0iJ8ptllltemTstHH6gfbKRUX2qzHDcv7qzAsdMiWAOPyb4CN3woLBowet7N0ThV6qdrocjk3OWsDlpjyJlnjoaR7xR9f1ohHfv68pIZE0gOIo1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=gmMZC7wfnK76co1sNxHwoXogrT2jD8G1cwIgK6w1yht6oVtlrWjY62-WLSPMeYR1QWuvV_ezkPQBSHWqUzFaS7UroldZCvk-NgLJ5qNQWEQWafbzkTKIv41fT9t3Za1r-nipy93-y8Hg7itjFD-b5WZ30SNcK9GUw7YmzbWKIqg1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=BipDtUodfk43XY_2KhynEJXKIsMf7IcIpY0uw7_gPIHr3_lqZEzrugorau-Asi5FZu494mNHETz9F-OhgKJCQztAcN4LfSIr6kZzDURPqDwMk-S9ys2OuRSrtmeDRWZlAwStyor-souuNYyGeYZA7Q2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=5ullbe2kyvcNlQd9bxFYcV1ZJFlni5m5iSWKJ3srAQYopiGYJY-DgeJZhpxBA3l-kfC_cRRdqMhdyHsEngmxra0mEhpVMkoZGYphmnxREPODqACjH4zEMoOxptKKrnIZE1mXd-4eA3tS1s1AzFSPYK0stbjZzoSWrOIz6VM0bwo1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=UutOuml_IQTjsjFE6IOGNc3eNkpr1VWdDj2KnEp5-xrUNYZy5qlgoNWwhjN9vdT3yNaf-CYq8MluXF3RTaWhc_YjivrqHmC-JLnxDGKDDf2dfJXpfX-2o8M1sA5gqIeOrXQTKvEqj_gkvj8F5YTM6D8wnPy6Q_EMPypS7HuNkPY1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=Ww0MfQS6Aj0BwOMtGhWInAQQfIvC0i8yj_e6KugQx8YNlDhx1ax7uYngGcwREERZst3jO_kKnAVy_l8mwYVjRvpnnUMMzdCRnxfi5aTbYG2GK4-NRnYdybyBTow-t5ID0nFTfXT01QVBV9tdxPIGwD87Cg0fqY80rIasbXqQRJw1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=LlHDw6u8kGQQMyp1FnrSe-mkTsOziPELRMIiUWnON8xeJFdEU4Y4SXo355oGVecu-fMdSumTHUexsrtBPx2Udp0RFqAp3OUwBC_EAhOgPkjVm0gXGbA7QftC0_XaZbiwMrcOwvFmfTRz06kVQdFKzyIcLN5ZotU_LzrOTdJ5mkI1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=p96VDbeg5mj0utJCLry1OEIDkWBF0I64DOusDT_1pEBnfu1dDmIb9pUiod8xtjmCz-Q0J49kopihDJcqXEmCeJqkBFSAduWWxYEBOTQPHjH7ZaVYnKTTZVIm004sWcSisS54e7c2tV1nz3n3Ka_M2r5gHWXuiEE_JY1r2s6qdoc1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=pbS1bdgS2o2608NkSWZqN9Wt7HsKRNG73kwHoZ9_pXhJO9nTOtlc7jdgyD6v_VqfvGjLRxh8WsmWCxClKFq8ODIB1OKgJ5OusJ1H1fXzB7KD1w8W7nodeNabbHt2QLNZoyZy-Wy8VOSEGBTTvTuU4BWHbw7R8K4lFDya4gbbxC81&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=LRBbkWjCRZaWhtt5xto6pM5XURHsdLpdNhsmt5G1x73LOQn7h_7gEVZju5SmqRrIHn4W9MS0JcIqst5DzTIBwApuoOFyAllBvYVFjTN_Q-EjvZzmPzPHPmTvyOZdKg2JMFqaIo7dgBI7HXbVTwT9d0SXprndYL92e38JVDedrPQ1&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=NU659E2O_esobkdBTk75nKlaruhUbMOtBhD9AOupLAEza6ufPiAsVrnD1OGJUKV3_0fQoFsBCVi-7DBVncpddsYVptF7qiLjCyQpFPY0cd8U7n38KhR2qb83-KisbklO0&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=Tg_132_vzo7fjLQA0rXboDORtin1GslwS4hLnju1KCkcQfeDoTnLcINxyeupKmojWmM1WLENXHC5YuSOXcx2MLfwBvWcvwnjq3AkRFVKOoaIVCtGqmR68ATeHAcJe_5ZFFllsa3PnkBN7wIi_4ofkDSUsjvC5d_KCpQRlVCDYi81&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=0ToTDp-QkQ1KVcSDcNs3h9JZ3RAQpegSwOzEQ13B7upTnt14fmvihavejAj08RYAyUjM9Ur8MStocxuGLx1wCpAVv1uHvRpLMMo8E30OwLm-hl2QR5EqxpFuHgubRddA75QyOCqUmPJTd0V1XH1QKA2&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=LnvDYW2fKG_Nez4tALayN4V_T1gXt7ad0Qcze9admbMjI9aNEukSayV1aWVrUTJNdh6X5NHcmpuXVZcl6JBAKYRYxPyYL0ihupV9N0RZzd2Tqz38LapkV0raz4XRGy6YdW5J7lmv-Db2Ps5uictgAdIvaBrkVFqjebHWD9ds18aj_GuZ1dVlBDH1mZtv0Ik50&amp;t=1c4fda5e" type="text/javascript"></script>
+<script src="/SistemaFotografico/ScriptResource.axd?d=J1jgjyzkSPBmWBs6fCHQA9qG_J9FQJD2GiUazKlRVJKBxNa8uX_JamZDPFSaQ9NYSgUXAwNSNh2ermwPbWDhxOmdelSkVRB15pGGBI0vvSrpqXpzGSX5RXlDZ9Ux7PHkODFfNrxl5y8g5zkwnR3gWqkImj5it3w6YUnbD2e9b9w1&amp;t=1c4fda5e" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="5Ccy-4e6Cg4XiyIMfoVKRClp_BL-2c495M4K03V1_59_L3cFgYDFInxApirM6wR9rM2_2mIe8ZIR4wRLRcBn4ai2O_DByLgn6V99KsmdXvdFDuQ9MZFZIX5nUVJY4JE60" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWFQLUyumjCgKS7L+BAQK+i7C0AwK26rmSCgKr2rLLBQLDwuDkCwLfuIPUCwK65+/mBALpzObuDwLgyqqZCQLU4/TQBwLXxeOkAQKS7uFNAqy5s44OAuP/z6YNAtrs950BAsv90aQHArKF4J4PAtWp6IIJAoig8LsIArb7sbcEy7OujtjZd4MBatAi8P0riJBqhTqABHXBez2Fe03va3w=" />
+</div>
+    
+    <div id="UpdatePanel1">
+	
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', 'form1', ['tctl00$UpdatePanel1','UpdatePanel1','tctl00$MainContent$UpdatePanel1','MainContent_UpdatePanel1'], [], ['ctl00$MainContent$btnDescargarCarro','MainContent_btnDescargarCarro'], 90, 'ctl00');
+	//]]>
+</script>
+
+    <div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">Banco Fotográfico</a>
+              <div class="nav-collapse collapse">
+              
+
+                <input type="hidden" name="ctl00$hfPerfil" id="hfPerfil" value="1" />
+                <p class="navbar-text pull-right">
+                  Bienvenido 
+                <a id="lbUsuario" class="navbar-link" href="javascript:__doPostBack(&#39;ctl00$lbUsuario&#39;,&#39;&#39;)">ldiaz</a>
+                <a id="lbSalir" class="navbar-link" href="javascript:__doPostBack(&#39;ctl00$lbSalir&#39;,&#39;&#39;)">Salir</a>
+                &nbsp;
+                <input type="image" name="ctl00$ibtnInicio" id="ibtnInicio" title="Ir a Inicio" src="assets/ico/home-26_invert.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ibtnInicio&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Inicio.aspx&quot;, false, false))" />
+                &nbsp;
+                
+                </p>
+                <ul class="nav">
+                  <li class="active"><a href="Inicio.aspx">Inicio</a></li>
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li id="liCargaArchivos"><a href="CargaArchivo.aspx">Cargar Archivos</a></li>
+                        <li id="liAutorizacionPendiente"><a href="AutorizacionPendiente.aspx">Autorizaciones Pendientes</a></li>
+                        
+                        <li id="liSecciones"><a href="Secciones.aspx">Secciones y Carpetas</a></li>
+                        <li id="liObra"><a href="Obra.aspx">Obras</a></li>
+                        <li id="liEtiqueta"><a href="Etiqueta.aspx">Etiquetas</a></li>
+                        <li id="liExtensiones"><a href="Extensiones.aspx">Extensiones</a></li>
+                        
+                        <li id="liControlAcceso"><a href="ControlAcceso.aspx">Control de Acceso</a></li>
+                        <li id="liMantenimientoEmailAdmin"><a href="MantenimiendoEmailAdmin.aspx">Email Administración</a></li>
+                        <li id="liLogDescarga"><a href="LogdeDescargas.aspx">Histórico Descargas</a></li>
+                      </ul>
+                  </li>
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Imágenes y Video<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="Inicio.aspx">Banco de imágenes y videos</a></li>
+
+                      </ul>
+                  </li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <span id="lblEmpresa" class="navbar-text pull-left"></span>
+                </ul>
+              </div>
+              <!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="row-fluid">
+
+                    
+                
+
+                
+
+                 
+
+
+
+
+
+
+
+                      <input type="hidden" name="ctl00$hfUrlTreeView" id="hfUrlTreeView" />
+                
+            
+
+
+             <!--/.well -->
+            <!--/span-->
+
+<!--/span-->
+
+            
+
+
+<script type="text/javascript">
+
+    function checkAll(objRef) {
+        var GridView = objRef.parentNode.parentNode.parentNode;
+        var inputList = GridView.getElementsByTagName("input");
+        for (var i = 0; i < inputList.length; i++) {
+            //Get the Cell To find out ColumnIndex
+            var row = inputList[i].parentNode.parentNode;
+            if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                if (objRef.checked) {
+                    //If the header checkbox is checked
+                    //check all checkboxes
+                    //and highlight all rows
+                    //row.style.backgroundColor = "aqua";
+                    inputList[i].checked = true;
+                }
+                else {
+                    //If the header checkbox is checked
+                    //uncheck all checkboxes
+                    //and change rowcolor back to original
+                    if (row.rowIndex % 2 == 0) {
+                        //Alternating Row Color
+                        //row.style.backgroundColor = "#C2D69B";
+                    }
+                    else {
+                        row.style.backgroundColor = "white";
+                    }
+                    inputList[i].checked = false;
+                }
+            }
+        }
+    }
+
+</script>
+
+
+
+    <div id="MainContent_UpdatePanel1">
+		
+
+            <h4>Carro</h4>
+            <div class="well text-right">
+                
+                <input type="image" name="ctl00$MainContent$ibtnImpresora" id="MainContent_ibtnImpresora" title="Imprimir página" src="assets/img/printer.png" onclick="window.print();" />
+                
+            </div>
+            <div>
+                <div>
+			<table class="table table-bordered table-hover table-condensed" cellspacing="0" rules="all" border="1" id="MainContent_grvCarro" style="border-collapse:collapse;">
+				<tr style="background-color:buttonface;">
+					<th scope="col" style="width:12%;">
+                                <input id="MainContent_grvCarro_checkAll" type="checkbox" name="ctl00$MainContent$grvCarro$ctl01$checkAll" onclick="checkAll(this);" />
+                            </th><th scope="col">Nombre</th><th scope="col">Tipo</th><th scope="col">Res Max (KB)</th><th scope="col">Res Max (PX)</th><th scope="col">Resolución Máxima</th><th scope="col">Solicitar</th><th scope="col">Descargar</th><th scope="col">Eliminar</th>
+				</tr><tr>
+					<td>
+                                <input id="MainContent_grvCarro_chkSeleccionar_0" type="checkbox" name="ctl00$MainContent$grvCarro$ctl02$chkSeleccionar" />
+                                <img id="MainContent_grvCarro_imgPrevImagen_0" class="img-rounded" src="assets/img/imagenesExtensiones/icon_pdf.png" style="height:70px;width:100px;" />
+                            </td><td>
+                                <span id="MainContent_grvCarro_lblNombre_0">Informativo 122</span>
+                                
+                                
+                            </td><td>
+                                <span id="MainContent_grvCarro_lblTipo_0">pdf</span>
+                            </td><td>
+                                <span id="MainContent_grvCarro_lblTamano_0">22847</span>
+                            </td><td>
+                                <span id="MainContent_grvCarro_lblPixel_0"></span>
+                            </td><td>
+                                
+                                
+                                <span id="MainContent_grvCarro_lblEstado_0" class="label label-important">POR SOLICITAR</span>
+                                
+                            </td><td align="center">
+                                <input type="image" name="ctl00$MainContent$grvCarro$ctl02$ibtnSolicitar" id="MainContent_grvCarro_ibtnSolicitar_0" src="assets/img/accept16.png" />
+                            </td><td align="center">
+                                <input type="image" name="ctl00$MainContent$grvCarro$ctl02$imgDescargar" id="MainContent_grvCarro_imgDescargar_0" title="Descargar" src="assets/img/download.png" />
+                            </td><td align="center">
+                                <input type="image" name="ctl00$MainContent$grvCarro$ctl02$imgEliminar" id="MainContent_grvCarro_imgEliminar_0" title="Eliminar" src="assets/img/delete.png" onclick="return confirm(&#39;¿Desea eliminar el registro?&#39;);" />
+                            </td>
+				</tr>
+			</table>
+		</div>
+            </div>
+            <div class="text-center">
+                <input type="submit" name="ctl00$MainContent$btnDescargarCarro" value="Descargar Carro" id="MainContent_btnDescargarCarro" class="btn btn-primary" />
+                <input type="hidden" name="ctl00$MainContent$hfNombreZip" id="MainContent_hfNombreZip" />
+            </div>
+            <br />
+            <p class="alert alert-info">- Al solicitar una fotografía en máxima resolución se envía automáticamente un correo a comunicaciones@skchile.cl. Una vez aprobado, usted recibirá una notificación a su email para ingresar nuevamente al sistema y descargar el archivo.</p>
+
+           <input type="submit" name="ctl00$MainContent$btnActivarPopUp" value="" id="MainContent_btnActivarPopUp" style="display:none" />
+            
+
+            <div id="MainContent_pnlDescargar" style="display:none; background:white; width:40%; height:auto">
+			
+                
+                
+                  <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>Información Descarga</h3>
+                  </div>
+                  <div class="modal-body">
+                        Asunto:
+                        <input name="ctl00$MainContent$txtAsunto" type="text" id="MainContent_txtAsunto" style="height:20px;" />
+                        <br />
+                        <span id="MainContent_lblPrueba"></span>
+                        <br />
+                        <p>Observaciones:</p>
+                        <textarea name="ctl00$MainContent$txtObservaciones" rows="2" cols="20" id="MainContent_txtObservaciones" style="height:100px;width:96%;">
+</textarea>
+                  </div>
+                  <div class="modal-footer">
+                        
+                        <input type="submit" name="ctl00$MainContent$btnClose" value="Cancelar" id="MainContent_btnClose" class=" btn  btn-toolbar" data-dismiss="modal" />
+                  </div>
+                
+                
+            
+		</div>
+            
+    <input type="submit" name="ctl00$MainContent$btnInformacion" value="" id="MainContent_btnInformacion" style="display:none" />
+            
+            <div id="MainContent_pnlInformacion" style="display:none; background:white; width:40%; height:auto">
+			
+                
+                  <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>Información</h3>
+                  </div>
+                  <div class="modal-body">
+                      <span id="MainContent_lblInformacion" class="alert">Could not find file '\\10.11.2.135\FotosSK_Oc\Imagenes\thumbnail\51-informativo_ok.pdf'.</span>
+                  </div>
+                  <div class="modal-footer">
+                    <input type="image" name="ctl00$MainContent$imgAceptar" id="MainContent_imgAceptar" src="assets/img/accept.png" />
+                  </div>
+                
+            
+		</div>
+
+        
+	</div>
+
+
+
+          </div><!--/row-->
+          <br>
+          <footer>
+            <p>&copy; SK Chile <span id="lblAno">2015</span></p>
+          </footer>
+
+        </div><!--/.fluid-container-->
+
+       <input type="submit" name="ctl00$btnActivarPopUp" value="" id="btnActivarPopUp" style="display:none" />
+            
+            <div id="pnlInformacion" style="display:none; background:white; width:40%; height:auto">
+		
+                
+                  <div class="modal-header">
+                        <button class="close" data-dismiss="modal">×</button>
+                        <h3>Información</h3>
+                  </div>
+                  <div class="modal-body">
+                      <span id="lblInformacion" class="alert"></span>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                
+           
+	</div>
+           
+</div>
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {Sys.Extended.UI.ModalPopupBehavior.invokeViaServer('_mdlInformacion', true); Sys.Application.remove_load(fn);};Sys.Application.add_load(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"MainContent_pnlDescargar","dynamicServicePath":"/sistemafotografico/Carro.aspx","id":"MainContent_mdlDescargar"}, null, null, $get("MainContent_btnActivarPopUp"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"MainContent_pnlInformacion","dynamicServicePath":"/sistemafotografico/Carro.aspx","id":"_mdlInformacion"}, null, null, $get("MainContent_btnInformacion"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"pnlInformacion","dynamicServicePath":"/sistemafotografico/Carro.aspx","id":"mdlInformacion"}, null, null, $get("btnActivarPopUp"));
+});
+//]]>
+</script>
+</form>
+     <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-transition.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-alert.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-dropdown.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-scrollspy.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-tab.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-tooltip.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-popover.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-button.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-collapse.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-carousel.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-typeahead.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/html5shiv.js" type="text/javascript"></script>
+    <script src="assets/js/application.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap-affix.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.js" type="text/javascript"></script>
+    <script src="assets/js/html5shiv.js" type="text/javascript"></script>
+
+    
+</body>
+</html>

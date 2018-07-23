@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crm_fadonel", "crmVentas\crm_fadonel.csproj", "{78D26020-FB6C-4360-A220-9DCDDA80CCE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F7C171EE-B393-4451-BB51-C398029C60A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78D26020-FB6C-4360-A220-9DCDDA80CCE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D26020-FB6C-4360-A220-9DCDDA80CCE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D26020-FB6C-4360-A220-9DCDDA80CCE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D26020-FB6C-4360-A220-9DCDDA80CCE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C171EE-B393-4451-BB51-C398029C60A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C171EE-B393-4451-BB51-C398029C60A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C171EE-B393-4451-BB51-C398029C60A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C171EE-B393-4451-BB51-C398029C60A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

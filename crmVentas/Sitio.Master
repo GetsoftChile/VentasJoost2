@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Sitio.master.cs" Inherits="crm_valvulas_industriales.Sitio" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%--    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />--%>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <%--<link rel="shortcut icon" href="assets/ico/favicon.ico"/>--%>
+
+    <title>CRM Ventas</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- Bootstrap theme -->
+    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/theme.css" rel="stylesheet"/>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+           .modalBackground 
+            {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+                z-index: 10000;
+            }
+    </style>
+
+  </head>
+<body role="document">
+
+<form id="form2" runat="server">
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%--<img alt="" class="navbar-brand" src="assets/img/logoUpcom.png" />--%>
+
+          <asp:Image ID="imgLogo" CssClass="navbar-brand" runat="server" />
+          <a class="navbar-brand" href="#">CRM VENTAS</a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">            
+            <%--<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inicio<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="li1" runat="server"><a href="Inicio.aspx">Listado Exámenes</a></li>
+              </ul>
+            </li>--%>    
+            <li id="liInicio" runat="server"><a href="Default.aspx"  class="small">Inicio</a></li>
+
+            <li id="liOportunidades" runat="server" class="dropdown small" visible="false">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"  class="small">Oportunidades<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="liSeguimientoLead" runat="server"><a href="SeguimientoLead.aspx">Seguimiento Lead</a></li>
+                <li id="liAgendamientoLead" runat="server"><a href="AgendamientoLead.aspx">Agendamiento Lead</a></li>
+                <li id="li1" runat="server"><a href="ReporteGestiones.aspx?par=L">Reporte Gestiones Lead</a></li>
+              </ul>
+            </li>
+
+            <li id="liTareas" runat="server" class="dropdown small">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"  class="small">Clientes<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="liSeguimiento" runat="server"><a href="Seguimiento.aspx">Seguimiento</a></li>
+                <li id="liAgendamiento" runat="server"><a href="Agendamiento.aspx">Agendamiento</a></li>
+                <li id="liCarteraAsignada" runat="server"><a href="CarteraAsignada.aspx">Cartera Asignada</a></li>
+                <li id="liCotizacionesPorAprobar" runat="server"><a href="CotizacionesPorAprobar.aspx">Cotizaciones Por Aprobar</a></li>
+                  <li id="li2" runat="server"><a href="ReporteGestiones.aspx?par=C">Reporte Gestiones Clientes</a></li>
+                
+              </ul>
+            </li>
+
+            <li id="liPaneles" runat="server" class="dropdown small">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="small">Paneles<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="liPanelClienteNuevos" runat="server"><a href="GrafClientesIngresados.aspx">Clientes Nuevos</a></li>
+                <li id="liPanelGestionVentas" runat="server"><a href="GrafPanelGestionVentas.aspx">Gestión Ventas</a></li>
+                <li id="liPanelSupervisor" runat="server"><a href="GrafPanelSupervisor.aspx">Supervisor</a></li>
+                <li id="liPanelSeguimientoCotizacion" runat="server"><a href="GrafSeguimientoCotizaciones.aspx">Seguimiento Cotizaciones</a></li>
+
+                <li id="liCotizacionesRechazadas" runat="server"><a href="ExporteCotizacionesRechazadas.aspx">Exp Cotizaciones Rechazadas</a></li>
+                <li id="liGestionesMotivoNoCompra" runat="server"><a href="ExporteMotivoNoCompra.aspx">Exp Gestiones con Motivo No Compra</a></li>
+                <li id="liGestionesPorCampana" runat="server"><a href="ExporteGestionesPorCampana.aspx">Exp Gestiones por Campaña</a></li>
+                <li id="liExporteProductosVendidos" runat="server"><a href="ExporteProductosVendidos.aspx">Exp Productos Vendidos</a></li>
+              </ul>
+            </li>
+<%--            <li id="li2" runat="server" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seguimiento<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="li3" runat="server"><a href="Indicadores.aspx">Panel supervisor</a></li>
+              </ul>
+            </li>--%>
+            <%-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="li2" runat="server"><a href="InfTrabajador.aspx">Informe por usuario</a></li>
+                <li id="li3" runat="server"><a href="InfConsolidado.aspx">Informe por examen</a></li>
+              </ul>
+            </li>--%>
+
+
+            <li id="liProcesos" runat="server" class="dropdown small">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="small">Procesos<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li id="liCampanas"><a href="Campanas.aspx">Generación Campañas</a></li>
+                <li id="liAsignacion"><a href="Asignacion.aspx">Asignación Campañas / Usuarios</a></li>
+                <li id="liCargasGenerales"><a href="CargasGenerales.aspx">Cargas Generales</a></li>
+              </ul>
+            </li>
+
+            <li id="liAdmin" runat="server" class="dropdown small">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="small">Admin<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li id="liGrupo" runat="server"><a href="Grupo.aspx">Grupos</a></li>
+                      <li id="liSubGrupo" runat="server"><a href="SubGrupo.aspx">Sub Grupos</a></li>
+                      <li id="liCanal" runat="server"><a href="Canal.aspx">Canales</a></li>
+                      <li id="liCondicionesComerciales" runat="server"><a href="CondicionesComerciales.aspx">Condiciones Comerciales</a></li>
+                      <li id="liCondicionesDeVenta" runat="server"><a href="CondicionesDeVenta.aspx">Condiciones Venta</a></li>
+                      <li id="liParametros" runat="server"><a href="Parametros.aspx">Parámetros</a></li>
+                      <li id="liLead" runat="server"><a href="Lead.aspx">Lead</a></li>
+                      <li id="liEmpresas" runat="server"><a href="Empresas.aspx">Empresas</a></li>
+                      <li id="liUsuarios" runat="server"><a href="Usuarios.aspx">Usuarios</a></li>
+                      <li id="liClientes" runat="server"><a href="Cliente.aspx">Clientes</a></li>
+                      <li id="liProductos" runat="server"><a href="Productos.aspx">Productos</a></li>
+                      <li id="liProductosVendidos" runat="server"><a href="ProductosVendidos.aspx">Productos Vendidos</a></li>
+                      <li id="liMateriales" runat="server"><a href="Materiales.aspx">Materiales</a></li>
+                      <li id="liMaterialesUsados" runat="server"><a href="MaterialesUsados.aspx">Materiales Usados</a></li>
+                      <li id="liNotasDeVentas" runat="server"><a href="NotasDeVentas.aspx">Notas de Ventas</a></li>
+                  </ul>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><asp:LinkButton ID="lbtnUsuario" CssClass="small" runat="server" Text=""></asp:LinkButton></li>
+            <li><asp:LinkButton ID="lbtnFechaSession" Visible="false" CssClass="small" runat="server" Text=""></asp:LinkButton></li>
+
+            <li>
+            <a>
+            <asp:DropDownList ID="ddlEmpresaPorUsuario" runat="server" Width="100px" CssClass="form-control input-sm" AutoPostBack="true" onselectedindexchanged="ddlEmpresaPorUsuario_SelectedIndexChanged">
+            </asp:DropDownList>
+            </a>
+            </li>
+            
+            <li><asp:LinkButton ID="lbtnCerrarSesion" runat="server" CssClass="small" OnClick="lbtnCerrarSesion_Click">Salir</asp:LinkButton></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container theme-showcase" role="main">
+
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptGlobalization="true" EnableScriptLocalization="true">
+    </asp:ToolkitScriptManager>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </ContentTemplate>
+
+    </asp:UpdatePanel>
+        
+        </div>
+    </form>
+    
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/docs.min.js"></script>
+
+
+</body>
+</html>

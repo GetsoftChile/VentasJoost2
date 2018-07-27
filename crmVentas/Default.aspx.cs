@@ -573,6 +573,7 @@ namespace crm_fadonel
                 this.buscarCotizaciones(control1.Text);
                 
                 this.buscarGestion(control1.Text);
+                lblId.Text = control1.Text;
                 this.lblRutGestiones.Text = this.lblRut.Text;
                 this.lblRazonSocialGestiones.Text = this.lblRazonSocial.Text;
                 this.buscarGestionesCRM();
@@ -595,28 +596,18 @@ namespace crm_fadonel
 
         void buscarDireccionesPorCliente() 
         {
-            //grvDireccionCliente.DataSource = dal.getBuscarDireccionPorCliente(lblRut.Text);
-            //grvDireccionCliente.DataBind();
-
             this.grvDireccionCliente.DataSource = (object)this.dal.getBuscarDireccionPorCliente(this.Session["IdCliente"].ToString());
             this.grvDireccionCliente.DataBind();
-
         }
 
         void buscarGestionesCRM()
         {
-            //string idEmpresa = Session["idEmpresa"].ToString();
-            //DataTable dt = dal.getBuscarGestiones(lblRut.Text, idEmpresa).Tables[0];
-            //grvGestionesCRM.DataSource = dt;
-            //grvGestionesCRM.DataBind();
+            DataTable dt = dal.getBuscarGestiones(Session["IdCliente"].ToString(), Session["idEmpresa"].ToString()).Tables[0];
 
-            //grvHistorialGestiones.DataSource = dt;
-            //grvHistorialGestiones.DataBind();
-
-            DataTable table = this.dal.getBuscarGestiones(this.Session["IdCliente"].ToString(), this.Session["idEmpresa"].ToString()).Tables[0];
-            this.grvGestionesCRM.DataSource = (object)table;
+            this.grvGestionesCRM.DataSource = dt;
             this.grvGestionesCRM.DataBind();
-            this.grvHistorialGestiones.DataSource = (object)table;
+
+            this.grvHistorialGestiones.DataSource = dt;
             this.grvHistorialGestiones.DataBind();
         }
 
@@ -1080,6 +1071,7 @@ namespace crm_fadonel
                     this.lblGiro.Visible = true;
                     this.lblEstado.Text = row["NOM_ESTADO_CLIENTE"].ToString();
                     this.lblEstado.Visible = true;
+                    lblId.Text = hfIdCliente.Value;
                     this.lblRutGestiones.Text = row["RUT_CLIENTE"].ToString();
                     this.lblRazonSocialGestiones.Text = row["RAZON_SOCIAL"].ToString();
                     this.lblUsuarioAsig.Text = row["USUARIO"].ToString();

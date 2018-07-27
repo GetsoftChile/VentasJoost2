@@ -394,10 +394,11 @@ namespace crm_valvulas_industriales
         {
             if (e.Row.RowType == DataControlRowType.Pager)
             {
-                Label _lblPagina = (Label)e.Row.FindControl("lblPagina");
-                Label _lblTotal = (Label)e.Row.FindControl("lblTotal");
-                _lblPagina.Text = Convert.ToString(grvGestionVenas.PageIndex + 1);
-                _lblTotal.Text = Convert.ToString(grvGestionVenas.PageCount);
+
+                Label _lblPaginaFactura = (Label)e.Row.FindControl("lblPaginaFactura");
+                Label _lblTotalFactura = (Label)e.Row.FindControl("lblTotalFactura");
+                _lblPaginaFactura.Text = Convert.ToString(grvFacturas.PageIndex + 1);
+                _lblTotalFactura.Text = Convert.ToString(grvFacturas.PageCount);
             }
         }
 
@@ -407,7 +408,7 @@ namespace crm_valvulas_industriales
             {
                 LinkButton lbtn = sender as LinkButton;
                 GridViewRow row = (GridViewRow)lbtn.NamingContainer;
-                
+                Label _lblRut = (Label)grvGestionVenas.Rows[row.RowIndex].FindControl("lblRut");
                 Label _lblIdCliente = (Label)grvGestionVenas.Rows[row.RowIndex].FindControl("lblIdCliente");
                 Response.Redirect("Default.aspx?c=" + _lblIdCliente.Text);
             }

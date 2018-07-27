@@ -751,7 +751,7 @@
                 </table>
             </div>
 
-            <asp:GridView ID="grvGestion" runat="server" EmptyDataText="No hay cotizaciones sin nota de venta para gestionar." HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" >
+            <asp:GridView ID="grvGestion" runat="server" EmptyDataText="No hay cotizaciones sin nota de venta para gestionar." EmptyDataRowStyle-Font-Bold="true"  HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" >
                 <Columns>
                     <asp:TemplateField HeaderStyle-Width="3%">
                             <HeaderTemplate>

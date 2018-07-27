@@ -83,7 +83,7 @@
     <div class="col-sm-12">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <strong>Cotizaciones</strong>
+                <strong>Cotizaciones con Nota de Venta</strong>
                 <asp:ImageButton ID="ibtnExportar" OnClick="ibtnExportar_Click" ImageUrl="~/assets/img/export_excel.png" runat="server" />
             </div>
                 <asp:GridView ID="grvGestionVenas" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" AllowPaging="True" PageSize="30" OnRowDataBound="paginacion_RowDataBound">
@@ -104,13 +104,13 @@
 
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Rut Cliente">
+                    <asp:TemplateField HeaderText="ID Cliente">
                         <ItemTemplate>
                             <asp:Label ID="lblIdCliente" runat="server" Visible="false" Text='<%# Bind("ID_CLIENTE") %>'></asp:Label>
                             <asp:LinkButton ID="lbtnIdCliente" runat="server" Text='<%# Bind("ID_CLIENTE") %>' OnClick="lbtnIdCliente_Click"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Rut Cliente">
+                    <asp:TemplateField HeaderText="RUT Cliente">
                         <ItemTemplate>
                             <asp:Label ID="lblRut" runat="server" Visible="false" Text='<%# Bind("RUT_CLIENTE") %>'></asp:Label>
                             <asp:LinkButton ID="lbtnRut" runat="server" Text='<%# Bind("RUT_CLIENTE") %>' OnClick="lbtnRut_Click"></asp:LinkButton>
@@ -264,9 +264,9 @@
                         </div>
                         <div style="float:right">
                             Página
-                            <asp:Label ID="lblPagina" runat="server"></asp:Label>
+                            <asp:Label ID="lblPaginaFactura" runat="server"></asp:Label>
                             de
-                            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                            <asp:Label ID="lblTotalFactura" runat="server"></asp:Label>
                         </div>
                     </div>
                 </PagerTemplate>

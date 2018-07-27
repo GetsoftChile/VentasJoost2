@@ -239,7 +239,8 @@ namespace crm_valvulas_industriales
                 LinkButton lbtn = sender as LinkButton;
                 GridViewRow row = (GridViewRow)lbtn.NamingContainer;
                 Label _lblRut = (Label)grvGestionVenas.Rows[row.RowIndex].FindControl("lblRut");
-                Response.Redirect("Default.aspx?c=" + _lblRut.Text);
+                Label _lblIdCliente = (Label)grvGestionVenas.Rows[row.RowIndex].FindControl("lblIdCliente");
+                Response.Redirect("Default.aspx?c=" + _lblIdCliente.Text);
                 //buscarClientePorRut(_lblRut.Text.Trim());
                 //TabContainer1.ActiveTab = tpCliente;
                 //buscarDetalleCotizacion(_lblCotizacion.Text.Trim());
@@ -400,7 +401,21 @@ namespace crm_valvulas_industriales
             }
         }
 
-        
-
+        protected void lbtnIdCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton lbtn = sender as LinkButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                
+                Label _lblIdCliente = (Label)grvGestionVenas.Rows[row.RowIndex].FindControl("lblIdCliente");
+                Response.Redirect("Default.aspx?c=" + _lblIdCliente.Text);
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
     }
 }

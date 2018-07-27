@@ -67,7 +67,8 @@ namespace crm_valvulas_industriales
                             ddlEmpresaPorUsuario.SelectedValue = Session["idEmpresa"].ToString();
                         }
                     }
-
+      
+                    Session["idEmpresa"] = ddlEmpresaPorUsuario.SelectedValue;
                     //1	Admin
                     //2	Gerencial
                     //3	Ejecutivo Ventas

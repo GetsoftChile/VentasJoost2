@@ -178,8 +178,14 @@ namespace crm_fadonel
                 this.Session["SortedView"] = (object)null;
                 this.Session["SortedViewSeguimiento"] = (object)null;
                 this.hfVieneSeguimiento.Value = "0";
-                if (this.Session["idEmpresa"] == null)
-                    this.Session["idEmpresa"] = (object)"1";
+
+                if (Session["idEmpresa"] == null)
+                {
+                    Session["idEmpresa"] = "1";
+                }
+
+                //if (this.Session["idEmpresa"] == null)
+                //    this.Session["idEmpresa"] = (object)"1";
                 string idCliente = Convert.ToString(this.Request.QueryString["c"]);
                 string str1 = Convert.ToString(this.Request.QueryString["t"]);
                 string flagCartera = Convert.ToString(this.Request.QueryString["car"]);
@@ -565,7 +571,8 @@ namespace crm_fadonel
                 this.hfRutClientePost.Value = control3.Text;
                 this.buscarCliente(control1.Text);
                 this.buscarCotizaciones(control1.Text);
-                this.buscarGestion(this.lblRut.Text);
+                
+                this.buscarGestion(control1.Text);
                 this.lblRutGestiones.Text = this.lblRut.Text;
                 this.lblRazonSocialGestiones.Text = this.lblRazonSocial.Text;
                 this.buscarGestionesCRM();
@@ -4240,13 +4247,18 @@ namespace crm_fadonel
         protected void grvPago_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             string str = this.Session["variablePerfil"].ToString();
-            if (e.Row.RowType != DataControlRowType.DataRow)
-                return;
-            ImageButton control = (ImageButton)e.Row.FindControl("ibtnEliminarPago");
-            if (str == "1")
-                control.Visible = true;
-            else
-                control.Visible = false;
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                //ImageButton control = (ImageButton)e.Row.FindControl("ibtnEliminarPago");
+                //if (str == "1")
+                //{
+                //    control.Visible = true;
+                //}
+                //else
+                //{
+                //    control.Visible = false;
+                //}
+            } 
         }
 
         protected void ibtnEliminarCotizacion_Click(object sender, ImageClickEventArgs e)

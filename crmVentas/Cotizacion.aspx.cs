@@ -48,8 +48,8 @@ namespace crm_fadonel
 
                 if (this.Page.IsPostBack)
                     return;
-                ScriptManager.GetCurrent(this.Page).RegisterPostBackControl((Control)this.btnGrabarCotizacion);
-                this.btnGrabarCotizacion.Attributes.Add("OnClick", string.Format("this.disabled = true; {0};", (object)this.ClientScript.GetPostBackEventReference((Control)this.btnGrabarCotizacion, (string)null)));
+                //ScriptManager.GetCurrent(this.Page).RegisterPostBackControl((Control)this.btnGrabarCotizacion);
+                //this.btnGrabarCotizacion.Attributes.Add("OnClick", string.Format("this.disabled = true; {0};", (object)this.ClientScript.GetPostBackEventReference((Control)this.btnGrabarCotizacion, (string)null)));
                 DataTable dataTable = new DataTable();
                 this.Session["dtDetalleProductos"] = (object)dataTable;
                 string idCliente = Convert.ToString(this.Request.QueryString["c"]) ?? this.Session["IdCliente"].ToString();
@@ -998,108 +998,11 @@ namespace crm_fadonel
         {
             try
             {
-                //string idEmpresa = Session["idEmpresa"].ToString();
-                //string idUsuario = Session["variableIdUsuario"].ToString();
-                //string idPerfil = Session["variablePerfil"].ToString();
+                
+                string idEmpresa = Session["idEmpresa"].ToString();
+                string idUsuario = Session["variableIdUsuario"].ToString();
+                string idPerfil = Session["variablePerfil"].ToString();
 
-                //if (lblRutCotizacion.Text == string.Empty)
-                //{
-                //    lblInformacion.Text = "No hay un cliente seleccionado, favor seleccionar un cliente";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                ////if (lblIdContacto.Text == string.Empty)
-                ////{
-                ////    lblInformacion.Text = "No hay un contacto seleccionado, favor seleccionar un contacto";
-                ////    mdlInformacion.Show();
-                ////    return;
-                ////}
-
-                //if (ddlRazonSocial.SelectedValue=="0")
-                //{
-                //    lblInformacion.Text = "Favor seleccionar la razon social";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //if (grvProducto.Rows.Count == 0)
-                //{
-                //    lblInformacion.Text = "No hay detalle de la cotización, favor seleccionar los productos a cotizar.";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //if (idPerfil == "3")
-                //{
-                //    foreach (GridViewRow row in grvProducto.Rows)
-                //    {
-                //        //CheckBox check = (CheckBox)row.FindControl("CheckBox1");
-
-                //        Label _lblId = (Label)row.FindControl("lblId");
-                //        Label _lblDescuentoPorcentaje = (Label)row.FindControl("lblDescuentoPorcentaje");
-
-                //        if (_lblId.Text == string.Empty)
-                //        {
-
-                //        }
-
-                //        if (_lblDescuentoPorcentaje.Text != string.Empty)
-                //        {
-                //            double porcentajeDescuentoPermitido = 0;
-                //            foreach (DataRow item in dal.getBuscarUsuario(null, idUsuario).Tables[0].Rows)
-                //            {
-                //                if (item["DESCUENTO_AUTORIZADO"].ToString() != string.Empty)
-                //                {
-                //                    porcentajeDescuentoPermitido = Convert.ToDouble(item["DESCUENTO_AUTORIZADO"].ToString().Replace(".", ","));
-                //                }
-                //            }
-
-                //            double descuento = 0;
-                //            if (_lblDescuentoPorcentaje.Text == string.Empty)
-                //            {
-                //                descuento = 0;
-                //            }
-                //            else
-                //            {
-                //                descuento = Convert.ToDouble(_lblDescuentoPorcentaje.Text);
-                //            }
-
-                //            if (descuento > porcentajeDescuentoPermitido)
-                //            {
-                //                hfTieneDescuento.Value = "1";
-                //            }
-                //            else
-                //            {
-                //                hfTieneDescuento.Value = "0";
-                //            }
-
-                //            if (hfTieneDescuento.Value == "1")
-                //            {
-                //                mdlInformacionValidarCotizacion.Show();
-                //                return;
-                //            }
-                //        }
-                //    }
-                //}
-
-
-
-
-
-
-                //if (ddlCanal.SelectedValue == "0")
-                //{
-                //    lblInformacion.Text = "Favor de seleccionar un canal";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-                //grabaCotizacion("0");
-
-
-                this.Session["idEmpresa"].ToString();
-                string idUsuario = this.Session["variableIdUsuario"].ToString();
-                string str = this.Session["variablePerfil"].ToString();
                 if (this.lblIdCliente.Text == string.Empty)
                 {
                     this.lblInformacion.Text = "No hay un cliente seleccionado, favor seleccionar un cliente";
@@ -1120,7 +1023,7 @@ namespace crm_fadonel
                 }
                 else
                 {
-                    if (str == "3")
+                    if (idPerfil == "3")
                     {
                         foreach (GridViewRow row1 in this.grvProducto.Rows)
                         {
@@ -1144,14 +1047,17 @@ namespace crm_fadonel
                             }
                         }
                     }
-                    if (this.ddlCanal.SelectedValue == "0")
+
+                    if (ddlCanal.SelectedValue == "0")
                     {
-                        this.lblInformacion.Text = "Favor de seleccionar un canal";
-                        this.mdlInformacion.Show();
+                        lblInformacion.Text = "Favor de seleccionar un canal";
+                        mdlInformacion.Show();
                         return;
                     }
                     else
-                        this.grabaCotizacion("0");
+                    {
+                        grabaCotizacion("0");
+                    }
                 }
 
             }
@@ -1329,19 +1235,30 @@ namespace crm_fadonel
         private void grabaCotizacion(string porAprobar)
         {
             string idEmpresa = this.Session["idEmpresa"].ToString();
-            string str1 = this.Session["variableIdUsuario"].ToString();
+            string idUsuario = this.Session["variableIdUsuario"].ToString();
             int int32_1 = Convert.ToInt32(this.Session["IdCliente"]);
             string montoNeto1 = this.lblTotalNeto.Text.Replace(".", "");
             string montoIva = this.lblIva.Text.Replace(".", "");
-            int int32_2 = Convert.ToInt32(this.ddlRazonSocial.SelectedValue);
-            string str2 = !(porAprobar == "1") ? this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, 
-                montoNeto1, this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "1", str1, str1, 
-                this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
-                this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1)
-                : this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, montoNeto1, 
-                this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "5", str1, str1, 
-                this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
-                this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1);
+            int idRazonSocial = Convert.ToInt32(this.ddlRazonSocial.SelectedValue);
+
+            string idCotizacion = "";
+            if (porAprobar == "1")
+            {
+                idCotizacion = dal.setIngresarCotizacion(idEmpresa, lblRutCotizacion.Text, montoNeto1, lblTotalDescuento.Text, montoIva, lblTotal.Text.Replace(".", ""), "5", idUsuario, idUsuario, ddlCanal.SelectedValue, lblIdContacto.Text, txtObservacionCotizacion.Text, txtDescuento.Text.Replace(",", "."), porAprobar, idRazonSocial, int32_1);
+            }
+            else
+            {
+                idCotizacion = dal.setIngresarCotizacion(idEmpresa, lblRutCotizacion.Text, montoNeto1, lblTotalDescuento.Text, montoIva, lblTotal.Text.Replace(".", ""), "1", idUsuario, idUsuario, ddlCanal.SelectedValue, lblIdContacto.Text, txtObservacionCotizacion.Text, txtDescuento.Text.Replace(",", "."), porAprobar, idRazonSocial, int32_1);
+            }
+
+            //string str2 = !(porAprobar == "1") ? this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, 
+            //    montoNeto1, this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "1", str1, str1, 
+            //    this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
+            //    this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1)
+            //    : this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, montoNeto1, 
+            //    this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "5", str1, str1, 
+            //    this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
+            //    this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1);
             double num1 = 0.0;
             foreach (GridViewRow row1 in this.grvProducto.Rows)
             {
@@ -1360,7 +1277,7 @@ namespace crm_fadonel
                     num3 = Convert.ToInt32(num2) + Convert.ToInt32(montoNeto2);
                     string montoTotal = num3.ToString();
                     double num4 = 0.0;
-                    foreach (DataRow row2 in (InternalDataCollectionBase)this.dal.getBuscarUsuario((string)null, str1).Tables[0].Rows)
+                    foreach (DataRow row2 in (InternalDataCollectionBase)this.dal.getBuscarUsuario((string)null,idUsuario).Tables[0].Rows)
                     {
                         if (row2["DESCUENTO_AUTORIZADO"].ToString() != string.Empty)
                             num4 = Convert.ToDouble(row2["DESCUENTO_AUTORIZADO"].ToString().Replace(".", ","));
@@ -1377,21 +1294,27 @@ namespace crm_fadonel
                         num1 = num5;
                     }
                     if (num5 > num4)
-                        this.dal.setIngresarCotizacionDetalle(str2, control1.Text, control2.Text, montoNeto2, control4.Text, montoTotal, control7.Text, control6.Text.Replace(",", "."), porAprobar);
+                    {
+                        this.dal.setIngresarCotizacionDetalle(idCotizacion, control1.Text, control2.Text, montoNeto2, control4.Text, montoTotal, control7.Text, control6.Text.Replace(",", "."), porAprobar);
+                    }
                     else
-                        this.dal.setIngresarCotizacionDetalle(str2, control1.Text, control2.Text, montoNeto2, control4.Text, montoTotal, control7.Text, control6.Text.Replace(",", "."), "0");
+                    {
+                        dal.setIngresarCotizacionDetalle(idCotizacion, control1.Text, control2.Text, montoNeto2, control4.Text, montoTotal, control7.Text, control6.Text.Replace(",", "."), "0");
+                    }
+                  
                 }
             }
             string empty = string.Empty;
             if (porAprobar == "1")
             {
-                string rutaPdf = this.generaPdf2(str2, "", this.lblRutCotizacion.Text, idEmpresa);
-                this.dal.setEditarCotizacionRutaPdf(str2, rutaPdf);
+
+                string rutaPdf = this.generaPdf2(idCotizacion, "", this.lblRutCotizacion.Text, idEmpresa);
+                this.dal.setEditarCotizacionRutaPdf(idCotizacion, rutaPdf);
             }
             else
             {
-                string rutaPdf = this.generaPdf2(str2, "", this.lblRutCotizacion.Text, idEmpresa);
-                this.dal.setEditarCotizacionRutaPdf(str2, rutaPdf);
+                string rutaPdf = this.generaPdf2(idCotizacion, "", this.lblRutCotizacion.Text, idEmpresa);
+                this.dal.setEditarCotizacionRutaPdf(idCotizacion, rutaPdf);
                 ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + this.hfrutaArchivoPdf.Value + "','_blank');", true);
             }
             this.limpiar(this.Controls);
@@ -1400,11 +1323,7 @@ namespace crm_fadonel
             this.grvProducto.DataBind();
         }
 
-
-
-
-
-
+        
         //void buscarCotizaciones(string rut)
         //{
         //    string idEmpresa = Session["idEmpresa"].ToString();

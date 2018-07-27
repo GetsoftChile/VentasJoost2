@@ -721,7 +721,11 @@
 
             <div class="well well-sm">
                 <table class="table table-condensed table-responsive small">
-                    <tr>
+                    <tr class="active">
+                        <td>
+                            <strong>ID:</strong>
+                            <asp:Label ID="lblId" runat="server" Text=""></asp:Label>
+                        </td>
                         <td>
                             <strong>Rut:</strong>
                             <asp:Label ID="lblRutGestiones" runat="server" Text=""></asp:Label>
@@ -730,7 +734,6 @@
                             <strong>Razon Social:</strong>
                             <asp:Label ID="lblRazonSocialGestiones" runat="server" Text=""></asp:Label>
                         </td>
-                        
                     </tr>
                     <tr id="trRutClientePadreGestion" runat="server" visible="false">
                         <td>
@@ -741,13 +744,15 @@
                             <strong>Razon Social Padre</strong>
                             <asp:Label ID="lblRazonSocialPadreGestion" runat="server" Text=""></asp:Label>
                         </td>
+                        <td>
+                            
+                        </td>
                     </tr>
                 </table>
             </div>
 
-            <asp:GridView ID="grvGestion" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" >
+            <asp:GridView ID="grvGestion" runat="server" EmptyDataText="No hay cotizaciones sin nota de venta para gestionar." HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" >
                 <Columns>
-                
                     <asp:TemplateField HeaderStyle-Width="3%">
                             <HeaderTemplate>
                                 <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);"/>
@@ -1006,6 +1011,8 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Rut">
                             <ItemTemplate>
+                                <asp:Label ID="lblIdCliente" runat="server" Visible="false" Text='<%# Bind("ID_CLIENTE") %>'></asp:Label>
+                                <asp:Label ID="lblEmailCliente" runat="server" Visible="false" Text='<%# Bind("EMAIL") %>'></asp:Label>
                                 <asp:Label ID="lblRutCliente" runat="server"  Text='<%# Bind("RUT_CLIENTE") %>'></asp:Label>
                                 <asp:Label ID="lblCondicionVenta" runat="server" Visible="false" Text='<%# Bind("CONDICION_VENTA") %>'></asp:Label>
                                 <asp:Label ID="lblGiro" runat="server" Visible="false" Text='<%# Bind("GIRO") %>'></asp:Label>
@@ -1776,7 +1783,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        
                         <asp:TemplateField HeaderText="Rut Cheque">
                             <ItemTemplate>
                                 <asp:Label ID="lblRutCheque" runat="server" Text='<%# Bind("RUT_CHEQUE") %>'></asp:Label>

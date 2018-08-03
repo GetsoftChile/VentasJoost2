@@ -2115,7 +2115,15 @@ namespace DAL
             db.AddInParameter(cmd, "@idEstatus", DbType.String, idEstatus);
             db.AddInParameter(cmd, "@idSubEstatus", DbType.String, idSubEstatus);
             db.AddInParameter(cmd, "@idUsuario", DbType.String, idUsuario);
-            db.AddInParameter(cmd, "@fechaAgendamiento", DbType.String, fechaAgendamiento);
+            if (string.IsNullOrEmpty(fechaAgendamiento))
+            {
+                db.AddInParameter(cmd, "@fechaAgendamiento", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaAgendamiento", DbType.String, fechaAgendamiento);
+            }
+            
             db.AddInParameter(cmd, "@hora", DbType.String, hora);
             db.AddInParameter(cmd, "@observacion", DbType.String, observacion);
             db.AddInParameter(cmd, "@telefonoAsociado", DbType.String, telefonoAsociado);

@@ -896,16 +896,26 @@ namespace crm_fadonel
             //string idEmpresa = Session["idEmpresa"].ToString();
             //grvGestion.DataSource = dal.getBuscarCotizacionesParaGestionar(lblRut.Text, idEmpresa);
             //grvGestion.DataBind();
-            
+
             ////modificacion con dudas
             //Session["DatosCotizaciones"] = dal.getBuscarCotizacionesEnSeguimientoPorCliente(rut, null);
             //grvCotizacionesCRM.DataSource = Session["DatosCotizaciones"] as DataSet;
             //grvCotizacionesCRM.DataBind();
 
-
+            string idPerfil = Session["variablePerfil"].ToString();
             string idEmpresa = this.Session["idEmpresa"].ToString();
             string rutCliente = this.Session["IdCliente"].ToString();
-            this.grvGestion.DataSource = (object)this.dal.getBuscarCotizacionesParaGestionar(rutCliente, idEmpresa);
+
+            if (idPerfil=="1")
+            {
+                this.grvGestion.DataSource = (object)this.dal.getBuscarCotizacionesParaGestionar(rutCliente, null);
+            }
+            else
+            {
+                this.grvGestion.DataSource = (object)this.dal.getBuscarCotizacionesParaGestionar(rutCliente, idEmpresa);
+            }
+
+            
             this.grvGestion.DataBind();
             this.Session["DatosCotizaciones"] = (object)this.dal.getBuscarCotizacionesEnSeguimientoPorCliente(rutCliente, (string)null);
             this.grvCotizacionesCRM.DataSource = (object)(this.Session["DatosCotizaciones"] as DataSet);
@@ -3473,11 +3483,13 @@ namespace crm_fadonel
             PdfPTable pdfPtable3 = new PdfPTable(4);
             float[] relativeWidths2 = new float[4]
             {
-        35f,
-        95f,
-        35f,
-        95f
+                35f,
+                95f,
+                35f,
+                95f
             };
+
+            
             pdfPtable3.SetWidths(relativeWidths2);
             string idContacto = "";
             string str11 = "";

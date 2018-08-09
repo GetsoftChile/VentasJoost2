@@ -122,7 +122,7 @@ namespace crm_valvulas_industriales
         void buscarGrilla() 
         {
             DataTable dt = new DataTable();
-            dt = dal.getBuscarSeguimiento(ddlVendedorIndicador.SelectedValue, null, null, txtFechaDesde.Text, txtFechaHasta.Text).Tables[0];
+            dt = dal.getBuscarSeguimiento(ddlVendedorIndicador.SelectedValue, null, null, txtFechaDesde.Text, txtFechaHasta.Text,"0").Tables[0];
             Session["SortedViewGrvSeguimiento"] = dt;
             grvSeguimiento.DataSource = dt;
             grvSeguimiento.DataBind();

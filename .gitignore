@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /crmVentas/cotizaciones
+/crmVentas/ordenTrabajo
+/crmVentas/notaVenta

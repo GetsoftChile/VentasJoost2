@@ -319,5 +319,110 @@ namespace crm_valvulas_industriales
             }
             
         }
+
+        protected void ibtnAgregarFactura_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                ImageButton lbtn = sender as ImageButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                Label _lblIdNotaVenta = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblIdNotaVenta");
+                Label _lblMontoNeto = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblMontoNeto2");
+                Label _lblRutCliente = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblRutCliente");
+                txtRutCliente.Text = _lblRutCliente.Text;
+                //formaPago();
+                ddlFormaPago.ClearSelection();
+                txtIdFactura.Text = string.Empty;
+                txtIdFactura.Enabled = true;
+                txtFechaFacturacion.Text = string.Empty;
+                txtMontoNeto.Text = string.Empty;
+
+                hfIdNotaVenta.Value = _lblIdNotaVenta.Text;
+                txtMontoNeto.Text = _lblMontoNeto.Text.Replace(".", "");
+                mdlAgregarFactura.Show();
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+
+        protected void btnGuardarFactura_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string idUsuarioCreacion = this.Session["variableIdUsuario"].ToString();
+                string text = this.txtRutCliente.Text;
+                int int32 = Convert.ToInt32(this.Session["IdCliente"]);
+                this.dal.setIngresarFactura(this.txtIdFactura.Text, text, this.hfIdNotaVenta.Value, this.txtFechaFacturacion.Text, this.txtMontoNeto.Text, "1", idUsuarioCreacion, this.ddlFormaPago.SelectedValue, int32);
+                //this.factura();
+                this.mdlAgregarFactura.Hide();
+
+                buscar();
+
+                lblInformacion.Text = "Listo, factura Agregada!";
+                mdlInformacion.Show();
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+        protected void ddlFormaPago_DataBound(object sender, EventArgs e)
+        {
+            ddlFormaPago.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Seleccionar", "0"));
+        }
+
+        protected void ibtnVerCliente_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                lblRut.Text = string.Empty;
+                lblRazonSocial.Text = string.Empty;
+                lblCondiciondeVenta.Text = string.Empty;
+                lblClasificacion.Text = string.Empty;
+                lblGiro.Text = string.Empty;
+                lblEstado.Text = string.Empty;
+                lblUsuarioAsig.Text = string.Empty;
+                lblMontoCredito.Text = string.Empty;
+                lblComuna.Text = string.Empty;
+                lblCiudad.Text = string.Empty;
+                lblMontoVenta12Meses.Text = string.Empty;
+                lblTotalCotizado.Text = string.Empty;
+
+                ImageButton lbtn = sender as ImageButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                Label _lblIdCliente = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblIdCliente");
+
+                DataTable dt = new DataTable();
+                dt = dal.getBuscarClientePorId(_lblIdCliente.Text).Tables[0];
+                foreach (DataRow item in dt.Rows)
+                {
+                    lblRut.Text = item["RUT_CLIENTE"].ToString();
+                    lblRazonSocial.Text = item["RAZON_SOCIAL"].ToString();
+                    lblCondiciondeVenta.Text = item["CONDICION_VENTA"].ToString();
+                    lblClasificacion.Text = item["CLASIFICACION"].ToString();
+                    lblGiro.Text = item["GIRO"].ToString();
+                    lblEstado.Text = item["NOM_ESTADO_CLIENTE"].ToString();
+                    lblUsuarioAsig.Text = item["USUARIO"].ToString();
+                    lblMontoCredito.Text = item["MONTO_CREDITO"].ToString();
+                    lblComuna.Text = item["COMUNA"].ToString();
+                    lblCiudad.Text = item["CIUDAD"].ToString();
+                    lblMontoVenta12Meses.Text = item["MONTO_VENTA_ULTIMO_12"].ToString();
+                    lblTotalCotizado.Text = item["MONTO_COTIZADO"].ToString();
+                }
+
+                mdlVerCliente.Show();
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
     }
 }

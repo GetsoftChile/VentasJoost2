@@ -23,33 +23,9 @@ namespace crm_fadonel
         {
             try
             {
-                //if (!this.Page.IsPostBack)
-                //{
-                //    DataTable dt = new DataTable();
-                //    Session["dtDetalleProductos"] = dt;
-
-                //    string _rutCliente = Convert.ToString(Request.QueryString["c"]);
-                //    if (_rutCliente == null)
-                //    {
-                //        _rutCliente = Session["rutCliente"].ToString();
-                //    }
-
-                //    hfRutClientePost.Value = _rutCliente;
-                //    hfRutCliente.Value = _rutCliente;
-
-                //    dt.Clear();
-                //    CreateDataTable();
-                //    buscarContactoCargo();
-                //    canal();
-                //    ddlCanal.SelectedValue = "1";
-                //    buscarCliente(_rutCliente);
-                //    buscarRazonSocial();
-                //}
-
                 if (this.Page.IsPostBack)
                     return;
-                //ScriptManager.GetCurrent(this.Page).RegisterPostBackControl((Control)this.btnGrabarCotizacion);
-                //this.btnGrabarCotizacion.Attributes.Add("OnClick", string.Format("this.disabled = true; {0};", (object)this.ClientScript.GetPostBackEventReference((Control)this.btnGrabarCotizacion, (string)null)));
+                
                 DataTable dataTable = new DataTable();
                 this.Session["dtDetalleProductos"] = (object)dataTable;
                 string idCliente = Convert.ToString(this.Request.QueryString["c"]) ?? this.Session["IdCliente"].ToString();
@@ -207,39 +183,7 @@ namespace crm_fadonel
                 mdlInformacion.Show();
             }
         }
-        //void buscarCliente(string rut)
-        //{
-        //    if (rut != null)
-        //    {
-        //        DataTable dtCliente = new DataTable();
-        //        dtCliente = dal.getBuscarClientePorRut(rut).Tables[0];
-        //        foreach (DataRow item in dtCliente.Rows)
-        //        {
-        //            lblRutCotizacion.Text = item["RUT_CLIENTE"].ToString();
-        //            lblCliente.Text = item["RAZON_SOCIAL"].ToString();
-        //            lblCiudad.Text = item["CIUDAD"].ToString();
-        //            lblComunaCotizacin.Text = item["COMUNA"].ToString();
-        //            lblDireccionCotizacion.Text = item["DIRECCION"].ToString();
-        //            lblTelefono.Text = item["TELEFONO"].ToString();
 
-        //            string rutPadre = item["RUT_PADRE"].ToString();
-        //            if (rutPadre.Trim() != string.Empty)
-        //            {
-        //                trRutClientePadreCotizacion.Visible = true;
-        //                lblRutClientePadreCotizacion.Text = rutPadre;
-        //                lblRazonSocialPadreCotizacion.Text = item["RAZON_PADRE"].ToString();
-
-        //            }
-        //            else
-        //            {
-        //                trRutClientePadreCotizacion.Visible = false;
-
-        //            }
-
-        //            break;
-        //        }
-        //    }
-        //}
         private void buscarCliente(string idCliente)
         {
             if (idCliente == null)
@@ -335,18 +279,7 @@ namespace crm_fadonel
         {
             try
             {
-                //buscarContactos(hfRutClientePost.Value);
-                //mdlContactos.Show();
 
-                //if (lblRutCotizacion.Text == string.Empty)
-                //{
-                //    lblInformacion.Text = "No hay un cliente seleccionado, favor seleccionar un cliente";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //buscarContactosCotizacion(hfRutClientePost.Value);
-                //mdlContactos.Show();
 
                 this.buscarContactos(this.hfRutClientePost.Value);
                 this.mdlContactos.Show();
@@ -1251,14 +1184,7 @@ namespace crm_fadonel
                 idCotizacion = dal.setIngresarCotizacion(idEmpresa, lblRutCotizacion.Text, montoNeto1, lblTotalDescuento.Text, montoIva, lblTotal.Text.Replace(".", ""), "1", idUsuario, idUsuario, ddlCanal.SelectedValue, lblIdContacto.Text, txtObservacionCotizacion.Text, txtDescuento.Text.Replace(",", "."), porAprobar, idRazonSocial, int32_1);
             }
 
-            //string str2 = !(porAprobar == "1") ? this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, 
-            //    montoNeto1, this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "1", str1, str1, 
-            //    this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
-            //    this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1)
-            //    : this.dal.setIngresarCotizacion(idEmpresa, this.lblRutCotizacion.Text, montoNeto1, 
-            //    this.lblTotalDescuento.Text, montoIva, this.lblTotal.Text.Replace(".", ""), "5", str1, str1, 
-            //    this.ddlCanal.SelectedValue, this.lblIdContacto.Text, this.txtObservacionCotizacion.Text, 
-            //    this.txtDescuento.Text.Replace(",", "."), porAprobar, int32_2, int32_1);
+      
             double num1 = 0.0;
             foreach (GridViewRow row1 in this.grvProducto.Rows)
             {

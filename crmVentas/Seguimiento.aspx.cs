@@ -35,6 +35,7 @@ namespace crm_valvulas_industriales
                     return;
                 this.Session["SortedViewSeguimiento"] = (object)null;
                 this.buscarVendedor();
+                Estado();
                 string str = this.Session["variableIdUsuario"].ToString();
                 if (this.Session["variablePerfil"].ToString() == "3")
                 {
@@ -52,6 +53,14 @@ namespace crm_valvulas_industriales
             {
                 string ddd = ex.Message;
             }
+        }
+
+        void Estado()
+        {
+            ddlEstado.DataSource = dal.getBuscarEstadoCotizacion();
+            ddlEstado.DataValueField = "ID_ESTADO_COTIZACION";
+            ddlEstado.DataTextField = "NOM_ESTADO_COTIZACION";
+            ddlEstado.DataBind();
         }
 
         protected void ddlVendedor_DataBound(object sender, EventArgs e)
@@ -144,7 +153,7 @@ namespace crm_valvulas_industriales
                 string text2 = this.txtMontoCotizacionHasta.Text;
                 string fechaDesde = this.txtFechaDesde.Text.Replace("-", "/");
                 string fechaHasta = this.txtFechaHasta.Text.Replace("-", "/");
-                this.ds = this.dal.getBuscarSeguimiento(vendedor1, text1, text2, fechaDesde, fechaHasta);
+                this.ds = this.dal.getBuscarSeguimiento(vendedor1, text1, text2, fechaDesde, fechaHasta,ddlEstado.SelectedValue);
                 this.grvSeguimiento.DataSource = (object)this.ds;
                 this.grvSeguimiento.DataBind();
             }
@@ -157,7 +166,7 @@ namespace crm_valvulas_industriales
                 string text2 = this.txtMontoCotizacionHasta.Text;
                 string fechaDesde = this.txtFechaDesde.Text.Replace("-", "/");
                 string fechaHasta = this.txtFechaHasta.Text.Replace("-", "/");
-                this.ds = this.dal.getBuscarSeguimiento(vendedor2, text1, text2, fechaDesde, fechaHasta);
+                this.ds = this.dal.getBuscarSeguimiento(vendedor2, text1, text2, fechaDesde, fechaHasta, ddlEstado.SelectedValue);
                 this.grvSeguimiento.DataSource = (object)this.ds;
                 this.grvSeguimiento.DataBind();
             }
@@ -515,7 +524,7 @@ namespace crm_valvulas_industriales
                     string text2 = this.txtMontoCotizacionHasta.Text;
                     string fechaDesde = this.txtFechaDesde.Text.Replace("-", "/");
                     string fechaHasta = this.txtFechaHasta.Text.Replace("-", "/");
-                    this.ds = this.dal.getBuscarSeguimiento(vendedor1, text1, text2, fechaDesde, fechaHasta);
+                    this.ds = this.dal.getBuscarSeguimiento(vendedor1, text1, text2, fechaDesde, fechaHasta, ddlEstado.SelectedValue);
                     Utilidad.ExportDataTableToExcel(this.ds.Tables[0], "Exporte_Seguimiento.xls", "", "", "", "");
                 }
                 else
@@ -527,7 +536,7 @@ namespace crm_valvulas_industriales
                     string text2 = this.txtMontoCotizacionHasta.Text;
                     string fechaDesde = this.txtFechaDesde.Text.Replace("-", "/");
                     string fechaHasta = this.txtFechaHasta.Text.Replace("-", "/");
-                    this.ds = this.dal.getBuscarSeguimiento(vendedor2, text1, text2, fechaDesde, fechaHasta);
+                    this.ds = this.dal.getBuscarSeguimiento(vendedor2, text1, text2, fechaDesde, fechaHasta, ddlEstado.SelectedValue);
                     Utilidad.ExportDataTableToExcel(this.ds.Tables[0], "Exporte_Seguimiento.xls", "", "", "", "");
                 }
             }
@@ -552,6 +561,9 @@ namespace crm_valvulas_industriales
             }
         }
 
-
+        protected void ddlEstado_DataBound(object sender, EventArgs e)
+        {
+            ddlEstado.Items.Insert(0, new ListItem("Todos", "0"));
+        }
     }
 }

@@ -1830,7 +1830,7 @@ namespace DAL
 
 
         public DataSet getBuscarSeguimiento(string vendedor, string montoCotizacionDesde, string montoCotizacionHasta, 
-            string fechaDesde, string fechaHasta)
+            string fechaDesde, string fechaHasta, string idEstadoCotizacion)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_buscarSeguimiento");
 
@@ -1879,7 +1879,14 @@ namespace DAL
                 db.AddInParameter(cmd, "@fechaHasta", DbType.String, fechaHasta);
             }
 
-            
+            if (idEstadoCotizacion == "0")
+            {
+                db.AddInParameter(cmd, "@idEstadoCotizacion", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idEstadoCotizacion", DbType.String, idEstadoCotizacion);
+            }
 
 
             try
@@ -2077,6 +2084,23 @@ namespace DAL
 
         }
 
+        public DataSet getBuscarEstadoCotizacion()
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarEstadoCotizacion");
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar el estado, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar es estado, " + ex.Message, ex);
+            }
+        }
         public DataSet getBuscarAgendamiento(string idEstatus, string idSubEstatus
             , string idEstatusSeguimiento, string idEmpresa)
         {
@@ -2371,6 +2395,50 @@ namespace DAL
         }
 
 
+        public DataSet getGraficoMetas(string idUsuario, string mes, string ano)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_GraficoMetas");
+            //@idUsuario varchar(10),@mes varchar(2),@ano varchar(4)
+
+            if (idUsuario == string.Empty)
+            {
+                db.AddInParameter(cmd, "@idUsuario", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idUsuario", DbType.String, idUsuario);
+            }
+            if (mes == string.Empty)
+            {
+                db.AddInParameter(cmd, "@mes", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@mes", DbType.String, mes);
+            }
+            if (ano == string.Empty)
+            {
+                db.AddInParameter(cmd, "@ano", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@ano", DbType.String, ano);
+            }
+            
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar la informaion de grafico, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar la informaion de grafico, " + ex.Message, ex);
+            }
+
+        }
         public DataSet getBuscarGestionDeVentaDetalle(string fechaDesde, string fechaHasta, string ejecutivo, string idActividadComercial)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_BuscarGestionDeVentaDetalle");
@@ -3315,6 +3383,26 @@ namespace DAL
             }
         }
 
+
+        public DataSet getBuscarOrdenTrabajo(string idOrdenTrabajo)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarOrdenTrabajo");
+            db.AddInParameter(cmd, "@idOrdenTrabajo", DbType.String, idOrdenTrabajo);
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar la orden de trabajo, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar la orden de trabajo, " + ex.Message, ex);
+            }
+        }
+
         public DataSet getBuscarNotaVenta(string idNotaVenta)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_BuscarNotaVenta");
@@ -3422,7 +3510,28 @@ namespace DAL
                 throw new Exception("No se puede editar la nota de venta, " + ex.Message, ex);
             }
         }
-        
+
+        public void setEditarRutaPdfOT(string idOT, string rutaPdf)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_editarRutaPdfOT");
+
+            db.AddInParameter(cmd, "@idOT", DbType.String, idOT);
+            db.AddInParameter(cmd, "@rutaPdfOT", DbType.String, rutaPdf);
+
+            try
+            {
+                db.ExecuteNonQuery(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se puede editar la OT, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede editar la OT, " + ex.Message, ex);
+            }
+        }
+
 
         public void setIngresarParametro(string idEmpresa, string nombreSistema, string logoMenu, string vigenciaCotizacionDias, string descuentoPagoContato)
         {
@@ -3578,6 +3687,38 @@ namespace DAL
             catch (Exception ex)
             {
                 throw new Exception("No se puede ingresa la nota venta, " + ex.Message, ex);
+            }
+        }
+
+
+        public string setIngresarOrdenTrabajo(string idNotaVenta, string idCotizacion, string direccionDespacho, string direccionFacturacion,
+            string referencia, string ordenDeCompra, string rutaOrdenDeCompra, string rutaOrdenDeCompra2, string fechaEntrega)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_IngresarOrdenTrabajo");
+
+            db.AddInParameter(cmd, "@idNotaVenta", DbType.String, idNotaVenta);
+            db.AddInParameter(cmd, "@idCotizacion", DbType.String, idCotizacion);
+            db.AddInParameter(cmd, "@idDireccionDespacho", DbType.String, direccionDespacho);
+            db.AddInParameter(cmd, "@idDireccionFacturacion", DbType.String, direccionFacturacion);
+            db.AddInParameter(cmd, "@referencia", DbType.String, referencia);
+            db.AddInParameter(cmd, "@ordenDeCompra", DbType.String, ordenDeCompra);
+            db.AddInParameter(cmd, "@rutaOrdenDeCompra", DbType.String, rutaOrdenDeCompra);
+            db.AddInParameter(cmd, "@rutaOrdenDeCompra2", DbType.String, rutaOrdenDeCompra2);
+            db.AddInParameter(cmd, "@fechaEntrega", DbType.String, fechaEntrega);
+            
+            try
+            {
+                //db.ExecuteNonQuery(cmd);
+                string val = db.ExecuteScalar(cmd).ToString();
+                return val;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se puede ingresa la orden de trabajo, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede ingresa la orden de trabajo, " + ex.Message, ex);
             }
         }
 

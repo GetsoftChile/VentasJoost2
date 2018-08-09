@@ -95,6 +95,8 @@ namespace DAL
             }
         }
 
+        
+
         public DataSet getBuscarSeguimiento(string rut)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_buscarSeguimiento");

@@ -25,6 +25,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -330,9 +331,11 @@
     <Content Include="Logout.aspx" />
     <Content Include="Materiales.aspx" />
     <Content Include="MaterialesUsados.aspx" />
+    <Content Include="Metas.aspx" />
     <Content Include="NotasDeVentas.aspx" />
     <Content Include="notaVenta\index.html" />
     <Content Include="ordenCompra\index.html" />
+    <Content Include="ordenTrabajo\index.html" />
     <Content Include="Parametros.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosVendidos.aspx" />
@@ -600,6 +603,13 @@
     </Compile>
     <Compile Include="MaterialesUsados.aspx.designer.cs">
       <DependentUpon>MaterialesUsados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Metas.aspx.cs">
+      <DependentUpon>Metas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Metas.aspx.designer.cs">
+      <DependentUpon>Metas.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotasDeVentas.aspx.cs">
       <DependentUpon>NotasDeVentas.aspx</DependentUpon>

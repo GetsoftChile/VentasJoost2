@@ -26,8 +26,6 @@ namespace crm_fadonel
         {
             try
             {
-                ScriptManager scriptManager = ScriptManager.GetCurrent(this.Page);
-                scriptManager.RegisterPostBackControl(this.btnSeleccionarDireccionGenerarNotaVenta);
 
                 if (lblRut.Text == string.Empty)
                 {
@@ -43,135 +41,7 @@ namespace crm_fadonel
                 else
                     this.ibtnEditarCliente.Visible = true;
 
-                //if (!Page.IsPostBack)
-                //{
-                //    Session["SortedView"] = null;
-                //    Session["SortedViewSeguimiento"] = null;
-                //    hfVieneSeguimiento.Value = "0";
-
-                //    if (Session["idEmpresa"] == null)
-                //    {
-                //        Session["idEmpresa"] = "1";
-                //    }
-                    
-                //    string _rutCliente = Convert.ToString(Request.QueryString["c"]);
-                //    string _tab = Convert.ToString(Request.QueryString["t"]);
-                //    string _car = Convert.ToString(Request.QueryString["car"]);
-                //    string _agendamiento = Convert.ToString(Request.QueryString["agendamiento"]);
-                //    string _seguimiento = Convert.ToString(Request.QueryString["seguimiento"]);
-                    
-                //    if (_rutCliente == null)
-                //    {
-                //        //arbol gestion
-                //        buscarEstatus("0");
-                //        buscarSubEstatus(ddlEstatus.SelectedValue);
-                //        buscarEstatusSeguimiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue);
-
-                //        if (Session["rutCliente"] != null)
-                //        {
-                //            _rutCliente = Session["rutCliente"].ToString();
-
-                //            buscarClientePorRut(_rutCliente.Trim());
-                //            buscarDireccionesPorCliente();
-                //        }
-
-                //        if (lblRut.Text == string.Empty)
-                //        {
-                //            ibtnEditarCliente.Visible = false;
-                //        }
-                //        else
-                //        {
-                //            ibtnEditarCliente.Visible = true;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        buscarClientePorRut(_rutCliente.Trim());
-                //        buscarDireccionesPorCliente();
-                //        if (_tab=="1")
-                //        {
-                //            TabContainer1.ActiveTab = tpGestion;
-
-                //            if (_car=="1")
-                //            {
-                //                //arbol gestion
-                //                buscarEstatus(_car);
-                //                buscarSubEstatus(ddlEstatus.SelectedValue);
-                //                buscarEstatusSeguimiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue);
-                //            }
-                //            else if (_agendamiento == "1")
-                //            {
-                //                buscarEstatus(null);
-                //                buscarSubEstatus(ddlEstatus.SelectedValue);
-                //                buscarEstatusSeguimiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue);
-                //            }
-                //            else
-                //            {
-                //                buscarEstatus("0");
-                //                buscarSubEstatus(ddlEstatus.SelectedValue);
-                //                buscarEstatusSeguimiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue);
-                //            }
-
-                //            if (_seguimiento=="1")
-                //            {
-                //                hfVieneSeguimiento.Value = "1";
-                //            }
-                //            else
-                //            {
-                //                hfVieneSeguimiento.Value = "0";
-                //            }
-                //        }
-                //        else
-                //        {
-                //            //arbol gestion
-                //            buscarEstatus("0");
-                //            buscarSubEstatus(ddlEstatus.SelectedValue);
-                //            buscarEstatusSeguimiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue);
-                //        }
-
-                //        if (lblRut.Text == string.Empty)
-                //        {
-                //            ibtnEditarCliente.Visible = false;
-                //        }
-                //        else
-                //        {
-                //            ibtnEditarCliente.Visible = true;
-                //        }
-                //    }
-
-                //    //cotizacion
-                //    DataTable dt = new DataTable();
-                //    Session["dtDetalleProductos"] = dt;
-
-                //    hfRutClientePost.Value = _rutCliente;
-                //    hfRutCliente.Value = _rutCliente;
-                //    Session["rutCliente"] = _rutCliente;
-
-                //    dt.Clear();
-                //    CreateDataTable();
-
-                   
-                //    buscarCliente(_rutCliente);
-
-                //    txtFecAgendamiento_CalendarExtender.StartDate = DateTime.Now;
-
-                //    buscarCondicionVenta();
-
-                //    if (lblRut.Text == string.Empty)
-                //    {
-                //        ibtnEditarCliente.Visible = false;
-                //    }
-                //    else
-                //    {
-                //        ibtnEditarCliente.Visible = true;
-                //    }
-
-                //    buscarCampana();
-                //    buscarActividadComercial();
-                //    buscarNotaVenta();
-                //    factura();
-                //}
-
+               
                 
                 if (this.Page.IsPostBack)
                     return;
@@ -183,9 +53,7 @@ namespace crm_fadonel
                 {
                     Session["idEmpresa"] = "1";
                 }
-
-                //if (this.Session["idEmpresa"] == null)
-                //    this.Session["idEmpresa"] = (object)"1";
+                
                 string idCliente = Convert.ToString(this.Request.QueryString["c"]);
                 string str1 = Convert.ToString(this.Request.QueryString["t"]);
                 string flagCartera = Convert.ToString(this.Request.QueryString["car"]);
@@ -276,21 +144,6 @@ namespace crm_fadonel
         {
             try
             {
-                //string buscar = txtRutoRazonSocial.Text;
-                //if (buscar.Length < 1)
-                //{
-                //    lblInformacion.Text = "Texto de busqueda debe tener al menos 3 caracteres";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //grvEmpresas.DataSource = dal.getBuscarEmpresaPorNombreRut(txtRutoRazonSocial.Text.Trim(), txtRutoRazonSocial.Text.Trim()).Tables[0];
-                //grvEmpresas.DataBind();
-
-                //txtRutoRazonSocial.Text = string.Empty;
-                //mdlEmpresas.Show();
-
-
                 if (this.txtRutoRazonSocial.Text.Length < 1)
                 {
                     this.lblInformacion.Text = "Texto de busqueda debe tener al menos 3 caracteres";
@@ -317,159 +170,6 @@ namespace crm_fadonel
         {
             try
             {
-                //ImageButton img = (ImageButton)sender;
-                //GridViewRow row = (GridViewRow)img.NamingContainer;
-                //Label _lblRutCliente = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblRutCliente");
-                //Label _lblRazonSocial = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblRazonSocial");
-                //Label _lblDireccion = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblDireccion");
-                //Label _lblComuna = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblComuna");
-                //Label _lblMontoCredito = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblMontoCredito");
-                //Label _lblClasificacion = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblClasificacion");
-                //Label _lblZona = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblZona");
-                //Label _lblGiro = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblGiro");
-                //Label _lblEstado = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblEstado");
-                //Label _lblCondicionVenta = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblCondicionVenta");
-                //Label _lblNomCampana = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblNomCampana");
-
-                //Label _lblIdCampana = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblIdCampana");
-
-                //Label _lblMontoVenta12Meses = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblMontoVenta12Meses");
-
-                //Label _lblTotalCotizado = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblTotalCotizado");
-                //Label _lblTotalCerrado = (Label)grvEmpresas.Rows[row.RowIndex].FindControl("lblTotalCerrado");
-
-                //Session["rutCliente"] = _lblRutCliente.Text;
-                //lblRut.Text = _lblRutCliente.Text;
-                //lblRut.Visible = true;
-
-                //lblRazonSocial.Text = _lblRazonSocial.Text;
-                //lblRazonSocial.Visible = true;
-
-                //lblMontoCredito.Text = _lblMontoCredito.Text;
-                //lblMontoCredito.Visible = true;
-
-                //lblClasificacion.Text = _lblClasificacion.Text;
-                //lblClasificacion.Visible = true;
-
-                //lblZona.Text = _lblZona.Text;
-                //lblZona.Visible = true;
-
-                //lblGiro.Text = _lblGiro.Text;
-                //lblGiro.Visible = true;
-
-                //lblEstado.Text = _lblEstado.Text;
-                //lblEstado.Visible = true;
-
-                //lblCondiciondeVenta.Text = _lblCondicionVenta.Text;
-                //lblCondiciondeVenta.Visible = true;
-
-                //lblCampana.Text = _lblNomCampana.Text;
-                //lblCampana.Visible = true;
-
-                //lblIdCampana.Text = _lblIdCampana.Text;
-
-
-                //if (_lblMontoVenta12Meses.Text != string.Empty)
-                //{
-                //    lblMontoVenta12Meses.Text = "$" + Convert.ToDecimal(_lblMontoVenta12Meses.Text).ToString("n0");
-                //}
-                //else
-                //{
-                //    lblMontoVenta12Meses.Text = string.Empty;
-                //}
-
-                //lblMontoVenta12Meses.Visible = true;
-
-                //decimal montoCerrado = 0;
-                //decimal montoCotizado = 0;
-
-                //if (_lblTotalCotizado.Text != string.Empty)
-                //{
-                //    montoCotizado = Convert.ToDecimal(_lblTotalCotizado.Text);
-                //    lblTotalCotizado.Text = "$" + Convert.ToDecimal(_lblTotalCotizado.Text).ToString("n0");
-                //}
-                //else
-                //{
-                //    montoCotizado = 0;
-                //    lblTotalCotizado.Text = string.Empty;
-                //}
-
-                //if (_lblTotalCerrado.Text != string.Empty)
-                //{
-                //    montoCerrado = Convert.ToDecimal(_lblTotalCerrado.Text);
-                //    lblTotalCerrado.Text = "$" + Convert.ToDecimal(_lblTotalCerrado.Text).ToString("n0");
-                //}
-                //else
-                //{
-                //    montoCerrado = 0;
-                //    lblTotalCerrado.Text = string.Empty;
-                //}
-
-                //if (montoCerrado != 0)
-                //{
-                //    lblPorcentajeCierre.Text = ((montoCerrado / montoCotizado) * 100).ToString("n") + "%";
-                //}
-                //else
-                //{
-                //    lblPorcentajeCierre.Text = string.Empty;
-                //}
-
-                //tablaCliente.Visible = true;
-
-                //grvContactos.DataSource = dal.getBuscarContactoPorRutCliente(_lblRutCliente.Text);
-                //grvContactos.DataBind();
-
-                //hfRutClientePost.Value = _lblRutCliente.Text;
-                //buscarCliente(_lblRutCliente.Text);
-
-                //buscarCotizaciones(_lblRutCliente.Text);
-                ////aquiestoy
-                //buscarGestion(lblRut.Text);
-                ////if (grvGestion.Rows.Count != 0)
-                ////{
-                ////    btnGuardar.Visible = true;
-                ////}
-                ////else
-                ////{
-                ////    btnGuardar.Visible = false;
-                ////}
-                //lblRutGestiones.Text = lblRut.Text;
-                //lblRazonSocialGestiones.Text = lblRazonSocial.Text;
-
-                //buscarGestionesCRM();
-
-                ////lblRutCotizacion.Text = _lblRutCliente.Text;
-                ////lblCliente.Text = _lblRazonSocial.Text;
-                ////lblDireccionCotizacion.Text = _lblDireccion.Text;
-                ////lblComunaCotizacin.Text = _lblComuna.Text;
-
-                ////lblCondicionDeVentaCotizacion.Text = _lblCondicionVenta.Text;
-                ////lblMontoCreditoCotizacion.Text = _lblMontoCredito.Text;
-
-                //buscarNotaVenta();
-                //factura();
-                //buscarDireccionesPorCliente();
-
-                //if (lblRut.Text == string.Empty)
-                //{
-                //    ibtnEditarCliente.Visible = false;
-                //}
-                //else
-                //{
-                //    ibtnEditarCliente.Visible = true;
-                //}
-
-
-                ////lblContacto.Text = string.Empty;
-                ////lblIdContacto.Text = string.Empty;
-                ////lblEmail.Text = string.Empty;
-                ////lblEmail2.Text = string.Empty;
-                ////lblCelular.Text = string.Empty;
-                ////lblTelefonoContacto.Text = string.Empty;
-                ////lblTelefonoContacto2.Text = string.Empty;
-
-
-
                 GridViewRow namingContainer = (GridViewRow)((Control)sender).NamingContainer;
                 Label control1 = (Label)this.grvEmpresas.Rows[namingContainer.RowIndex].FindControl("lblIdCliente");
                 Label control2 = (Label)this.grvEmpresas.Rows[namingContainer.RowIndex].FindControl("lblEmailCliente");
@@ -613,28 +313,28 @@ namespace crm_fadonel
 
         protected void imgFirstgrvCotizacionesCRM_Click(object sender, EventArgs e)
         {
-            //cotizacionesSession();
+      
             if (Session["SortedView"] != null)
             {
                 grvCotizacionesCRM.DataSource = Session["SortedView"];
-                //grvCotizacionesCRM.DataBind();
+
             }
             else
             {
                 cotizacionesSession();
             }
-            //DataView dvEmployee = dsCotizaciones;
+ 
             grvCotizacionesCRM.PageIndex = 0;
             grvCotizacionesCRM.DataBind();
         }
 
         protected void imgPrevgrvCotizacionesCRM_Click(object sender, EventArgs e)
         {
-            //cotizacionesSession();
+  
             if (Session["SortedView"] != null)
             {
                 grvCotizacionesCRM.DataSource = Session["SortedView"];
-                //grvCotizacionesCRM.DataBind();
+            
             }
             else
             {
@@ -647,11 +347,11 @@ namespace crm_fadonel
 
         protected void imgNextgrvCotizacionesCRM_Click(object sender, EventArgs e)
         {
-            //cotizacionesSession();
+           
             if (Session["SortedView"] != null)
             {
                 grvCotizacionesCRM.DataSource = Session["SortedView"];
-                //grvCotizacionesCRM.DataBind();
+             
             }
             else
             {
@@ -666,11 +366,11 @@ namespace crm_fadonel
 
         protected void imgLastgrvCotizacionesCRM_Click(object sender, EventArgs e)
         {
-            //cotizacionesSession();
+            
             if (Session["SortedView"] != null)
             {
                 grvCotizacionesCRM.DataSource = Session["SortedView"];
-                //grvCotizacionesCRM.DataBind();
+             
             }
             else
             {
@@ -689,33 +389,6 @@ namespace crm_fadonel
                 _lblPagina.Text = Convert.ToString(grvCotizacionesCRM.PageIndex + 1);
                 _lblTotal.Text = Convert.ToString(grvCotizacionesCRM.PageCount);
             }
-
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    Label _lblIdNotaVenta = (Label)e.Row.FindControl("lblIdNotaVenta");
-            //    Label _lblIdEstadoCotizacion = (Label)e.Row.FindControl("lblIdEstadoCotizacion");
-            //    ImageButton _ibtnGenerarNotaVenta = (ImageButton)e.Row.FindControl("ibtnGenerarNotaVenta");
-            //    ImageButton _imgPdf = (ImageButton)e.Row.FindControl("imgPdf");
-
-            //    if (_lblIdNotaVenta.Text == string.Empty)
-            //    {
-            //        _ibtnGenerarNotaVenta.Visible = true;
-            //    }
-            //    else
-            //    {
-            //        _ibtnGenerarNotaVenta.Visible = false;
-            //    }
-
-            //    if (_lblIdEstadoCotizacion.Text == "5")
-            //    {
-            //        _imgPdf.Visible = false;
-            //    }
-
-            //    if (_lblIdEstadoCotizacion.Text == "5" || _lblIdEstadoCotizacion.Text == "4" || _lblIdEstadoCotizacion.Text == "3" || _lblIdEstadoCotizacion.Text == "2")
-            //    {
-            //        _ibtnGenerarNotaVenta.Visible = false;
-            //    }
-            //}
 
             string str1 = this.Session["variablePerfil"].ToString();
             if (e.Row.RowType != DataControlRowType.DataRow)
@@ -741,23 +414,7 @@ namespace crm_fadonel
 
         protected void grvGestionesCRM_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    Label _lblIdGestion = (Label)e.Row.FindControl("lblIdGestion");
-            //    Label _lblCotizacion = (Label)e.Row.FindControl("lblCotizacion");
-                
-            //    DataTable dt = new DataTable();
-
-            //    dt = dal.getBuscarCotizacionGestion(_lblIdGestion.Text).Tables[0];
-            //    string cotizacion = "";
-            //    foreach (DataRow item in dt.Rows)
-            //    {
-            //        cotizacion += item["ID_COTIZACION"].ToString() + ",";
-            //    }
-
-            //    cotizacion = cotizacion.TrimEnd(',');
-            //    _lblCotizacion.Text = cotizacion;
-            //}
+          
 
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
@@ -804,8 +461,6 @@ namespace crm_fadonel
                 grvCotizacionesCRM.DataSource = sortedView;
                 grvCotizacionesCRM.DataBind();
 
-                //hidTAB.Value = "#seguimiento";
-                //hfSeguimiento.Value = "1";
             }
         }
 
@@ -827,19 +482,7 @@ namespace crm_fadonel
 
         void buscarCotizaciones(string rut)
         {
-            //string idEmpresa = Session["idEmpresa"].ToString();
-            ////dal.getBuscarSeguimiento(null
-            ////grvGestion.DataSource = dal.getBuscarSeguimiento(null, montoCotizacionDesde, montoCotizacionHasta, fechaDesde, fechaHasta);
-            ////grvGestion.DataBind();
-           
-            ////modificacion con dudas
-            //Session["DatosCotizaciones"] = dal.getBuscarCotizacionesEnSeguimientoPorCliente(rut, null);
-            //grvCotizacionesCRM.DataSource = Session["DatosCotizaciones"] as DataSet;
-            //grvCotizacionesCRM.DataBind();
-
-
-            
-            //this.Session["idEmpresa"].ToString();
+          
             Session["DatosCotizaciones"] = dal.getBuscarCotizacionesEnSeguimientoPorCliente(rut, null);
             grvCotizacionesCRM.DataSource = Session["DatosCotizaciones"] as DataSet;
             grvCotizacionesCRM.DataBind();
@@ -856,7 +499,7 @@ namespace crm_fadonel
 
                 buscarDetalleCotizacion(_lblIdCotizacion.Text.Trim());
 
-                //this.buscarDetalleCotizacion(((Label)this.grvCotizacionesCRM.Rows[((GridViewRow)(sender as LinkButton).NamingContainer).RowIndex].FindControl("lblIdCotizacion")).Text.Trim());
+               
             }
             catch (Exception ex)
             {
@@ -893,14 +536,7 @@ namespace crm_fadonel
 
         void buscarGestion(string rut)
         {
-            //string idEmpresa = Session["idEmpresa"].ToString();
-            //grvGestion.DataSource = dal.getBuscarCotizacionesParaGestionar(lblRut.Text, idEmpresa);
-            //grvGestion.DataBind();
-
-            ////modificacion con dudas
-            //Session["DatosCotizaciones"] = dal.getBuscarCotizacionesEnSeguimientoPorCliente(rut, null);
-            //grvCotizacionesCRM.DataSource = Session["DatosCotizaciones"] as DataSet;
-            //grvCotizacionesCRM.DataBind();
+          
 
             string idPerfil = Session["variablePerfil"].ToString();
             string idEmpresa = this.Session["idEmpresa"].ToString();
@@ -924,138 +560,7 @@ namespace crm_fadonel
         
         void buscarClientePorRut(string idCliente)
         {
-            //DataTable dt = dal.getBuscarEmpresaPorNombreRutSinLike(rut, rut).Tables[0];
-
-            //foreach (DataRow item in dt.Rows)
-            //{
-            //    lblRut.Text = item["RUT_CLIENTE"].ToString();
-            //    Session["rutCliente"] = item["RUT_CLIENTE"].ToString();
-            //    lblRazonSocial.Text = item["RAZON_SOCIAL"].ToString();
-            //    lblMontoCredito.Text = item["MONTO_CREDITO"].ToString();
-            //    lblMontoCredito.Visible = true;
-            //    lblClasificacion.Text = item["CLASIFICACION"].ToString();
-            //    lblClasificacion.Visible = true;
-            //    lblZona.Text = item["ZONA"].ToString();
-            //    lblZona.Visible = true;
-            //    lblGiro.Text = item["GIRO"].ToString();
-            //    lblGiro.Visible = true;
-            //    lblEstado.Text = item["NOM_ESTADO_CLIENTE"].ToString();
-            //    lblEstado.Visible = true;
-            //    lblRutGestiones.Text = item["RUT_CLIENTE"].ToString();
-            //    lblRazonSocialGestiones.Text = item["RAZON_SOCIAL"].ToString();
-            //    lblUsuarioAsig.Text = item["USUARIO"].ToString();
-            //    lblCampana.Text = item["NOM_CAMPANA"].ToString();
-            //    lblIdCampana.Text = item["ID_CAMPANA"].ToString();
-
-            //    ///**/
-            //    //lblRutCotizacion.Text = item["RUT_CLIENTE"].ToString();
-            //    //lblCliente.Text = item["RAZON_SOCIAL"].ToString();
-            //    //lblCiudad.Text = item["CIUDAD"].ToString();
-            //    //lblComunaCotizacin.Text = item["COMUNA"].ToString();
-            //    //lblDireccionCotizacion.Text = item["DIRECCION"].ToString();
-            //    //lblTelefono.Text = item["TELEFONO"].ToString();
-            //    lblUsuarioAsig.Text = item["USUARIO"].ToString();
-
-            //    string rutPadre = item["RUT_PADRE"].ToString();
-            //    if (rutPadre.Trim() != string.Empty)
-            //    {
-            //        trRutClientePadreCliente.Visible = true;
-            //        //trRutClientePadreCotizacion.Visible = true;
-            //        trRutClientePadreGestion.Visible = true;
-
-            //        lblRutClientePadreCliente.Text = rutPadre;
-            //        //lblRutClientePadreCotizacion.Text = rutPadre;
-            //        lblRutClientePadreGestion.Text = rutPadre;
-
-            //        lblRazonSocialPadreCliente.Text = item["RAZON_PADRE"].ToString();
-            //        //lblRazonSocialPadreCotizacion.Text = item["RAZON_PADRE"].ToString();
-            //        lblRazonSocialPadreGestion.Text = item["RAZON_PADRE"].ToString();
-            //    }
-            //    else
-            //    {
-            //        trRutClientePadreCliente.Visible = false;
-            //        //trRutClientePadreCotizacion.Visible = false;
-            //        trRutClientePadreGestion.Visible = false;
-
-            //        DataTable dtClientesAsociados = new DataTable();
-            //        dtClientesAsociados = dal.getBuscarClientesAsociados(lblRut.Text).Tables[0];
-            //        if (dtClientesAsociados.Rows.Count==0)
-            //        {
-            //            btnVerClientesAsociados.Visible = false;
-            //        }
-            //        else
-            //        {
-            //            btnVerClientesAsociados.Visible = true;
-            //        }
-            //    }
-
-            //    if (item["MONTO_VENTA_ULTIMO_12"].ToString() != string.Empty)
-            //    {
-            //        lblMontoVenta12Meses.Text = "$" + Convert.ToDecimal(item["MONTO_VENTA_ULTIMO_12"].ToString()).ToString("n0");
-            //    }
-            //    else
-            //    {
-            //        lblMontoVenta12Meses.Text = string.Empty;
-            //    }
-
-            //    decimal montoCerrado = 0;
-            //    decimal montoCotizado = 0;
-            //    if (item["MONTO_COTIZADO"].ToString() != string.Empty)
-            //    {
-            //        montoCotizado = Convert.ToDecimal(item["MONTO_COTIZADO"].ToString());
-            //        lblTotalCotizado.Text = "$" + Convert.ToDecimal(item["MONTO_COTIZADO"].ToString()).ToString("n0");
-            //    }
-            //    else
-            //    {
-            //        montoCotizado = 0;
-            //        lblTotalCotizado.Text = string.Empty;
-            //    }
-            //    if (item["MONTO_CERRADO"].ToString() != string.Empty)
-            //    {
-            //        montoCerrado = Convert.ToDecimal(item["MONTO_CERRADO"].ToString());
-            //        lblTotalCerrado.Text = "$" + Convert.ToDecimal(item["MONTO_CERRADO"].ToString()).ToString("n0");
-            //    }
-            //    else
-            //    {
-            //        montoCerrado = 0;
-            //        lblTotalCerrado.Text = string.Empty;
-            //    }
-
-            //    //lblPorcentajeCierre.Text = ((montoCerrado / montoCotizado)*100).ToString("n") + "%";
-
-            //    if (montoCerrado != 0)
-            //    {
-            //        lblPorcentajeCierre.Text = ((montoCerrado / montoCotizado) * 100).ToString("n") + "%";
-            //    }
-            //    else
-            //    {
-            //        lblPorcentajeCierre.Text = string.Empty;
-            //    }
-
-            //    tablaCliente.Visible = true;
-            //    grvContactos.DataSource = dal.getBuscarContactoPorRutCliente(lblRut.Text);
-            //    grvContactos.DataBind();
-            //    buscarCotizaciones(lblRut.Text);
-            //    //buscarGestionesCRM();
-            //    //buscarCliente(lblRut.Text);
-            //}
-            //tablaCliente.Visible = true;
-
-            //buscarGestion(lblRut.Text);
-            //buscarGestionesCRM();
-            //buscarNotaVenta();
-            //factura();
-            //limpiarContacto();
-            ////lblContacto.Text = string.Empty;
-            ////lblIdContacto.Text = string.Empty;
-            ////lblEmail.Text = string.Empty;
-            ////lblEmail2.Text = string.Empty;
-            ////lblCelular.Text = string.Empty;
-            ////lblTelefonoContacto.Text = string.Empty;
-            ////lblTelefonoContacto2.Text = string.Empty;
-
-
-
+          
             DataTable table = this.dal.getBuscarClientePorId(idCliente).Tables[0];
             if (table.Rows.Count == 0)
             {
@@ -1178,14 +683,12 @@ namespace crm_fadonel
             }
 
         }
-
-        //paginamiento grilla seguimiento
+        
 
 
         protected void gvEmployee_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //buscarSeguimiento();
-
+        
             DataTable dt = new DataTable();
             dt = ds.Tables[0];
             {
@@ -1203,11 +706,7 @@ namespace crm_fadonel
                 DataView sortedView = new DataView(dt);
                 sortedView.Sort = e.SortExpression + " " + SortDir;
                 Session["SortedViewSeguimiento"] = sortedView;
-                //grvSeguimiento.DataSource = sortedView;
-                //grvSeguimiento.DataBind();
-
-                //hidTAB.Value = "#seguimiento";
-                //hfSeguimiento.Value = "1";
+                
             }
         }
 
@@ -1310,23 +809,7 @@ namespace crm_fadonel
             try
             {
                 string idEmpresa = Session["idEmpresa"].ToString();
-
-                //DataTable dt = dal.getBuscarMotivoNoCompra(ddlEstatusSeguimiento.SelectedValue).Tables[0];
-                //if (dt.Rows.Count != 0)
-                //{
-                //    ddlMotivoNoCompra.DataSource = dt;
-                //    ddlMotivoNoCompra.DataValueField = "ID_MOTIVO_NO_COMPRA";
-                //    ddlMotivoNoCompra.DataTextField = "MOTIVO_NO_COMPRA";
-                //    ddlMotivoNoCompra.DataBind();
-                //}
-                //else
-                //{
-                //    //ddlMotivoNoCompra.ClearSelection();
-                //    ddlMotivoNoCompra.Items.Clear();
-                //}
-
-
-                //dt.Clear();
+                
                 DataTable dt = new DataTable();
 
                 dt = dal.getBuscarAgendamiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue, ddlEstatusSeguimiento.SelectedValue, idEmpresa).Tables[0];
@@ -1391,128 +874,7 @@ namespace crm_fadonel
         {
             try
             {
-                //string idEmpresa = Session["idEmpresa"].ToString();
-
-                ////************OBLIGACION COTIZACION*************//
-                //if (hfVieneSeguimiento.Value == "1")
-                //{
-                //    DataTable dtAgend = new DataTable();
-                //    dtAgend = dal.getBuscarAgendamiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue, ddlEstatusSeguimiento.SelectedValue, idEmpresa).Tables[0];
-
-                //    string exigeCot = "";
-                //    foreach (DataRow item in dtAgend.Rows)
-                //    {
-                //        exigeCot = item["EXIGE_COT"].ToString();
-                //    }
-
-                //    if (exigeCot == "1")
-                //    {
-                //        if (grvGestion.Rows.Count == 0)
-                //        {
-                //            lblInformacion.Text = "No existen cotizaciones para gestionar";
-                //            mdlInformacion.Show();
-                //            return;
-                //        }
-
-                //        if (grvGestion.Rows.Count != 0)
-                //        {
-                //            string cot = "";
-                //            foreach (GridViewRow grd_Row in grvGestion.Rows)
-                //            {
-                //                CheckBox chk = (CheckBox)grvGestion.Rows[grd_Row.RowIndex].FindControl("chkSeleccionar");
-                //                if (chk.Checked == true)
-                //                {
-                //                    cot = "1";
-                //                }
-                //            }
-
-                //            if (cot == "")
-                //            {
-                //                lblInformacion.Text = "Debe seleccionar alguna cotización";
-                //                mdlInformacion.Show();
-                //                return;
-                //            }
-                //        }
-                //    }
-
-                //}
-
-                //if (ddlEstatus.SelectedValue == "0" || ddlSubEstatus.SelectedValue == "0" || ddlEstatusSeguimiento.SelectedValue == "0")
-                //{
-                //    lblInformacion.Text = "Debe seleccionar algun estatus";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //string codGestion = ddlEstatus.SelectedValue + "-" + ddlSubEstatus.SelectedValue + "-" + ddlEstatusSeguimiento.SelectedValue;
-
-
-                //string nombre = Session["variableUsuario"].ToString();
-                //string idUsuario = Session["variableIdUsuario"].ToString();
-                ////foreach (DataRow item in dal.getBuscarUsuario(nombre, null).Tables[0].Rows)
-                ////{
-                ////    idUsuario = item["ID_USUARIO"].ToString();
-                ////}
-
-                //string rut = lblRutGestiones.Text;
-                //string hora = txtHora.Text;
-                //string fechaAgend = txtFecAgendamiento.Text;
-
-                //DateTime dateFechaAgend = new DateTime();
-                //if (fechaAgend != string.Empty)
-                //{
-                //    dateFechaAgend = Convert.ToDateTime(fechaAgend + " " + hora);
-                //    DateTime Hoy = DateTime.Now;
-                //    if (dateFechaAgend < Hoy)
-                //    {
-                //        lblInformacion.Text = "Favor seleccionar una fecha superior a la de hoy";
-                //        mdlInformacion.Show();
-                //        return;
-                //    }
-                //}
-
-                ////string fechaIngreso = "";
-                ////foreach (GridViewRow grd_Row in grvGestion.Rows)
-                ////{
-                ////    Label _lblRut = (Label)grvGestion.Rows[grd_Row.RowIndex].FindControl("lblRut");
-                ////    //Label _lblFechaIngreso = (Label)grvGestion.Rows[grd_Row.RowIndex].FindControl("lblFechaIngreso");
-                ////    rut = _lblRut.Text;
-                ////    //fechaIngreso = _lblFechaIngreso.Text;
-                ////}
-
-                //string idGestion = dal.setIngresarGestion(rut, idEmpresa, ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue, idUsuario, txtFecAgendamiento.Text, hora, txtObservacion.Text, "", ddlEstatusSeguimiento.SelectedValue, ddlMotivoNoCompra.SelectedValue, txtFechaVisita.Text, lblIdCampana.Text);
-
-                //if (grvGestion.Rows.Count != 0)
-                //{
-                //    foreach (GridViewRow grd_Row in grvGestion.Rows)
-                //    {
-                //        CheckBox chk = (CheckBox)grvGestion.Rows[grd_Row.RowIndex].FindControl("chkSeleccionar");
-                //        if (chk.Checked == true)
-                //        {
-                //            Label _lblIdCotizacion = (Label)grvGestion.Rows[grd_Row.RowIndex].FindControl("lblCotizacion");
-                //            dal.setIngresarGestionCotizacion(idGestion, _lblIdCotizacion.Text);
-                //            //dal.setEditarHistorial(rut, _lblIdCotizacion.Text, fechaIngreso, "", idGestion);
-
-                //            DataTable dt = new DataTable();
-                //            dt = dal.getBuscarAgendamiento(ddlEstatus.SelectedValue, ddlSubEstatus.SelectedValue, ddlEstatusSeguimiento.SelectedValue, idEmpresa).Tables[0];
-                //            foreach (DataRow item in dt.Rows)
-                //            {
-                //                string terminal = item["TERMINAL"].ToString();
-                //                if (terminal == "True")
-                //                {
-                //                    dal.setEditarEstadoCotizacion(_lblIdCotizacion.Text, "6", null, null);
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
-
-                //buscarGestionesCRM();
-                //limpiar();
-
-                //TabContainer1.ActiveTab = tpCliente;
-                //lblInformacion.Text = "<strong>Correcto!</strong> La gestión se ingresó correctamente.";
-                //mdlInformacion.Show();
+                
 
                 string idEmpresa = this.Session["idEmpresa"].ToString();
                 if (this.hfVieneSeguimiento.Value == "1")
@@ -1554,7 +916,6 @@ namespace crm_fadonel
                 }
                 else
                 {
-                    //this.ddlEstatus.SelectedValue + "-" + this.ddlSubEstatus.SelectedValue + "-" + this.ddlEstatusSeguimiento.SelectedValue;
                     this.Session["variableUsuario"].ToString();
                     string idUsuario = this.Session["variableIdUsuario"].ToString();
                     string text1 = this.lblRutGestiones.Text;
@@ -1617,9 +978,6 @@ namespace crm_fadonel
         {
             try
             {
-                //string rutCliente = lblRut.Text;
-                //dal.setIngresarContacto(txtNombreContacto.Text, rutCliente, txtEmail1.Text, txtEmail2.Text, txtCelular.Text, txtTelefono1.Text, txtTelefono2.Text,ddlCargo.SelectedValue);
-                //buscarContactos(lblRut.Text);
                 string rutCliente = this.Session["IdCliente"].ToString();
                 this.dal.setIngresarContacto(this.txtNombreContacto.Text, rutCliente, this.txtEmail1.Text, this.txtEmail2.Text, this.txtCelular.Text, this.txtTelefono1.Text, this.txtTelefono2.Text, this.ddlCargo.SelectedValue);
                 this.buscarContactos(rutCliente);
@@ -1636,8 +994,7 @@ namespace crm_fadonel
         {
             try
             {
-                //dal.setEditarContacto(hfIdContacto.Value, txtNombreContacto.Text, lblRut.Text, txtEmail1.Text, txtEmail2.Text, txtCelular.Text, txtTelefono1.Text, txtTelefono2.Text,ddlCargo.SelectedValue);
-                //buscarContactos(lblRut.Text);
+
                 string rutCliente = this.Session["IdCliente"].ToString();
                 this.dal.setEditarContacto(this.hfIdContacto.Value, this.txtNombreContacto.Text, rutCliente, this.txtEmail1.Text, this.txtEmail2.Text, this.txtCelular.Text, this.txtTelefono1.Text, this.txtTelefono2.Text, this.ddlCargo.SelectedValue);
                 this.buscarContactos(rutCliente);
@@ -1655,7 +1012,7 @@ namespace crm_fadonel
         {
             grvContactos.DataSource = dal.getBuscarContactoPorRutCliente(rutCliente);
             grvContactos.DataBind();
-            //mdlContactos.Show();
+       
         }
 
 
@@ -1664,22 +1021,7 @@ namespace crm_fadonel
             try
             {
 
-                //if (lblRut.Text == string.Empty)
-                //{
-                //    lblInformacion.Text = "No puede ingresar un contacto si no hay un cliente seleccionado";
-                //    mdlInformacion.Show();
-                //    return;
-                //}
-
-                //btnGrabarContacto.Visible = true;
-                //btnModificarContacto.Visible = false;
-
-                ////limpiar(this.Controls);
-                //limpiarContacto();
-                //buscarContactoCargo();
-                //lblAgregarContacto.Text = "Nuevo Contacto";
-
-                //mdlAgregarContacto.Show();
+               
 
                 if (this.Session["IdCliente"] == null)
                 {
@@ -1705,7 +1047,7 @@ namespace crm_fadonel
 
         void limpiarContacto() 
         {
-            //hfIdContacto.Value = string.Empty;
+           
             txtNombreContacto.Text = string.Empty;
             txtEmail1.Text = string.Empty;
             txtEmail2.Text = string.Empty;
@@ -1732,8 +1074,7 @@ namespace crm_fadonel
                 else if (control is CheckBox)
                     ((CheckBox)control).Checked = false;
                 else if (control.HasControls())
-                    //Esta linea detécta un Control que contenga otros Controles
-                    //Así ningún control se quedará sin ser limpiado.
+                 
                     limpiar(control.Controls);
             }
         }
@@ -2402,7 +1743,7 @@ namespace crm_fadonel
 
                 //ddlDireccionNotaVenta.ClearSelection();
                 //ddlDireccionFacturacionNotaVenta.ClearSelection();
-                
+
                 //ddlDireccionNotaVenta.DataSource = dal.getBuscarClienteDireccion(lblRut.Text);
                 //ddlDireccionNotaVenta.DataTextField = "DIRECCION";
                 //ddlDireccionNotaVenta.DataValueField = "ID_CLIENTE_DIRECCION";
@@ -2416,6 +1757,33 @@ namespace crm_fadonel
                 //hfIdCotizacionSeleccionDireccion.Value = _lblIdCotizacion.Text;
                 //mdlSeleccionarTipoDireccion.Show();
 
+                if (string.IsNullOrEmpty(lblRut.Text.Trim()))
+                {
+                    lblInformacion.Text = "Para generar una nota de venta, se necesita tener los siguientes datos del cliente; RUT, RAZON SOCIAL, DIRECCION, CIUDAD, GIRO, COMUNA, ACT COMERCIAL.";
+                    mdlInformacion.Show();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(lblRazonSocial.Text.Trim()))
+                {
+                    lblInformacion.Text = "Para generar una nota de venta, se necesita tener los siguientes datos del cliente; RUT, RAZON SOCIAL, DIRECCION, CIUDAD, GIRO, COMUNA, ACT COMERCIAL.";
+                    mdlInformacion.Show();
+                    return;
+                }
+
+                //if (string.IsNullOrEmpty(lblDireccion.Text.Trim()))
+                //{
+                //    lblInformacion.Text = "Para generar una nota de venta, se necesita tener los siguientes datos del cliente; RUT, RAZON SOCIAL, DIRECCION, CIUDAD, GIRO, COMUNA, ACT COMERCIAL.";
+                //    mdlInformacion.Show();
+                //    return;
+                //}
+
+                if (string.IsNullOrEmpty(lblGiro.Text.Trim()))
+                {
+                    lblInformacion.Text = "Para generar una nota de venta, se necesita tener los siguientes datos del cliente; RUT, RAZON SOCIAL, DIRECCION, CIUDAD, GIRO, COMUNA, ACT COMERCIAL.";
+                    mdlInformacion.Show();
+                    return;
+                }
 
                 Label control = (Label)this.grvCotizacionesCRM.Rows[((GridViewRow)(sender as ImageButton).NamingContainer).RowIndex].FindControl("lblIdCotizacion");
                 string rutCliente = this.Session["IdCliente"].ToString();
@@ -2518,16 +1886,30 @@ namespace crm_fadonel
                     str2 = "ordenCompra/" + this.fuArchivoOC2.FileName;
                     this.fuArchivoOC2.SaveAs(this.Server.MapPath(str2));
                 }
-                string str3 = this.dal.setIngresarNotaVenta(idCotizacion, selectedValue2, selectedValue1, text1, this.txtOrdenCompra.Text, str1, str2);
+
+                if (txtFechaEntrega.Text==string.Empty)
+                {
+                    
+                }
+
+                string idNotaVenta = this.dal.setIngresarNotaVenta(idCotizacion, selectedValue2, selectedValue1, text1, this.txtOrdenCompra.Text, str1, str2);
+                //string idOrdenTrabajo = dal.setIngresarOrdenTrabajo(idNotaVenta, idCotizacion, selectedValue2, selectedValue1, text1, txtOrdenCompra.Text, str1, str2, txtFechaEntrega.Text);
+                
                 DataTable dataTable2 = new DataTable();
                 foreach (DataRow row in (InternalDataCollectionBase)this.dal.getBuscarCotizacionDetalle(idCotizacion).Tables[0].Rows)
-                    this.dal.setEditarProductoDescontarStock(Convert.ToInt32(row["ID_PRODUCTO"]), Convert.ToInt32(row["CANTIDAD"]));
-                string rutaPdf = this.generarNotaVentaPdf(str3, idCotizacion, nombreEjecutivo);
-                this.dal.setEditarRutaPdfNotaVenta(str3, rutaPdf);
+                {
+                    dal.setEditarProductoDescontarStock(Convert.ToInt32(row["ID_PRODUCTO"]), Convert.ToInt32(row["CANTIDAD"]));
+                }
+     
+                string rutaPdf = this.generarNotaVentaPdf(idNotaVenta, idCotizacion, nombreEjecutivo);
+                //string rutaPdfOT = generarOrdenTrabajoPdf(idOrdenTrabajo, idNotaVenta, idCotizacion, nombreEjecutivo);
+
+                this.dal.setEditarRutaPdfNotaVenta(idNotaVenta, rutaPdf);
                 this.dal.setEditarEstadoCotizacion(idCotizacion, "3", (string)null, (string)null);
                 this.buscarCotizaciones(rut);
                 this.buscarNotaVenta();
                 ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdf + "','_blank');", true);
+                //ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdfOT + "','_blank');", true);
             }
             catch (Exception ex)
             {
@@ -2609,697 +1991,7 @@ namespace crm_fadonel
             this.grvNotaVenta.DataSource = (object)this.dal.getBuscarNotaVentaPorCliente(this.Session["IdCliente"].ToString());
             this.grvNotaVenta.DataBind();
         }
-
-        //public string generarNotaVentaPdf(string notaVenta, string idCotizacion, string nombreEjecutivo)
-        //{
-        //    DateTime Hoy = DateTime.Today;
-        //    string fechaHoy = Hoy.ToString("dd-MM-yyyy");
-
-        //    string nombreArchivoPdf = "NotaVenta_" + notaVenta + ".pdf";
-        //    BaseFont bfTimes = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
-
-        //    Font times = new Font(bfTimes, 7, Font.NORMAL);
-        //    Font timesRojo = new Font(bfTimes, 9, Font.BOLD, BaseColor.RED);
-        //    Font timesCorrelativo = new Font(bfTimes, 9, Font.BOLD);
-        //    Font fontCabecera = new Font(bfTimes, 8, Font.BOLD);
-        //    Font fontFirma = new Font(bfTimes, 8, Font.BOLD);
-
-        //    Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
-        //    PdfWriter writePdf = PdfWriter.GetInstance(doc, new FileStream(Server.MapPath("notaVenta/" + nombreArchivoPdf), FileMode.Create));
-        //    doc.Open();
-
-        //    string nombreEmp = "";
-        //    string giroEmp = "";
-        //    string rutEmp = "";
-        //    string telefonoEmp = "";
-        //    string logoEmpresa = "";
-
-        //    foreach (DataRow item in dal.getBuscarEmpresa(null, Session["idEmpresa"].ToString()).Tables[0].Rows)
-        //    {
-        //        nombreEmp = item["NOMBRE_EMPRESA"].ToString();
-        //        giroEmp = item["GIRO"].ToString();
-        //        rutEmp = item["RUT"].ToString();
-        //        telefonoEmp = item["TELEFONO"].ToString();
-        //        logoEmpresa = item["IMAGEN"].ToString();
-        //    }
-
-        //    PdfPTable tableEmpresa = new PdfPTable(3);
-
-        //    PdfPTable table1 = new PdfPTable(1);
-        //    PdfPCell celdaNombreEmpresa = new PdfPCell(new Paragraph(nombreEmp, fontCabecera));
-        //    PdfPCell celdaGiroEmpresa = new PdfPCell(new Paragraph(giroEmp, fontCabecera));
-        //    PdfPCell celdaRutEmpresa = new PdfPCell(new Paragraph(rutEmp, fontCabecera));
-        //    PdfPCell celdaTelefonoEmpresa = new PdfPCell(new Paragraph(telefonoEmp, fontCabecera));
-
-        //    table1.AddCell(celdaNombreEmpresa);
-        //    table1.AddCell(celdaGiroEmpresa);
-        //    table1.AddCell(celdaRutEmpresa);
-        //    table1.AddCell(celdaTelefonoEmpresa);
-
-        //    foreach (PdfPCell celda in table1.Rows[0].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-        //    foreach (PdfPCell celda in table1.Rows[1].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-        //    foreach (PdfPCell celda in table1.Rows[2].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-        //    foreach (PdfPCell celda in table1.Rows[3].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    tableEmpresa.AddCell(table1);
-
-        //    PdfPTable table2 = new PdfPTable(1);
-
-        //    if (logoEmpresa != string.Empty)
-        //    {
-        //        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(Server.MapPath(logoEmpresa));
-        //        jpg.ScaleToFit(150, 150);
-        //        jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-        //        table2.AddCell(jpg);
-        //    }
-        //    else
-        //    {
-        //        logoEmpresa = "assets/img/logoEmpresa.jpg";
-        //        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(Server.MapPath(logoEmpresa));
-        //        jpg.ScaleToFit(120, 120);
-        //        jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-        //        table2.AddCell(jpg);
-        //    }
-        //    foreach (PdfPCell celda in table2.Rows[0].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    tableEmpresa.AddCell(table2);
-
-        //    PdfPTable tableNumeroCotizacion = new PdfPTable(2);
-        //    PdfPCell celdaNumeroComprobante = new PdfPCell(new Paragraph("Nro. Nota Venta :", fontCabecera));
-        //    //celdaNumeroComprobante.HorizontalAlignment = 2;
-        //    PdfPCell celdaEstadoNotaVenta = new PdfPCell(new Paragraph("Estado :", fontCabecera));
-        //    PdfPCell celdaNumeroComprobanteFecha = new PdfPCell(new Paragraph("Fecha :", fontCabecera));
-        //    PdfPCell celdaNumeroOC = new PdfPCell(new Paragraph("Nº OC :", fontCabecera));
-        //    PdfPCell celdaNumeroCot = new PdfPCell(new Paragraph("Nº Cot :", fontCabecera));
-        //    //PdfPCell celdaEjecutivo = new PdfPCell(new Paragraph("Ejecutivo :", fontCabecera));
-        //    //celdaNumeroComprobanteFecha.HorizontalAlignment = 2;
-
-        //    tableNumeroCotizacion.AddCell(celdaNumeroComprobante);
-        //    tableNumeroCotizacion.AddCell(new Paragraph(notaVenta, times));
-
-        //    tableNumeroCotizacion.AddCell(celdaEstadoNotaVenta);
-        //    tableNumeroCotizacion.AddCell(new Paragraph("Vigente", times));
-
-        //    tableNumeroCotizacion.AddCell(celdaNumeroComprobanteFecha);
-        //    tableNumeroCotizacion.AddCell(new Paragraph(fechaHoy, times));
-
-        //    tableNumeroCotizacion.AddCell(celdaNumeroOC);
-        //    tableNumeroCotizacion.AddCell(new Paragraph(txtOrdenCompra.Text, times));
-
-        //    tableNumeroCotizacion.AddCell(celdaNumeroCot);
-        //    tableNumeroCotizacion.AddCell(new Paragraph(idCotizacion, times));
-
-        //    //tableNumeroCotizacion.AddCell(celdaEjecutivo);
-        //    //tableNumeroCotizacion.AddCell(new Paragraph(nombreEjecutivo, times));
-
-        //    tableNumeroCotizacion.DefaultCell.Border = Rectangle.NO_BORDER;
-
-        //    tableNumeroCotizacion.HorizontalAlignment = Element.ALIGN_RIGHT;
-        //    tableNumeroCotizacion.WidthPercentage = 25.0f;
-
-        //    foreach (PdfPCell celda in tableNumeroCotizacion.Rows[0].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    foreach (PdfPCell celda in tableNumeroCotizacion.Rows[1].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //        //celda.HorizontalAlignment = 2;
-        //    }
-
-        //    foreach (PdfPCell celda in tableNumeroCotizacion.Rows[2].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    foreach (PdfPCell celda in tableNumeroCotizacion.Rows[3].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    foreach (PdfPCell celda in tableNumeroCotizacion.Rows[4].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    //foreach (PdfPCell celda in tableNumeroCotizacion.Rows[5].GetCells())
-        //    //{
-        //    //    celda.Border = Rectangle.NO_BORDER;
-        //    //}
-        //    tableEmpresa.AddCell(tableNumeroCotizacion);
-        //    tableEmpresa.DefaultCell.Border = Rectangle.NO_BORDER;
-
-        //    tableEmpresa.HorizontalAlignment = Element.ALIGN_CENTER;
-        //    tableEmpresa.WidthPercentage = 100.0f;
-
-        //    foreach (PdfPCell celda in tableEmpresa.Rows[0].GetCells())
-        //    {
-        //        celda.Border = Rectangle.NO_BORDER;
-        //    }
-
-        //    doc.Add(tableEmpresa);
-
-        //    //FIN CABECERA
-
-
-        //    //doc.Add(new Paragraph(" ", times));
-        //    Chunk tituloTipoExamen = new Chunk("Nota Venta", FontFactory.GetFont("ARIAL", 11, iTextSharp.text.Font.BOLD));
-        //    tituloTipoExamen.SetUnderline(0.1f, -2f);
-
-        //    Paragraph par = new Paragraph(tituloTipoExamen);
-        //    par.Alignment = Element.ALIGN_CENTER;
-        //    doc.Add(par);
-
-        //    //doc.Add(tituloTipoExamen);
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    //datos deudor
-        //    //doc.Add(new Paragraph("Datos Deudor", times));
-
-
-
-        //    string tituloClientePricipalOAsociado = string.Empty;
-        //    string tituloContactoPrincipalOAsociado = string.Empty;
-
-        //    DataTable dtCliente2 = new DataTable();
-        //    //dtCliente2 = dal.getBuscarCliente(lblRut.Text, lblRut.Text, "1").Tables[0];
-        //    dtCliente2 = dal.getBuscarClientePorRut(lblRut.Text).Tables[0];
-
-        //    foreach (DataRow item in dtCliente2.Rows)
-        //    {
-        //        string rutPadre = item["RUT_PADRE"].ToString();
-        //        if (rutPadre != string.Empty)
-        //        {
-        //            tituloClientePricipalOAsociado = "Datos Cliente Asociado";
-        //            tituloContactoPrincipalOAsociado = "Datos Contacto Cliente Asociado";
-        //        }
-        //        else
-        //        {
-        //            tituloClientePricipalOAsociado = "Datos Cliente";
-        //            tituloContactoPrincipalOAsociado = "Datos Contacto";
-        //        }
-        //    }
-
-
-
-        //    Chunk datosCliente = new Chunk(tituloClientePricipalOAsociado, FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
-        //    datosCliente.SetUnderline(0.1f, -2f);
-        //    doc.Add(datosCliente);
-
-        //    PdfPTable tableDatosCliente = new PdfPTable(4);
-
-        //    float[] widthsDatosCliente = new float[] { 35f, 95f, 35f, 55f };
-        //    tableDatosCliente.SetWidths(widthsDatosCliente);
-
-        //    string comunaCliente = "";
-        //    string ciudadCliente = "";
-        //    string giroCliente = "";
-        //    string condVentaCliente = "";
-        //    string telefono = string.Empty;
-        //    //foreach (DataRow item in dal.getBuscarClientePorRut(lblRut.Text).Tables[0].Rows)
-        //    foreach (DataRow item in dtCliente2.Rows)
-        //    {
-        //        comunaCliente = item["COMUNA"].ToString();
-        //        ciudadCliente = item["CIUDAD"].ToString();
-        //        giroCliente = item["GIRO"].ToString();
-        //        condVentaCliente = item["GLOSA"].ToString();
-        //        telefono = item["TELEFONO"].ToString();
-        //    }
-
-        //    tableDatosCliente.AddCell(new Paragraph("Nombre :", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(lblRazonSocial.Text, times));
-        //    tableDatosCliente.AddCell(new Paragraph("Rut :", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(lblRut.Text, times));
-           
-        //    tableDatosCliente.AddCell(new Paragraph("Dirección :", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(lblDireccion.Text, times));
-        //    tableDatosCliente.AddCell(new Paragraph("Vendedor:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(nombreEjecutivo, times));
-
-        //    tableDatosCliente.AddCell(new Paragraph("Comuna:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(comunaCliente, times));
-        //    tableDatosCliente.AddCell(new Paragraph("Ciudad:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(ciudadCliente, times));
-
-        //    tableDatosCliente.AddCell(new Paragraph("Giro:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(giroCliente, times));
-        //    tableDatosCliente.AddCell(new Paragraph("Cond de Venta:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(condVentaCliente, times));
-
-        //    tableDatosCliente.AddCell(new Paragraph("Teléfono:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(telefono, times));
-        //    tableDatosCliente.AddCell(new Paragraph(" ", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(" ", times));
-
-        //    tableDatosCliente.AddCell(new Paragraph("Glosa:", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(txtGlosa.Text, times));
-        //    tableDatosCliente.AddCell(new Paragraph(" ", fontCabecera));
-        //    tableDatosCliente.AddCell(new Paragraph(" ", times));
-
-        //    tableDatosCliente.HorizontalAlignment = Element.ALIGN_LEFT;
-        //    tableDatosCliente.WidthPercentage = 100.0f;
-
-        //    doc.Add(tableDatosCliente);
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    Chunk datosContacto = new Chunk(tituloContactoPrincipalOAsociado, FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
-        //    datosContacto.SetUnderline(0.1f, -2f);
-        //    doc.Add(datosContacto);
-
-        //    PdfPTable tableDatosContacto = new PdfPTable(4);
-        //    float[] widthsDatosContacto = new float[] { 35f, 95f, 35f, 95f };
-        //    tableDatosContacto.SetWidths(widthsDatosContacto);
-
-        //    string idContacto = "";
-        //    string contacto = "";
-        //    string telefonoContacto = "";
-        //    string celularContacto = "";
-        //    string emailContacto = "";
-        //    string rutaOC1 = string.Empty;
-        //    string rutaOC2 = string.Empty;
-
-        //    foreach (DataRow item in dal.getBuscarNotaVenta(notaVenta).Tables[0].Rows)
-        //    {
-        //        idContacto = item["ID_CONTACTO"].ToString();
-        //        rutaOC1= item["RUTA_ORDEN_DE_COMPRA"].ToString();
-        //        rutaOC2 =  item["RUTA_ORDEN_DE_COMPRA2"].ToString();
-        //        break;
-        //    }
-
-        //    foreach (DataRow fila in dal.getBuscarContactoPorId(idContacto).Tables[0].Rows)
-        //    {
-        //        contacto = fila["NOM_CONTACTO"].ToString();
-        //        telefonoContacto = fila["TELEFONO1"].ToString();
-        //        celularContacto = fila["CELULAR"].ToString();
-        //        emailContacto = fila["EMAIL_1"].ToString();
-        //    }
-        //    //
-
-        //    tableDatosContacto.AddCell(new Paragraph("Contacto :", fontCabecera));
-        //    tableDatosContacto.AddCell(new Paragraph(contacto, times));
-        //    tableDatosContacto.AddCell(new Paragraph("Teléfono :", fontCabecera));
-        //    tableDatosContacto.AddCell(new Paragraph(telefonoContacto, times));
-        //    tableDatosContacto.AddCell(new Paragraph("Celular :", fontCabecera));
-        //    tableDatosContacto.AddCell(new Paragraph(celularContacto, times));
-        //    tableDatosContacto.AddCell(new Paragraph("Email :", fontCabecera));
-        //    tableDatosContacto.AddCell(new Paragraph(emailContacto, times));
-
-        //    tableDatosContacto.HorizontalAlignment = Element.ALIGN_LEFT;
-        //    tableDatosContacto.WidthPercentage = 100.0f;
-
-        //    doc.Add(tableDatosContacto);
-
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    //18102016
-        //    //tabla de datos cliente asociado
-        //    //DataTable dtCliente = new DataTable();
-        //    //dtCliente = dal.getBuscarCliente(lblRut.Text, lblRut.Text, "1").Tables[0];
-        //    PdfPTable tableDatosClienteAsociado = new PdfPTable(4);
-        //    foreach (DataRow item in dtCliente2.Rows)
-        //    {
-        //        string rutPadre = item["RUT_PADRE"].ToString();
-        //        if (rutPadre.Trim() != string.Empty)
-        //        {
-        //            string razonSocialPadre = item["RAZON_PADRE"].ToString();
-        //            string direccionPadre = item["DIRECCION_PADRE"].ToString();
-        //            string telefonoPadre = item["TELEFONO_PADRE"].ToString();
-        //            string giroPadre = item["GIRO_PADRE"].ToString();
-
-        //            doc.Add(new Paragraph(" ", times));
-        //            Chunk datosClienteAsociado = new Chunk("Datos Cliente Principal", FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
-        //            datosClienteAsociado.SetUnderline(0.1f, -2f);
-        //            doc.Add(datosClienteAsociado);
-
-        //            float[] widthsDatosClienteAsociado = new float[] { 35f, 95f, 35f, 55f };
-        //            tableDatosClienteAsociado.SetWidths(widthsDatosClienteAsociado);
-        //            tableDatosClienteAsociado.AddCell(new Paragraph("Rut :", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(rutPadre, times));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph("Nombre :", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(razonSocialPadre, times));
-
-        //            tableDatosClienteAsociado.AddCell(new Paragraph("Dirección :", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(razonSocialPadre, times));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph("Teléfono:", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(telefonoPadre, times));
-
-        //            tableDatosClienteAsociado.AddCell(new Paragraph("Giro :", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(giroPadre, times));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(" ", fontCabecera));
-        //            tableDatosClienteAsociado.AddCell(new Paragraph(" ", times));
-
-        //            tableDatosClienteAsociado.HorizontalAlignment = Element.ALIGN_LEFT;
-        //            tableDatosClienteAsociado.WidthPercentage = 100.0f;
-        //        }
-
-        //    }
-
-        //    doc.Add(tableDatosClienteAsociado);
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    //doc.Add(new Paragraph(" En respuesta a su consulta, le entregamos la siguiente cotizacion.", times));
-        //    //doc.Add(new Paragraph(" Confiamos que tanto nuestros precios como condiciones le sean favorables, y aprovechamos la oportunidad para saludarle y quedar a vuestra entera disposición.", times));
-
-
-
-        //    doc.Add(new Paragraph(" ", times));
-        //    Chunk datosDetalleCotizacion = new Chunk("Detalle Venta", FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
-        //    datosDetalleCotizacion.SetUnderline(0.1f, -2f);
-        //    doc.Add(datosDetalleCotizacion);
-
-        //    //PdfPTable tableDetalleCotizacion = new PdfPTable(4);
-        //    //float[] widthsDetalleCotizacion = new float[] { 35f, 95f, 35f, 95f };
-        //    //tableDetalleCotizacion.SetWidths(widthsDetalleCotizacion);
-
-        //    //tableDetallePago.AddCell(new Paragraph("Lugar de Pago :", fontCabecera));
-        //    //tableDetallePago.AddCell(new Paragraph(ddlLugarPago.SelectedItem.ToString(), times));
-        //    //tableDetallePago.AddCell(new Paragraph("Tipo Pago :", fontCabecera));
-        //    //tableDetallePago.AddCell(new Paragraph(ddlTipoPago.SelectedItem.ToString(), times));
-
-        //    //tableDetallePago.HorizontalAlignment = Element.ALIGN_LEFT;
-        //    //tableDetallePago.WidthPercentage = 100.0f;
-
-        //    //doc.Add(tableDetallePago);
-
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    //DataTable dtDetallePago = new DataTable();
-        //    //dtDetallePago = Bus.getBuscarDocumentosPagos(idPago).Tables[0];
-
-        //    PdfPTable tableDetalle = new PdfPTable(3);
-        //    tableDetalle.AddCell(new Paragraph("Código", fontCabecera));
-        //    tableDetalle.AddCell(new Paragraph("Producto", fontCabecera));
-        //    tableDetalle.AddCell(new Paragraph("Cantidad", fontCabecera));
-        //    //tableDetalle.AddCell(new Paragraph("P.Unitario", fontCabecera));
-        //    //tableDetalle.AddCell(new Paragraph("Valor Total", fontCabecera));
-        //    //tableDetalle.AddCell(new Paragraph("% Desc", fontCabecera));
-        //    //tableDetalle.AddCell(new Paragraph("Descuento", fontCabecera));
-        //    //tableDetalle.AddCell(new Paragraph("Valor Final", fontCabecera));
-        //    float[] widthsDatosDetalle = new float[] { 35f, 105f, 25f };
-        //    tableDetalle.SetWidths(widthsDatosDetalle);
-        //    //        PdfPTable tableExamenesAdicionales = new PdfPTable(1);
-        //    //        tableExamenesAdicionales.AddCell(new Paragraph("Nombre Examen", fontCabecera));
-
-        //    DataTable dtDetalleCot = new DataTable();
-        //    dtDetalleCot = dal.getBuscarDetalleNotaVenta(notaVenta).Tables[0];
-            
-        //    foreach (DataRow item in dtDetalleCot.Rows)
-        //    {
-        //        tableDetalle.AddCell(new Paragraph(item["CODIGO"].ToString(), times));
-        //        tableDetalle.AddCell(new Paragraph(item["NOM_PRODUCTO"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", "."), times));
-        //        //tableDetalle.AddCell(new Paragraph(item["CANTIDAD"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", "."), times));
-                
-        //        string cantidad = item["CANTIDAD"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", ".");
-        //        string montoUni = (Convert.ToDouble(item["MONTO_NETO"]) / Convert.ToDouble(item["CANTIDAD"])).ToString("n0");
-
-        //        string monto = item["MONTO_NETO"].ToString().Replace("<b>", "").Replace("</b>", "").Trim();
-        //        if (monto != string.Empty)
-        //        {
-        //            monto = Convert.ToInt32(Convert.ToDouble(monto)).ToString("n0");
-        //        }
-
-        //        PdfPCell celdaCantidad = new PdfPCell(new Paragraph(cantidad, times));
-        //        celdaCantidad.HorizontalAlignment = 2;
-        //        tableDetalle.AddCell(celdaCantidad);
-
-        //        //PdfPCell celdaMontoUni = new PdfPCell(new Paragraph(montoUni, times));
-        //        //celdaMontoUni.HorizontalAlignment = 2;
-        //        //tableDetalle.AddCell(celdaMontoUni);
-
-        //        //PdfPCell celdaMonto = new PdfPCell(new Paragraph(monto, times));
-        //        //celdaMonto.HorizontalAlignment = 2;
-        //        //tableDetalle.AddCell(celdaMonto);
-        //    }
-
-        //    int totalNeto = 0;
-        //    //int totalDescuentoContado = 0;
-        //    int totalConDescuento = 0;
-        //    int iva = 0;
-        //    int total = 0;
-
-        //    DataTable dtNotaVenta = new DataTable();
-        //    dtNotaVenta = dal.getBuscarNotaVenta(notaVenta).Tables[0];
-        //    string direccionDespacho = "";
-        //    foreach (DataRow item in dtNotaVenta.Rows)
-        //    {
-        //        totalNeto = Convert.ToInt32(Convert.ToDecimal(item["MONTO_NETO"].ToString()));
-        //        totalConDescuento = Convert.ToInt32(Convert.ToDecimal(item["MONTO_DESCUENTO"].ToString()));
-        //        iva = Convert.ToInt32(Convert.ToDecimal(item["MONTO_IVA"].ToString()));
-        //        total = Convert.ToInt32(Convert.ToDecimal(item["MONTO_TOTAL"].ToString()));
-        //        direccionDespacho = item["DIRECCION"].ToString();
-        //    }
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph("Total Neto", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(totalNeto.ToString(), times));
-        //    PdfPCell celdaMontoNeto = new PdfPCell(new Paragraph(totalNeto.ToString("n0"), times));
-        //    celdaMontoNeto.HorizontalAlignment = 2;
-        //    //tableDetalle.AddCell(celdaMontoNeto);
-
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph("Descuento", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    PdfPCell celdaMontoDescuento = new PdfPCell(new Paragraph(totalConDescuento.ToString("n0"), times));
-        //    celdaMontoDescuento.HorizontalAlignment = 2;
-        //    //tableDetalle.AddCell(celdaMontoDescuento);
-
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph("Iva", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    PdfPCell celdaMontoIva = new PdfPCell(new Paragraph(iva.ToString("n0"), times));
-        //    celdaMontoIva.HorizontalAlignment = 2;
-        //    //tableDetalle.AddCell(celdaMontoIva);
-
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph("Total", times));
-        //    tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    //tableDetalle.AddCell(new Paragraph(" ", times));
-        //    PdfPCell celdaMontoTotal = new PdfPCell(new Paragraph(total.ToString("n0"), times));
-        //    celdaMontoTotal.HorizontalAlignment = 2;
-        //    //tableDetalle.AddCell(celdaMontoTotal);
-
-        //    //foreach (GridViewRow grd_Row in grvProducto.Rows)
-        //    //{
-        //    //    Label _lblIdProducto = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblCodigo");
-        //    //    tableDetalle.AddCell(new Paragraph(_lblIdProducto.Text, times));
-        //    //    Label _lblNombreProducto = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblNombreProducto");
-        //    //    tableDetalle.AddCell(new Paragraph(_lblNombreProducto.Text.Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", "."), times));
-        //    //    Label _lblCantidad = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblCantidad");
-        //    //    string can = _lblCantidad.Text.Replace("<b>", "").Replace("</b>", "").Trim();
-        //    //    if (can != string.Empty)
-        //    //    {
-        //    //        can = Convert.ToInt32(can).ToString("n0");
-        //    //    }
-        //    //    PdfPCell celdaCantidad = new PdfPCell(new Paragraph(can, times));
-        //    //    celdaCantidad.HorizontalAlignment = 2;
-        //    //    tableDetalle.AddCell(celdaCantidad);
-
-        //    //    Label _lblMonto = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblMonto");
-        //    //    string monto = _lblMonto.Text.Replace("<b>", "").Replace("</b>", "").Trim();
-        //    //    if (monto != string.Empty)
-        //    //    {
-        //    //        monto = Convert.ToInt32(Convert.ToDouble(monto)).ToString("n0");
-        //    //    }
-
-        //    //    PdfPCell celdaMonto = new PdfPCell(new Paragraph(monto, times));
-        //    //    celdaMonto.HorizontalAlignment = 2;
-        //    //    tableDetalle.AddCell(celdaMonto);
-
-        //    //    Label _lblDescuentoPorcentaje = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblDescuentoPorcentaje");
-        //    //    PdfPCell celdaDescuentoPorcentaje = new PdfPCell(new Paragraph(_lblDescuentoPorcentaje.Text.Replace("<b>", "").Replace("</b>", ""), times));
-        //    //    celdaDescuentoPorcentaje.HorizontalAlignment = 2;
-        //    //    tableDetalle.AddCell(celdaDescuentoPorcentaje);
-
-        //    //    Label _lblDescuento = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblDescuento");
-        //    //    string descuento = _lblDescuento.Text.Replace("<b>", "").Replace("</b>", "").Trim();
-        //    //    if (descuento != string.Empty)
-        //    //    {
-        //    //        descuento = Convert.ToInt32(Convert.ToDouble(descuento)).ToString("n0");
-        //    //    }
-
-        //    //    PdfPCell celdaDescuento = new PdfPCell(new Paragraph(descuento, times));
-        //    //    celdaDescuento.HorizontalAlignment = 2;
-        //    //    tableDetalle.AddCell(celdaDescuento);
-
-        //    //    Label _lblMontoTotal = (Label)grvProducto.Rows[grd_Row.RowIndex].FindControl("lblMontoTotal");
-        //    //    string montoTotal = _lblMontoTotal.Text.Replace("<b>", "").Replace("</b>", "").Trim();
-        //    //    if (montoTotal != string.Empty)
-        //    //    {
-        //    //        montoTotal = Convert.ToInt32(Convert.ToDouble(montoTotal)).ToString("n0");
-        //    //    }
-        //    //    PdfPCell celdaMontoTotal = new PdfPCell(new Paragraph(montoTotal, times));
-        //    //    celdaMontoTotal.HorizontalAlignment = 2;
-        //    //    tableDetalle.AddCell(celdaMontoTotal);
-        //    //}
-
-        //    tableDetalle.HorizontalAlignment = Element.ALIGN_LEFT;
-        //    tableDetalle.WidthPercentage = 100.0f;
-
-        //    foreach (PdfPCell celda in tableDetalle.Rows[0].GetCells())
-        //    {
-        //        celda.BackgroundColor = BaseColor.LIGHT_GRAY;
-        //        celda.HorizontalAlignment = 1;
-        //        celda.Padding = 2;
-        //    }
-
-        //    doc.Add(tableDetalle);
-
-        //    //doc.Add(new Paragraph(" ", times));
-        //    //doc.Add(new Paragraph("Observación: " + txtObservacionCotizacion.Text, fontCabecera));
-        //    //doc.Add(new Paragraph(" ", times));
-        //    //doc.Add(new Paragraph("**STOCK DE PRODUCTOS PREVIA CONFIRMACION ****", times));
-        //    //doc.Add(new Paragraph("Validez de la cotizacion: 10 Dias.", times));
-
-        //    doc.Add(new Paragraph("Dirección de despacho: " + direccionDespacho, times));
-        //    doc.Add(new Paragraph(" ", times));
-        //    //PdfPTable tableCondicionComercial = new PdfPTable(1);
-        //    //tableCondicionComercial.AddCell(new Paragraph("Condición Comercial", fontCabecera));
-
-        //    //float[] widthsCondicionComercial = new float[] { 35f };
-        //    //tableCondicionComercial.SetWidths(widthsCondicionComercial);
-        //    ////        PdfPTable tableExamenesAdicionales = new PdfPTable(1);
-        //    ////        tableExamenesAdicionales.AddCell(new Paragraph("Nombre Examen", fontCabecera));
-        //    //DataTable dtCondicionComercial = new DataTable();
-        //    //dtCondicionComercial = dal.getBuscarCondicionComercial(null, "").Tables[0];
-
-        //    //foreach (DataRow item in dtCondicionComercial.Rows)
-        //    //{
-        //    //    tableCondicionComercial.AddCell(new Paragraph(item["CONDICION_COMERCIAL"].ToString(), times));
-        //    //}
-        //    //doc.Add(tableCondicionComercial);
-
-
-        //    ////NUEVA PAGINA
-        //    //doc.NewPage();
-
-        //    //Chunk tituloSegundaPagina = new Chunk("Productos", FontFactory.GetFont("ARIAL", 11, iTextSharp.text.Font.BOLD));
-        //    //tituloSegundaPagina.SetUnderline(0.1f, -2f);
-
-        //    //Paragraph parSegPag = new Paragraph(tituloSegundaPagina);
-        //    //parSegPag.Alignment = Element.ALIGN_CENTER;
-        //    //doc.Add(parSegPag);
-
-        //    doc.Add(new Paragraph(" ", times));
-
-        //    PdfPTable tableProductosImagen = new PdfPTable(1);
-        //    //tableProductosImagen.AddCell(new Paragraph(" ", fontCabecera));
-
-        //    //float[] widthsProductosImagen = new float[] { 50f, 105f, 35f };
-        //    //tableProductosImagen.SetWidths(widthsProductosImagen);
-        //    tableProductosImagen.WidthPercentage = 100;
-        //    string imagen = rutaOC1;
-        //    if (imagen == string.Empty)
-        //    {
-        //        tableProductosImagen.AddCell(new Paragraph("Sin Imagen", times));
-        //    }
-        //    else
-        //    {
-        //        iTextSharp.text.Image jpgImagen = iTextSharp.text.Image.GetInstance(Server.MapPath(imagen));
-        //        jpgImagen.ScaleToFit(120, 120);
-        //        jpgImagen.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-        //        tableProductosImagen.AddCell(jpgImagen);
-        //        //doc.Add(jpgImagen);
-        //    }
-
-        //    string imagen2 = rutaOC2;
-        //    if (imagen2 == string.Empty)
-        //    {
-        //        tableProductosImagen.AddCell(new Paragraph("Sin Imagen", times));
-        //    }
-        //    else
-        //    {
-        //        iTextSharp.text.Image jpgImagen = iTextSharp.text.Image.GetInstance(Server.MapPath(imagen2));
-        //        jpgImagen.ScaleToFit(120, 120);
-        //        jpgImagen.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-        //        tableProductosImagen.AddCell(jpgImagen);
-        //        //doc.Add(jpgImagen);
-        //    }
-        //    doc.Add(tableProductosImagen);
-
-        //    ////NUEVA PAGINA
-        //    //foreach (DataRow item in dtImagen.Rows)
-        //    //{
-        //    //    string ficha = item["FICHA_TECNICA_PDF"].ToString();
-        //    //    if (ficha == string.Empty)
-        //    //    {
-
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        //PdfReader pdfReader = new PdfReader(Server.MapPath(ficha));
-        //    //        //var ms = new MemoryStream();
-        //    //        //var pdfCopy = new PdfCopy(doc, ms);
-
-        //    //        //var n = pdfReader.NumberOfPages;
-        //    //        ////pdfCopy.FreeReader(pdfReader);
-
-        //    //        //for (int i = 1; i < n; i++)
-        //    //        //{
-        //    //        //    PdfImportedPage page = pdfCopy.GetImportedPage(pdfReader, i);
-        //    //        //    PdfCopy.PageStamp stamp = pdfCopy.CreatePageStamp(page);
-        //    //        //    PdfContentByte cb = stamp.GetUnderContent();
-        //    //        //    cb.SaveState();
-        //    //        //    stamp.AlterContents();
-        //    //        //    pdfCopy.AddPage(page);
-        //    //        //}
-        //    //    }
-
-        //    //}
-
-
-
-
-
-
-        //    doc.Close();
-
-        //    string ruta = "notaVenta/" + nombreArchivoPdf;
-        //    hfrutaArchivoPdf.Value = ruta;
-            
-        //    //lbtnRutaArchivo.Text = nombreArchivoPdf;
-
-        //    return ruta;
-        //}
+        
 
         public string generarNotaVentaPdf(string notaVenta, string idCotizacion, string nombreEjecutivo)
         {
@@ -3688,6 +2380,588 @@ namespace crm_fadonel
             return str20;
         }
 
+
+
+        public string generarOrdenTrabajoPdf(string ordenTrabajo, string notaVenta, string idCotizacion, string nombreEjecutivo)
+        {
+            string fechaEntrega = string.Empty;
+            foreach (DataRow item in dal.getBuscarOrdenTrabajo(ordenTrabajo).Tables[0].Rows)
+            {
+                fechaEntrega = item["FECHA_ENTREGA"].ToString();
+                break;
+            }
+
+            DateTime Hoy = DateTime.Today;
+            string fechaHoy = Hoy.ToString("dd-MM-yyyy");
+
+            string nombreArchivoPdf = "OrdenTrabajo_" + ordenTrabajo + ".pdf";
+            BaseFont bfTimes = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
+
+            Font times = new Font(bfTimes, 7, Font.NORMAL);
+            Font timesRojo = new Font(bfTimes, 9, Font.BOLD, BaseColor.RED);
+            Font timesCorrelativo = new Font(bfTimes, 9, Font.BOLD);
+            Font fontCabecera = new Font(bfTimes, 8, Font.BOLD);
+            Font fontFirma = new Font(bfTimes, 8, Font.BOLD);
+
+            Document doc = new Document(PageSize.A4, 25, 25, 30, 30);
+            PdfWriter writePdf = PdfWriter.GetInstance(doc, new FileStream(Server.MapPath("ordenTrabajo/" + nombreArchivoPdf), FileMode.Create));
+            doc.Open();
+
+            string nombreEmp = "";
+            string giroEmp = "";
+            string rutEmp = "";
+            string telefonoEmp = "";
+            string logoEmpresa = "";
+
+            foreach (DataRow item in dal.getBuscarEmpresa(null, Session["idEmpresa"].ToString()).Tables[0].Rows)
+            {
+                nombreEmp = item["NOMBRE_EMPRESA"].ToString();
+                giroEmp = item["GIRO"].ToString();
+                rutEmp = item["RUT"].ToString();
+                telefonoEmp = item["TELEFONO"].ToString();
+                logoEmpresa = item["IMAGEN"].ToString();
+            }
+
+            PdfPTable tableEmpresa = new PdfPTable(3);
+
+            PdfPTable table1 = new PdfPTable(1);
+            PdfPCell celdaNombreEmpresa = new PdfPCell(new Paragraph(nombreEmp, fontCabecera));
+            PdfPCell celdaGiroEmpresa = new PdfPCell(new Paragraph(giroEmp, fontCabecera));
+            PdfPCell celdaRutEmpresa = new PdfPCell(new Paragraph(rutEmp, fontCabecera));
+            PdfPCell celdaTelefonoEmpresa = new PdfPCell(new Paragraph(telefonoEmp, fontCabecera));
+
+            table1.AddCell(celdaNombreEmpresa);
+            table1.AddCell(celdaGiroEmpresa);
+            table1.AddCell(celdaRutEmpresa);
+            table1.AddCell(celdaTelefonoEmpresa);
+
+            foreach (PdfPCell celda in table1.Rows[0].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+            foreach (PdfPCell celda in table1.Rows[1].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+            foreach (PdfPCell celda in table1.Rows[2].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+            foreach (PdfPCell celda in table1.Rows[3].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            tableEmpresa.AddCell(table1);
+
+            PdfPTable table2 = new PdfPTable(1);
+
+            if (logoEmpresa != string.Empty)
+            {
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(Server.MapPath(logoEmpresa));
+                jpg.ScaleToFit(150, 150);
+                jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
+                table2.AddCell(jpg);
+            }
+            else
+            {
+                logoEmpresa = "assets/img/logoEmpresa.jpg";
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(Server.MapPath(logoEmpresa));
+                jpg.ScaleToFit(120, 120);
+                jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
+                table2.AddCell(jpg);
+            }
+            foreach (PdfPCell celda in table2.Rows[0].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            tableEmpresa.AddCell(table2);
+
+            PdfPTable tableNumeroCotizacion = new PdfPTable(2);
+            PdfPCell celdaNumeroComprobante = new PdfPCell(new Paragraph("Nro. Orden de Trabajo :", fontCabecera));
+            //celdaNumeroComprobante.HorizontalAlignment = 2;
+            PdfPCell celdaEstadoNotaVenta = new PdfPCell(new Paragraph("Estado :", fontCabecera));
+            PdfPCell celdaNumeroComprobanteFecha = new PdfPCell(new Paragraph("Fecha Creacion:", fontCabecera));
+            PdfPCell celdaNumeroComprobanteFechaEntrega = new PdfPCell(new Paragraph("Fecha Entrega:", fontCabecera));
+            PdfPCell celdaNumeroNV = new PdfPCell(new Paragraph("Nº NV :", fontCabecera));
+            PdfPCell celdaNumeroCot = new PdfPCell(new Paragraph("Nº Cot :", fontCabecera));
+            //PdfPCell celdaEjecutivo = new PdfPCell(new Paragraph("Ejecutivo :", fontCabecera));
+            //celdaNumeroComprobanteFecha.HorizontalAlignment = 2;
+
+            tableNumeroCotizacion.AddCell(celdaNumeroComprobante);
+            tableNumeroCotizacion.AddCell(new Paragraph(ordenTrabajo, times));
+
+            tableNumeroCotizacion.AddCell(celdaEstadoNotaVenta);
+            tableNumeroCotizacion.AddCell(new Paragraph("PENDIENTE", times));
+
+            tableNumeroCotizacion.AddCell(celdaNumeroComprobanteFecha);
+            tableNumeroCotizacion.AddCell(new Paragraph(fechaHoy, times));
+
+            tableNumeroCotizacion.AddCell(celdaNumeroComprobanteFechaEntrega);
+            tableNumeroCotizacion.AddCell(new Paragraph(fechaEntrega, fontCabecera));
+
+            tableNumeroCotizacion.AddCell(celdaNumeroNV);
+            tableNumeroCotizacion.AddCell(new Paragraph(notaVenta, times));
+
+            tableNumeroCotizacion.AddCell(celdaNumeroCot);
+            tableNumeroCotizacion.AddCell(new Paragraph(idCotizacion, times));
+
+            //tableNumeroCotizacion.AddCell(celdaEjecutivo);
+            //tableNumeroCotizacion.AddCell(new Paragraph(nombreEjecutivo, times));
+
+            tableNumeroCotizacion.DefaultCell.Border = Rectangle.NO_BORDER;
+
+            tableNumeroCotizacion.HorizontalAlignment = Element.ALIGN_RIGHT;
+            tableNumeroCotizacion.WidthPercentage = 25.0f;
+
+            foreach (PdfPCell celda in tableNumeroCotizacion.Rows[0].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            foreach (PdfPCell celda in tableNumeroCotizacion.Rows[1].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+                //celda.HorizontalAlignment = 2;
+            }
+
+            foreach (PdfPCell celda in tableNumeroCotizacion.Rows[2].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            foreach (PdfPCell celda in tableNumeroCotizacion.Rows[3].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            foreach (PdfPCell celda in tableNumeroCotizacion.Rows[4].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            //foreach (PdfPCell celda in tableNumeroCotizacion.Rows[5].GetCells())
+            //{
+            //    celda.Border = Rectangle.NO_BORDER;
+            //}
+            tableEmpresa.AddCell(tableNumeroCotizacion);
+            tableEmpresa.DefaultCell.Border = Rectangle.NO_BORDER;
+
+            tableEmpresa.HorizontalAlignment = Element.ALIGN_CENTER;
+            tableEmpresa.WidthPercentage = 100.0f;
+
+            foreach (PdfPCell celda in tableEmpresa.Rows[0].GetCells())
+            {
+                celda.Border = Rectangle.NO_BORDER;
+            }
+
+            doc.Add(tableEmpresa);
+
+            //FIN CABECERA
+
+
+            //doc.Add(new Paragraph(" ", times));
+            Chunk tituloTipoExamen = new Chunk("Orden de Trabajo", FontFactory.GetFont("ARIAL", 11, iTextSharp.text.Font.BOLD));
+            tituloTipoExamen.SetUnderline(0.1f, -2f);
+
+            Paragraph par = new Paragraph(tituloTipoExamen);
+            par.Alignment = Element.ALIGN_CENTER;
+            doc.Add(par);
+
+            //doc.Add(tituloTipoExamen);
+            doc.Add(new Paragraph(" ", times));
+
+            //datos deudor
+            //doc.Add(new Paragraph("Datos Deudor", times));
+
+
+
+            string tituloClientePricipalOAsociado = string.Empty;
+            string tituloContactoPrincipalOAsociado = string.Empty;
+
+            DataTable dtCliente2 = new DataTable();
+            //dtCliente2 = dal.getBuscarCliente(lblRut.Text, lblRut.Text, "1").Tables[0];
+            dtCliente2 = dal.getBuscarClientePorRut(hfIdCliente.Value).Tables[0];
+
+            foreach (DataRow item in dtCliente2.Rows)
+            {
+                string rutPadre = item["RUT_PADRE"].ToString();
+                if (rutPadre != string.Empty)
+                {
+                    tituloClientePricipalOAsociado = "Datos Cliente Asociado";
+                    tituloContactoPrincipalOAsociado = "Datos Contacto Cliente Asociado";
+                }
+                else
+                {
+                    tituloClientePricipalOAsociado = "Datos Cliente";
+                    tituloContactoPrincipalOAsociado = "Datos Contacto";
+                }
+            }
+
+            Chunk datosCliente = new Chunk(tituloClientePricipalOAsociado, FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+            datosCliente.SetUnderline(0.1f, -2f);
+            doc.Add(datosCliente);
+
+            PdfPTable tableDatosCliente = new PdfPTable(4);
+
+            float[] widthsDatosCliente = new float[] { 35f, 95f, 35f, 55f };
+            tableDatosCliente.SetWidths(widthsDatosCliente);
+
+            string comunaCliente = "";
+            string ciudadCliente = "";
+            string giroCliente = "";
+            string condVentaCliente = "";
+            string telefono = string.Empty;
+            //foreach (DataRow item in dal.getBuscarClientePorRut(lblRut.Text).Tables[0].Rows)
+            foreach (DataRow item in dtCliente2.Rows)
+            {
+                comunaCliente = item["COMUNA"].ToString();
+                ciudadCliente = item["CIUDAD"].ToString();
+                giroCliente = item["GIRO"].ToString();
+                condVentaCliente = item["GLOSA"].ToString();
+                telefono = item["TELEFONO"].ToString();
+            }
+
+            tableDatosCliente.AddCell(new Paragraph("Nombre :", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(lblRazonSocial.Text, times));
+            tableDatosCliente.AddCell(new Paragraph("Rut :", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(lblRut.Text, times));
+
+            tableDatosCliente.AddCell(new Paragraph("Dirección :", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(lblDireccion.Text, times));
+            tableDatosCliente.AddCell(new Paragraph("Vendedor:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(nombreEjecutivo, times));
+
+            tableDatosCliente.AddCell(new Paragraph("Comuna:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(comunaCliente, times));
+            tableDatosCliente.AddCell(new Paragraph("Ciudad:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(ciudadCliente, times));
+
+            tableDatosCliente.AddCell(new Paragraph("Giro:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(giroCliente, times));
+            tableDatosCliente.AddCell(new Paragraph("Cond de Venta:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(condVentaCliente, times));
+
+            tableDatosCliente.AddCell(new Paragraph("Teléfono:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(telefono, times));
+            tableDatosCliente.AddCell(new Paragraph(" ", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(" ", times));
+
+            tableDatosCliente.AddCell(new Paragraph("Glosa:", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(txtGlosa.Text, times));
+            tableDatosCliente.AddCell(new Paragraph("Fecha de Entrega", fontCabecera));
+            tableDatosCliente.AddCell(new Paragraph(fechaEntrega, times));
+
+            tableDatosCliente.HorizontalAlignment = Element.ALIGN_LEFT;
+            tableDatosCliente.WidthPercentage = 100.0f;
+
+            doc.Add(tableDatosCliente);
+            doc.Add(new Paragraph(" ", times));
+
+            Chunk datosContacto = new Chunk(tituloContactoPrincipalOAsociado, FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+            datosContacto.SetUnderline(0.1f, -2f);
+            doc.Add(datosContacto);
+
+            PdfPTable tableDatosContacto = new PdfPTable(4);
+            float[] widthsDatosContacto = new float[] { 35f, 95f, 35f, 95f };
+            tableDatosContacto.SetWidths(widthsDatosContacto);
+
+            string idContacto = "";
+            string contacto = "";
+            string telefonoContacto = "";
+            string celularContacto = "";
+            string emailContacto = "";
+            string rutaOC1 = string.Empty;
+            string rutaOC2 = string.Empty;
+
+            foreach (DataRow item in dal.getBuscarOrdenTrabajo(ordenTrabajo).Tables[0].Rows)
+            {
+                idContacto = item["ID_CONTACTO"].ToString();
+                rutaOC1 = item["RUTA_ORDEN_DE_COMPRA"].ToString();
+                rutaOC2 = item["RUTA_ORDEN_DE_COMPRA2"].ToString();
+                break;
+            }
+
+            foreach (DataRow fila in dal.getBuscarContactoPorId(idContacto).Tables[0].Rows)
+            {
+                contacto = fila["NOM_CONTACTO"].ToString();
+                telefonoContacto = fila["TELEFONO1"].ToString();
+                celularContacto = fila["CELULAR"].ToString();
+                emailContacto = fila["EMAIL_1"].ToString();
+            }
+            //
+
+            tableDatosContacto.AddCell(new Paragraph("Contacto :", fontCabecera));
+            tableDatosContacto.AddCell(new Paragraph(contacto, times));
+            tableDatosContacto.AddCell(new Paragraph("Teléfono :", fontCabecera));
+            tableDatosContacto.AddCell(new Paragraph(telefonoContacto, times));
+            tableDatosContacto.AddCell(new Paragraph("Celular :", fontCabecera));
+            tableDatosContacto.AddCell(new Paragraph(celularContacto, times));
+            tableDatosContacto.AddCell(new Paragraph("Email :", fontCabecera));
+            tableDatosContacto.AddCell(new Paragraph(emailContacto, times));
+
+            tableDatosContacto.HorizontalAlignment = Element.ALIGN_LEFT;
+            tableDatosContacto.WidthPercentage = 100.0f;
+
+            doc.Add(tableDatosContacto);
+
+            doc.Add(new Paragraph(" ", times));
+
+            //18102016
+            //tabla de datos cliente asociado
+            //DataTable dtCliente = new DataTable();
+            //dtCliente = dal.getBuscarCliente(lblRut.Text, lblRut.Text, "1").Tables[0];
+            PdfPTable tableDatosClienteAsociado = new PdfPTable(4);
+            foreach (DataRow item in dtCliente2.Rows)
+            {
+                string rutPadre = item["RUT_PADRE"].ToString();
+                if (rutPadre.Trim() != string.Empty)
+                {
+                    string razonSocialPadre = item["RAZON_PADRE"].ToString();
+                    string direccionPadre = item["DIRECCION_PADRE"].ToString();
+                    string telefonoPadre = item["TELEFONO_PADRE"].ToString();
+                    string giroPadre = item["GIRO_PADRE"].ToString();
+
+                    doc.Add(new Paragraph(" ", times));
+                    Chunk datosClienteAsociado = new Chunk("Datos Cliente Principal", FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+                    datosClienteAsociado.SetUnderline(0.1f, -2f);
+                    doc.Add(datosClienteAsociado);
+
+                    float[] widthsDatosClienteAsociado = new float[] { 35f, 95f, 35f, 55f };
+                    tableDatosClienteAsociado.SetWidths(widthsDatosClienteAsociado);
+                    tableDatosClienteAsociado.AddCell(new Paragraph("Rut :", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(rutPadre, times));
+                    tableDatosClienteAsociado.AddCell(new Paragraph("Nombre :", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(razonSocialPadre, times));
+
+                    tableDatosClienteAsociado.AddCell(new Paragraph("Dirección :", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(razonSocialPadre, times));
+                    tableDatosClienteAsociado.AddCell(new Paragraph("Teléfono:", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(telefonoPadre, times));
+
+                    tableDatosClienteAsociado.AddCell(new Paragraph("Giro :", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(giroPadre, times));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(" ", fontCabecera));
+                    tableDatosClienteAsociado.AddCell(new Paragraph(" ", times));
+
+                    tableDatosClienteAsociado.HorizontalAlignment = Element.ALIGN_LEFT;
+                    tableDatosClienteAsociado.WidthPercentage = 100.0f;
+                }
+
+            }
+
+            doc.Add(tableDatosClienteAsociado);
+            doc.Add(new Paragraph(" ", times));
+
+            //doc.Add(new Paragraph(" En respuesta a su consulta, le entregamos la siguiente cotizacion.", times));
+            //doc.Add(new Paragraph(" Confiamos que tanto nuestros precios como condiciones le sean favorables, y aprovechamos la oportunidad para saludarle y quedar a vuestra entera disposición.", times));
+
+
+
+            doc.Add(new Paragraph(" ", times));
+            Chunk datosDetalleCotizacion = new Chunk("Detalle ", FontFactory.GetFont("ARIAL", 9, iTextSharp.text.Font.BOLD));
+            datosDetalleCotizacion.SetUnderline(0.1f, -2f);
+            doc.Add(datosDetalleCotizacion);
+
+            //PdfPTable tableDetalleCotizacion = new PdfPTable(4);
+            //float[] widthsDetalleCotizacion = new float[] { 35f, 95f, 35f, 95f };
+            //tableDetalleCotizacion.SetWidths(widthsDetalleCotizacion);
+
+            //tableDetallePago.AddCell(new Paragraph("Lugar de Pago :", fontCabecera));
+            //tableDetallePago.AddCell(new Paragraph(ddlLugarPago.SelectedItem.ToString(), times));
+            //tableDetallePago.AddCell(new Paragraph("Tipo Pago :", fontCabecera));
+            //tableDetallePago.AddCell(new Paragraph(ddlTipoPago.SelectedItem.ToString(), times));
+
+            //tableDetallePago.HorizontalAlignment = Element.ALIGN_LEFT;
+            //tableDetallePago.WidthPercentage = 100.0f;
+
+            //doc.Add(tableDetallePago);
+
+            doc.Add(new Paragraph(" ", times));
+
+            //DataTable dtDetallePago = new DataTable();
+            //dtDetallePago = Bus.getBuscarDocumentosPagos(idPago).Tables[0];
+
+            PdfPTable tableDetalle = new PdfPTable(3);
+            tableDetalle.AddCell(new Paragraph("Código", fontCabecera));
+            tableDetalle.AddCell(new Paragraph("Producto", fontCabecera));
+            tableDetalle.AddCell(new Paragraph("Cantidad", fontCabecera));
+            //tableDetalle.AddCell(new Paragraph("P.Unitario", fontCabecera));
+            //tableDetalle.AddCell(new Paragraph("Valor Total", fontCabecera));
+            //tableDetalle.AddCell(new Paragraph("% Desc", fontCabecera));
+            //tableDetalle.AddCell(new Paragraph("Descuento", fontCabecera));
+            //tableDetalle.AddCell(new Paragraph("Valor Final", fontCabecera));
+            float[] widthsDatosDetalle = new float[] { 35f, 105f, 25f };
+            tableDetalle.SetWidths(widthsDatosDetalle);
+            //        PdfPTable tableExamenesAdicionales = new PdfPTable(1);
+            //        tableExamenesAdicionales.AddCell(new Paragraph("Nombre Examen", fontCabecera));
+
+            DataTable dtDetalleCot = new DataTable();
+            dtDetalleCot = dal.getBuscarDetalleNotaVenta(notaVenta).Tables[0];
+
+            foreach (DataRow item in dtDetalleCot.Rows)
+            {
+                tableDetalle.AddCell(new Paragraph(item["CODIGO"].ToString(), times));
+                tableDetalle.AddCell(new Paragraph(item["NOM_PRODUCTO"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", "."), times));
+                //tableDetalle.AddCell(new Paragraph(item["CANTIDAD"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", "."), times));
+
+                string cantidad = item["CANTIDAD"].ToString().Replace("<b>", "").Replace("</b>", "").Replace("&nbsp", ".");
+                string montoUni = (Convert.ToDouble(item["MONTO_NETO"]) / Convert.ToDouble(item["CANTIDAD"])).ToString("n0");
+
+                string monto = item["MONTO_NETO"].ToString().Replace("<b>", "").Replace("</b>", "").Trim();
+                if (monto != string.Empty)
+                {
+                    monto = Convert.ToInt32(Convert.ToDouble(monto)).ToString("n0");
+                }
+
+                PdfPCell celdaCantidad = new PdfPCell(new Paragraph(cantidad, times));
+                celdaCantidad.HorizontalAlignment = 2;
+                tableDetalle.AddCell(celdaCantidad);
+
+                //PdfPCell celdaMontoUni = new PdfPCell(new Paragraph(montoUni, times));
+                //celdaMontoUni.HorizontalAlignment = 2;
+                //tableDetalle.AddCell(celdaMontoUni);
+
+                //PdfPCell celdaMonto = new PdfPCell(new Paragraph(monto, times));
+                //celdaMonto.HorizontalAlignment = 2;
+                //tableDetalle.AddCell(celdaMonto);
+            }
+
+            int totalNeto = 0;
+            //int totalDescuentoContado = 0;
+            int totalConDescuento = 0;
+            int iva = 0;
+            int total = 0;
+
+            DataTable dtNotaVenta = new DataTable();
+            dtNotaVenta = dal.getBuscarNotaVenta(notaVenta).Tables[0];
+            string direccionDespacho = "";
+            foreach (DataRow item in dtNotaVenta.Rows)
+            {
+                totalNeto = Convert.ToInt32(Convert.ToDecimal(item["MONTO_NETO"].ToString()));
+                totalConDescuento = Convert.ToInt32(Convert.ToDecimal(item["MONTO_DESCUENTO"].ToString()));
+                iva = Convert.ToInt32(Convert.ToDecimal(item["MONTO_IVA"].ToString()));
+                total = Convert.ToInt32(Convert.ToDecimal(item["MONTO_TOTAL"].ToString()));
+                direccionDespacho = item["DIRECCION"].ToString();
+            }
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph("Total Neto", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(totalNeto.ToString(), times));
+            PdfPCell celdaMontoNeto = new PdfPCell(new Paragraph(totalNeto.ToString("n0"), times));
+            celdaMontoNeto.HorizontalAlignment = 2;
+            //tableDetalle.AddCell(celdaMontoNeto);
+
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph("Descuento", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            PdfPCell celdaMontoDescuento = new PdfPCell(new Paragraph(totalConDescuento.ToString("n0"), times));
+            celdaMontoDescuento.HorizontalAlignment = 2;
+            //tableDetalle.AddCell(celdaMontoDescuento);
+
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph("Iva", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            PdfPCell celdaMontoIva = new PdfPCell(new Paragraph(iva.ToString("n0"), times));
+            celdaMontoIva.HorizontalAlignment = 2;
+            //tableDetalle.AddCell(celdaMontoIva);
+
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph("Total", times));
+            tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            //tableDetalle.AddCell(new Paragraph(" ", times));
+            PdfPCell celdaMontoTotal = new PdfPCell(new Paragraph(total.ToString("n0"), times));
+            celdaMontoTotal.HorizontalAlignment = 2;
+            
+
+            tableDetalle.HorizontalAlignment = Element.ALIGN_LEFT;
+            tableDetalle.WidthPercentage = 100.0f;
+
+            foreach (PdfPCell celda in tableDetalle.Rows[0].GetCells())
+            {
+                celda.BackgroundColor = BaseColor.LIGHT_GRAY;
+                celda.HorizontalAlignment = 1;
+                celda.Padding = 2;
+            }
+
+            doc.Add(tableDetalle);
+            doc.NewPage();
+            doc.Add(new Paragraph(" ", times));
+
+            PdfPTable pdfPtable7 = new PdfPTable(4);
+            pdfPtable7.AddCell((Phrase)new Paragraph("Código", times));
+            pdfPtable7.AddCell((Phrase)new Paragraph("Producto", times));
+            pdfPtable7.AddCell((Phrase)new Paragraph("Observación", times));
+            pdfPtable7.AddCell((Phrase)new Paragraph("Imagen", times));
+            float[] relativeWidths5 = new float[4]
+            {
+                35f,
+                35f,
+                105f,
+                35f
+            };
+            pdfPtable7.SetWidths(relativeWidths5);
+            DataTable dataTable9 = new DataTable();
+            DataTable table7 = this.dal.getBuscarImagenesProductoPorCotizacion(lblIdCotizacion.Text).Tables[0];
+            foreach (DataRow row in (InternalDataCollectionBase)table7.Rows)
+            {
+                pdfPtable7.AddCell((Phrase)new Paragraph(row["CODIGO"].ToString(), times));
+                pdfPtable7.AddCell((Phrase)new Paragraph(row["NOM_PRODUCTO"].ToString(), times));
+                pdfPtable7.AddCell((Phrase)new Paragraph(row["OBSERVACION_PROD"].ToString(), times));
+                string path2 = row["IMAGEN"].ToString();
+                if (path2 == string.Empty)
+                {
+                    pdfPtable7.AddCell((Phrase)new Paragraph("Sin Imagen", times));
+                }
+                else
+                {
+                    iTextSharp.text.Image instance2 = iTextSharp.text.Image.GetInstance(this.Server.MapPath(path2));
+                    instance2.ScaleToFit(120f, 120f);
+                    instance2.Alignment = 0;
+                    pdfPtable7.AddCell(instance2);
+                }
+            }
+
+            doc.Add((IElement)pdfPtable7);
+   
+
+            
+            doc.Close();
+
+            string ruta = "ordenTrabajo/" + nombreArchivoPdf;
+            hfrutaArchivoPdf.Value = ruta;
+
+           
+
+            return ruta;
+        }
+
+
         protected void btnGrabarDireccion_Click(object sender, EventArgs e)
         {
             try
@@ -3851,11 +3125,23 @@ namespace crm_fadonel
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 Label _lblRutaOrdenDeCompra = (Label)e.Row.FindControl("lblRutaOrdenDeCompra");
+                Label _lblIdOrdenTrabajo = (Label)e.Row.FindControl("lblIdOrdenTrabajo");
                 ImageButton _ibtnRutaOrdenCompra = (ImageButton)e.Row.FindControl("ibtnRutaOrdenCompra");
                 ImageButton _imgEliminar = (ImageButton)e.Row.FindControl("imgEliminar");
+                ImageButton _imgIngresarOT = (ImageButton)e.Row.FindControl("imgIngresarOT");
+                
                 if (_lblRutaOrdenDeCompra.Text == string.Empty)
                 {
                     _ibtnRutaOrdenCompra.Visible = false;
+                }
+
+                if (_lblIdOrdenTrabajo.Text == string.Empty)
+                {
+                    _imgIngresarOT.Visible = true;
+                }
+                else
+                {
+                    _imgIngresarOT.Visible = false;
                 }
 
                 if (idPerfil == "1")
@@ -4276,6 +3562,87 @@ namespace crm_fadonel
             {
                 this.lblInformacion.Text = ex.Message;
                 this.mdlInformacion.Show();
+            }
+        }
+
+        protected void imgIngresarOT_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                ImageButton lbtn = sender as ImageButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                Label _lblIdNotaVenta = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblIdNotaVenta");
+                Label _lblIdCotizacion = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblIdCotizacion");
+                
+                lblIdNotaDeVenta.Text = _lblIdNotaVenta.Text;
+                lblIdCotizacion.Text = _lblIdCotizacion.Text;
+
+                txtFechaEntregaOriginal.Text = string.Empty;
+                mdlIngresarOT.Show();
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+        protected void btnGenerarOT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtFechaEntregaOriginal.Text))
+                {
+                    lblInformacion.Text = "Favor ingresar la fecha de entrega.";
+                    mdlInformacion.Show();
+                    return;
+                }
+                string idUsuario = this.Session["variableIdUsuario"].ToString();
+                DataTable table = this.dal.getBuscarUsuario((string)null, idUsuario).Tables[0];
+                string nombreEjecutivo = "";
+                foreach (DataRow row in (InternalDataCollectionBase)table.Rows)
+                    nombreEjecutivo = row["NOMBRE"].ToString();
+
+                //dal.setIngresarOrdenTrabajo(idNotaVenta, idCotizacion, selectedValue2, selectedValue1, text1, txtOrdenCompra.Text, str1, str2, txtFechaEntrega.Text);
+                string OT = dal.setIngresarOrdenTrabajo(lblIdNotaDeVenta.Text, lblIdCotizacion.Text, "", "", "", "", "", "", txtFechaEntregaOriginal.Text);
+                string rutaPdfOT = generarOrdenTrabajoPdf(OT, lblIdNotaDeVenta.Text, lblIdCotizacion.Text, nombreEjecutivo);
+
+                dal.setEditarRutaPdfOT(OT, rutaPdfOT);
+
+                this.buscarNotaVenta();
+                //ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdf + "','_blank');", true);
+                ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdfOT + "','_blank');", true);
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+        protected void grvOrdenDeTrabajo_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+        protected void imgEliminarOT_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
             }
         }
     }

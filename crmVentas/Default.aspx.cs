@@ -3620,12 +3620,12 @@ namespace crm_fadonel
                 return;
 
             e.Row.CssClass = "success";
-            Label control3 = (Label)e.Row.FindControl("lblIdNotaVenta");
+            Label _lblIdNotaVenta = (Label)e.Row.FindControl("lblIdNotaVenta");
             Label _lblIdEstadoCotizacion = (Label)e.Row.FindControl("lblIdEstadoCotizacion");
             Label _lblEstadoCotizacion = (Label)e.Row.FindControl("lblEstadoCotizacion");
             
 
-            ImageButton control5 = (ImageButton)e.Row.FindControl("ibtnGenerarNotaVenta");
+            ImageButton _ibtnGenerarNotaVenta = (ImageButton)e.Row.FindControl("ibtnGenerarNotaVenta");
             ImageButton control6 = (ImageButton)e.Row.FindControl("imgPdf");
             ImageButton control7 = (ImageButton)e.Row.FindControl("ibtnEliminarCotizacion");
 
@@ -3635,15 +3635,15 @@ namespace crm_fadonel
             }
 
 
-            if (control3.Text == string.Empty)
-                control5.Visible = true;
+            if (_lblIdNotaVenta.Text == string.Empty)
+                _ibtnGenerarNotaVenta.Visible = true;
             else
-                control5.Visible = false;
+                _ibtnGenerarNotaVenta.Visible = false;
             if (_lblIdEstadoCotizacion.Text == "5")
                 control6.Visible = false;
             if (_lblIdEstadoCotizacion.Text == "5" || _lblIdEstadoCotizacion.Text == "4" || (_lblIdEstadoCotizacion.Text == "3" || _lblIdEstadoCotizacion.Text == "2"))
                 _lblEstadoCotizacion.CssClass = "label label-success";
-                control5.Visible = false;
+                //control5.Visible = false;
             if (str1 == "1")
                 control7.Visible = true;
             else

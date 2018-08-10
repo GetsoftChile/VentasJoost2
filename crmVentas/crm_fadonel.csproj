@@ -336,6 +336,7 @@
     <Content Include="notaVenta\index.html" />
     <Content Include="ordenCompra\index.html" />
     <Content Include="ordenTrabajo\index.html" />
+    <Content Include="OT.aspx" />
     <Content Include="Parametros.aspx" />
     <Content Include="Productos.aspx" />
     <Content Include="ProductosVendidos.aspx" />
@@ -617,6 +618,13 @@
     </Compile>
     <Compile Include="NotasDeVentas.aspx.designer.cs">
       <DependentUpon>NotasDeVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OT.aspx.cs">
+      <DependentUpon>OT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OT.aspx.designer.cs">
+      <DependentUpon>OT.aspx</DependentUpon>
     </Compile>
     <Compile Include="Parametros.aspx.cs">
       <DependentUpon>Parametros.aspx</DependentUpon>

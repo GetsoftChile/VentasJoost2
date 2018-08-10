@@ -73,7 +73,10 @@
                     <strong>Casos asignados para seguimiento</strong>
                 </div>
 
-                <asp:GridView ID="grvSeguimiento" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" AllowPaging="True" PageSize="30" OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true">
+                <asp:GridView ID="grvSeguimiento" ShowFooter="true" runat="server" HeaderStyle-CssClass="active" 
+                    CssClass="table table-bordered table-hover table-condensed small" 
+                    AutoGenerateColumns="false" AllowPaging="True" PageSize="30" 
+                    OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true" >
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -120,6 +123,13 @@
                                 <asp:Label ID="lblMontoCotizacion" runat="server" Visible="false" Text='<%# Bind("MONTO_NETO") %>'></asp:Label>
                                 <asp:Label ID="lblMontoCotizacion2" runat="server" Text='<%# Eval("MONTO_NETO", "{0:n0}") %>'></asp:Label>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <b>
+                                        <asp:Label ID="lblTotalMontoNeto" runat="server"></asp:Label>
+                                    </b>
+                                </div>
+                            </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Fecha Validez" SortExpression="FECHA_VALIDEZ">
                             <ItemTemplate>
@@ -241,6 +251,7 @@
 
                         <asp:TemplateField HeaderText="Monto Neto" ItemStyle-HorizontalAlign="Right">
                             <ItemTemplate>
+                               
                                 <asp:Label ID="lblMontoNeto" runat="server" Text='<%# Eval("MONTO_NETO", "{0:n0}")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>

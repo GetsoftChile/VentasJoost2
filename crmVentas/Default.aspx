@@ -109,6 +109,7 @@
                             </div>
                         </div>
 
+                        
 
                         <div class="col-sm-12">
                             <div class="panel panel-primary">
@@ -385,7 +386,8 @@
                                     <strong>Cotizaciones</strong>
                                 </div>
 
-                                <asp:GridView ID="grvCotizacionesCRM" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" AutoGenerateColumns="false" AllowPaging="True" PageSize="20" OnRowDataBound="paginaciongrvCotizacionesCRM_RowDataBound" OnSorting="gvEmployeegrvCotizacionesCRM_Sorting" AllowSorting="true">
+                                <asp:GridView ID="grvCotizacionesCRM" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small" 
+                                    AutoGenerateColumns="false" AllowPaging="True" PageSize="20" OnRowDataBound="paginaciongrvCotizacionesCRM_RowDataBound" OnSorting="gvEmployeegrvCotizacionesCRM_Sorting" AllowSorting="true">
                                     <Columns>
                                         <asp:TemplateField HeaderText="Cotización" SortExpression="ID_COTIZACION" HeaderStyle-Width="100">
                                             <ItemTemplate>
@@ -463,13 +465,10 @@
                                         <asp:TemplateField HeaderText="NV" SortExpression="ID_NOTA_VENTA">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblIdNotaVenta" runat="server" Text='<%# Bind("ID_NOTA_VENTA") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Generar Nota Venta">
-                                            <ItemTemplate>
                                                 <asp:ImageButton ID="ibtnGenerarNotaVenta" runat="server" ImageUrl="~/assets/img/page_go.png" ToolTip="Generar Nota Venta" OnClick="ibtnGenerarNotaVenta_Click" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
+                                  
 
                                         <asp:TemplateField HeaderText="Eliminar Cot">
                                             <ItemTemplate>
@@ -520,7 +519,7 @@
                                     <Columns>
 
 
-                                        <asp:TemplateField HeaderText="Nota Venta" SortExpression="ID_NOTA_VENTA" HeaderStyle-Width="5%">
+                                        <asp:TemplateField HeaderText="Nota Venta" SortExpression="ID_NOTA_VENTA">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblIdNotaVenta" runat="server" Visible="true" Text='<%# Bind("ID_NOTA_VENTA") %>'></asp:Label>
                                                 <%--<asp:Label ID="lblIdPago" runat="server" Visible="false" Text='<%# Bind("ID_PAGO") %>'></asp:Label>--%>
@@ -648,7 +647,7 @@
 
 
 
-                            <div class="panel panel-danger">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading">
                                     <strong>Orden de Trabajo</strong>
                                 </div>
@@ -656,58 +655,53 @@
                                 <asp:GridView ID="grvOrdenDeTrabajo" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small"
                                     OnRowDataBound="grvOrdenDeTrabajo_RowDataBound" AutoGenerateColumns="false">
                                     <Columns>
-
-                                        
-                                        <asp:TemplateField HeaderText="OT" SortExpression="ID_ORDEN_TRABAJO" HeaderStyle-Width="5%">
+                                        <asp:TemplateField HeaderText="OT" SortExpression="ID_ORDEN_TRABAJO">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblIdOrdenDeTrabajo" runat="server" Visible="true" Text='<%# Bind("ID_ORDEN_TRABAJO") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Nota Venta" SortExpression="ID_NOTA_VENTA" HeaderStyle-Width="5%">
+                                        <asp:TemplateField HeaderText="Nota Venta" SortExpression="ID_NOTA_VENTA">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblIdNotaVenta" runat="server" Visible="true" Text='<%# Bind("ID_NOTA_VENTA") %>'></asp:Label>
-                                             
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Fecha" SortExpression="FECHA">
+                                        <asp:TemplateField HeaderText="Fecha Creacion" SortExpression="FECHA">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblFechaNotaVenta" runat="server" Text='<%# Bind("FECHA", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                <asp:Label ID="lblFechaOT" runat="server" Text='<%# Bind("FECHA", "{0:dd/MM/yyyy}") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        
+                                        <asp:TemplateField HeaderText="Fecha Entrega" SortExpression="FECHA_ENTREGA">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblFechaOTEntrega" runat="server" Text='<%# Bind("FECHA_ENTREGA", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Estado OT">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblEstadoOT" runat="server" Text='<%# Bind("NOMBRE_ESTADO") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
                                         <asp:TemplateField HeaderText="Usuario Asig" SortExpression="USUARIO">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblUsuarioAsig" runat="server" Text='<%# Bind("USUARIO") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
-
                                         <asp:TemplateField HeaderText="Cot" SortExpression="ID_COTIZACION">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblIdCotizacion" runat="server" Visible="false" Text='<%# Bind("ID_COTIZACION") %>'></asp:Label>
-                                                <asp:LinkButton ID="lbtnCotizacion" runat="server" Text='<%# Bind("ID_COTIZACION") %>' OnClick="lbtnDetalleCotizacionCotizacionesCRMNv_Click"></asp:LinkButton>
+                                                <asp:LinkButton ID="lbtnCotizacion" runat="server" Text='<%# Bind("ID_COTIZACION") %>' OnClick="lbtnDetalleCotizacionCotizacionesCRMOT_Click"></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="PDF">
+                                        <asp:TemplateField HeaderText="PDF"  HeaderStyle-Width="5%">
                                             <ItemTemplate>
-                                                <asp:Label ID="lblRutaPdf" runat="server" Visible="false" Text='<%# Bind("RUTA_NOTA_VENTA") %>'></asp:Label>
-                                                <asp:ImageButton ID="imgPdfNotaVenta" ImageUrl="~/assets/img/file_extension_pdf.png" OnClick="imgPdfNotaVenta_Click" runat="server" />
+                                                <asp:Label ID="lblRutaPdf" runat="server" Visible="false" Text='<%# Bind("RUTA_ORDEN_TRABAJO") %>'></asp:Label>
+                                                <asp:ImageButton ID="imgPdfOT" ImageUrl="~/assets/img/file_extension_pdf.png" OnClick="imgPdfOT_Click" runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
-                                        <asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-Width="5%">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="imgEliminarOT" runat="server" ToolTip="Eliminar OT" ImageUrl="~/assets/img/delete.png" OnClick="imgEliminarOT_Click" OnClientClick="return confirm('¿Desea eliminar el registro?');" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
                                     </Columns>
 
                                 </asp:GridView>
@@ -1659,7 +1653,7 @@
                                 <asp:TextBox ID="txtGlosa" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                             </td>
                         </tr>
-                        <tr class="active">
+                        <tr class="active" runat="server" visible="false">
                             <td><strong>Fecha Entrega</strong></td>
                             <td>
                                 <asp:TextBox ID="txtFechaEntrega" runat="server" CssClass="form-control input-sm"></asp:TextBox>
@@ -1716,7 +1710,7 @@
                             <td>
                                 <asp:TextBox ID="txtFechaEntregaOriginal" runat="server" CssClass="form-control input-sm"></asp:TextBox>
                                 <asp:CalendarExtender ID="CalendarExtender4" runat="server"
-                                    Enabled="True" FirstDayOfWeek="Monday" Format="dd-MM-yyyy"
+                                    Enabled="True" FirstDayOfWeek="Monday" Format="dd-MM-yyyy hh:mm:ss"
                                     TargetControlID="txtFechaEntregaOriginal">
                                 </asp:CalendarExtender>
                             </td>

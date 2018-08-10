@@ -379,6 +379,7 @@ namespace crm_valvulas_industriales
             grvSeguimiento.DataBind();
         }
 
+        double totalGridview = 0;
         protected void paginacion_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Pager)
@@ -401,7 +402,19 @@ namespace crm_valvulas_industriales
                 {
                     _imgPdf.Visible = false;
                 }
+
+                double rightBonus = Convert.ToDouble(((Label)e.Row.FindControl("lblMontoCotizacion")).Text);
+                totalGridview += rightBonus;
             }
+
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                Label _lblTotalMontoNeto = (Label)e.Row.FindControl("lblTotalMontoNeto");
+                _lblTotalMontoNeto.Text = totalGridview.ToString("n0");
+                
+
+            }
+
         }
 
 

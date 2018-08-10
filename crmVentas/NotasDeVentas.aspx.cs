@@ -159,6 +159,10 @@ namespace crm_valvulas_industriales
             grvNotaVenta.DataBind();
         }
 
+        double totalGridview = 0;
+        double totalGridviewMontoIva = 0;
+        double totalGridviewMontoTotal = 0;
+        double totalGridviewMontoSaldo = 0;
         protected void paginacion_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             string idPerfil = Session["variablePerfil"].ToString();
@@ -180,6 +184,19 @@ namespace crm_valvulas_industriales
                 //{
                 //    _imgEliminar.Visible = false;
                 //}
+
+                double rightBonus = Convert.ToDouble(((Label)e.Row.FindControl("lblMontoNeto")).Text);
+                totalGridview += rightBonus;
+
+                double _lblMontoIva = Convert.ToDouble(((Label)e.Row.FindControl("lblMontoIva")).Text);
+                totalGridviewMontoIva += _lblMontoIva;
+
+                double _lblMontoTotal = Convert.ToDouble(((Label)e.Row.FindControl("lblMontoTotal")).Text);
+                totalGridviewMontoTotal += _lblMontoTotal;
+
+                double _lblSaldo = Convert.ToDouble(((Label)e.Row.FindControl("lblSaldo")).Text);
+                totalGridviewMontoSaldo += _lblSaldo;
+                
             }
 
             if (e.Row.RowType == DataControlRowType.Pager)
@@ -189,7 +206,23 @@ namespace crm_valvulas_industriales
                 _lblPagina.Text = Convert.ToString(grvNotaVenta.PageIndex + 1);
                 _lblTotal.Text = Convert.ToString(grvNotaVenta.PageCount);
             }
-            
+
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                Label _lblTotalMontoNeto = (Label)e.Row.FindControl("lblTotalMontoNeto");
+                _lblTotalMontoNeto.Text = totalGridview.ToString("n0");
+
+                Label _lblTotalMontoIVA = (Label)e.Row.FindControl("lblTotalMontoIVA");
+                _lblTotalMontoIVA.Text = totalGridviewMontoIva.ToString("n0");
+
+                Label _lblTotalMontoTOTAL = (Label)e.Row.FindControl("lblTotalMontoTOTAL");
+                _lblTotalMontoTOTAL.Text = totalGridviewMontoTotal.ToString("n0");
+
+                Label _lblTotalMontoSaldo = (Label)e.Row.FindControl("lblTotalMontoSaldo");
+                _lblTotalMontoSaldo.Text = totalGridviewMontoTotal.ToString("n0");
+                
+            }
+
         }
         
         public SortDirection dir

@@ -3324,6 +3324,24 @@ namespace DAL
             }
         }
 
+        public DataSet getBuscarOrdenTrabajoPorCliente(string idCliente)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_buscarOrdenTrabajoPorCliente");
+            db.AddInParameter(cmd, "@rutCliente", DbType.String, idCliente);
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar la nota venta, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar la nota venta, " + ex.Message, ex);
+            }
+        }
 
         public DataSet getBuscarNotaVentaParametros(string idEjecutivo, string fechaDesde, string fechaHasta, string idEmpresa, int ConFactura)
         {
@@ -3380,6 +3398,62 @@ namespace DAL
             catch (Exception ex)
             {
                 throw new Exception("No se pudo buscar la nota venta, " + ex.Message, ex);
+            }
+        }
+
+
+
+        public DataSet getBuscarOTParametros(string idEjecutivo, string fechaDesde, string fechaHasta, string idEmpresa)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_buscarOTParamentros");
+            if (idEjecutivo == "0")
+            {
+                db.AddInParameter(cmd, "@idEjecutivo", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idEjecutivo", DbType.String, idEjecutivo);
+            }
+
+            if (idEmpresa == "0")
+            {
+                db.AddInParameter(cmd, "@idEmpresa", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idEmpresa", DbType.String, idEmpresa);
+            }
+
+            if (fechaDesde == string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, fechaDesde);
+            }
+
+            if (fechaHasta == string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, fechaHasta);
+            }
+            
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar la OT, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar la OT, " + ex.Message, ex);
             }
         }
 
@@ -3617,6 +3691,27 @@ namespace DAL
             catch (Exception ex)
             {
                 throw new Exception("No se puede eliminar el cargo, " + ex.Message, ex);
+            }
+        }
+
+
+
+        public void setEliminarOT(string idOT)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_setEliminarOT");
+            db.AddInParameter(cmd, "@idOT", DbType.String, idOT);
+
+            try
+            {
+                db.ExecuteNonQuery(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se puede eliminar la OT, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede eliminar la OT, " + ex.Message, ex);
             }
         }
 

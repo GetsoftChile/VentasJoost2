@@ -76,13 +76,19 @@
                     <strong>Nota de Venta</strong>
                 </div>
 
-                <asp:GridView ID="grvNotaVenta" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small"
+                <asp:GridView ID="grvNotaVenta" ShowFooter="True" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small"
                     AutoGenerateColumns="false" AllowPaging="True" PageSize="50" OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:ImageButton ID="ibtnAgregarFactura" ToolTip="Ingresar Factura" ImageUrl="~/assets/img/note_go.png" OnClick="ibtnAgregarFactura_Click" runat="server" />
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <strong>Total: </strong>
+
+                                </div>
+                            </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nota Venta" SortExpression="ID_NOTA_VENTA" HeaderStyle-Width="5%">
                             <ItemTemplate>
@@ -94,7 +100,7 @@
                         <asp:TemplateField HeaderText="Id Cliente" SortExpression="ID_CLIENTE">
                             <ItemTemplate>
                                 <asp:Label ID="lblIdCliente" runat="server" Visible="true" Text='<%# Bind("ID_CLIENTE") %>'></asp:Label>
-                                
+
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Cliente" SortExpression="ID_CLIENTE">
@@ -114,12 +120,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Monto Neto" ItemStyle-HorizontalAlign="Right" SortExpression="MONTO_NETO">
-                            <ItemTemplate>
-                                <asp:Label ID="lblMontoNeto" runat="server" Visible="false" Text='<%# Bind("MONTO_NETO") %>'></asp:Label>
-                                <asp:Label ID="lblMontoNeto2" runat="server" Text='<%# Eval("MONTO_NETO", "{0:n0}") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        
 
                         <asp:TemplateField HeaderText="Dcto Pago Contado" ItemStyle-HorizontalAlign="Right" SortExpression="MONTO_DESCUENTO">
                             <ItemTemplate>
@@ -135,23 +136,58 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="Monto Neto" ItemStyle-HorizontalAlign="Right" SortExpression="MONTO_NETO">
+                            <ItemTemplate>
+                                <asp:Label ID="lblMontoNeto" runat="server" Visible="false" Text='<%# Bind("MONTO_NETO") %>'></asp:Label>
+                                <asp:Label ID="lblMontoNeto2" runat="server" Text='<%# Eval("MONTO_NETO", "{0:n0}") %>'></asp:Label>
+                            </ItemTemplate>
+
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <asp:Label ID="lblTotalMontoNeto" runat="server"></asp:Label>
+                                </div>
+                            </FooterTemplate>
+
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Monto Iva" ItemStyle-HorizontalAlign="Right" SortExpression="MONTO_IVA">
                             <ItemTemplate>
                                 <asp:Label ID="lblMontoIva" runat="server" Visible="false" Text='<%# Bind("MONTO_IVA") %>'></asp:Label>
                                 <asp:Label ID="lblMontoOIva2" runat="server" Text='<%# Eval("MONTO_IVA", "{0:n0}") %>'></asp:Label>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <b>
+                                        <asp:Label ID="lblTotalMontoIVA" runat="server"></asp:Label>
+                                    </b>
+                                    
+                                </div>
+                            </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Monto Total" ItemStyle-HorizontalAlign="Right" SortExpression="MONTO_TOTAL">
                             <ItemTemplate>
                                 <asp:Label ID="lblMontoTotal" runat="server" Visible="false" Text='<%# Bind("MONTO_TOTAL") %>'></asp:Label>
                                 <asp:Label ID="lblMontoTotal2" runat="server" Text='<%# Eval("MONTO_TOTAL", "{0:n0}") %>'></asp:Label>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <b>
+                                        <asp:Label ID="lblTotalMontoTOTAL" runat="server"></asp:Label>
+                                    </b>
+                                </div>
+                            </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Saldo" ItemStyle-HorizontalAlign="Right" SortExpression="SALDO">
                             <ItemTemplate>
                                 <asp:Label ID="lblSaldo" runat="server" Visible="false" Text='<%# Bind("SALDO") %>'></asp:Label>
                                 <asp:Label ID="lblSaldo2" runat="server" Text='<%# Eval("SALDO", "{0:n0}") %>'></asp:Label>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="float: right">
+                                    <b>
+                                        <asp:Label ID="lblTotalMontoSaldo" runat="server"></asp:Label>
+                                    </b>
+                                </div>
+                            </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado Not Venta" SortExpression="NOM_ESTADO_NOTA_VENTA">
                             <ItemTemplate>

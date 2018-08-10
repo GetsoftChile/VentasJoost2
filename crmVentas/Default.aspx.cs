@@ -129,8 +129,9 @@ namespace crm_fadonel
                     this.ibtnEditarCliente.Visible = true;
                 this.buscarCampana();
                 this.buscarActividadComercial();
-                this.buscarNotaVenta();
-                this.factura();
+                BuscarNotaVenta();
+                BuscarOT();
+                factura();
 
             }
             catch (Exception ex)
@@ -277,7 +278,8 @@ namespace crm_fadonel
                 this.lblRutGestiones.Text = this.lblRut.Text;
                 this.lblRazonSocialGestiones.Text = this.lblRazonSocial.Text;
                 this.buscarGestionesCRM();
-                this.buscarNotaVenta();
+                BuscarNotaVenta();
+                BuscarOT();
                 this.factura();
                 this.buscarDireccionesPorCliente();
                 if (control1.Text == string.Empty)
@@ -304,11 +306,11 @@ namespace crm_fadonel
         {
             DataTable dt = dal.getBuscarGestiones(Session["IdCliente"].ToString(), Session["idEmpresa"].ToString()).Tables[0];
 
-            this.grvGestionesCRM.DataSource = dt;
-            this.grvGestionesCRM.DataBind();
+            grvGestionesCRM.DataSource = dt;
+            grvGestionesCRM.DataBind();
 
-            this.grvHistorialGestiones.DataSource = dt;
-            this.grvHistorialGestiones.DataBind();
+            grvHistorialGestiones.DataSource = dt;
+            grvHistorialGestiones.DataBind();
         }
 
         protected void imgFirstgrvCotizacionesCRM_Click(object sender, EventArgs e)
@@ -380,61 +382,6 @@ namespace crm_fadonel
             grvCotizacionesCRM.DataBind();
         }
 
-        protected void paginaciongrvCotizacionesCRM_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.Pager)
-            {
-                Label _lblPagina = (Label)e.Row.FindControl("lblPagina");
-                Label _lblTotal = (Label)e.Row.FindControl("lblTotal");
-                _lblPagina.Text = Convert.ToString(grvCotizacionesCRM.PageIndex + 1);
-                _lblTotal.Text = Convert.ToString(grvCotizacionesCRM.PageCount);
-            }
-
-            string str1 = this.Session["variablePerfil"].ToString();
-            if (e.Row.RowType != DataControlRowType.DataRow)
-                return;
-            Label control3 = (Label)e.Row.FindControl("lblIdNotaVenta");
-            Label control4 = (Label)e.Row.FindControl("lblIdEstadoCotizacion");
-            ImageButton control5 = (ImageButton)e.Row.FindControl("ibtnGenerarNotaVenta");
-            ImageButton control6 = (ImageButton)e.Row.FindControl("imgPdf");
-            ImageButton control7 = (ImageButton)e.Row.FindControl("ibtnEliminarCotizacion");
-            if (control3.Text == string.Empty)
-                control5.Visible = true;
-            else
-                control5.Visible = false;
-            if (control4.Text == "5")
-                control6.Visible = false;
-            if (control4.Text == "5" || control4.Text == "4" || (control4.Text == "3" || control4.Text == "2"))
-                control5.Visible = false;
-            if (str1 == "1")
-                control7.Visible = true;
-            else
-                control7.Visible = false;
-        }
-
-        protected void grvGestionesCRM_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-          
-
-            if (e.Row.RowType != DataControlRowType.DataRow)
-                return;
-            Label control1 = (Label)e.Row.FindControl("lblIdGestion");
-            Label control2 = (Label)e.Row.FindControl("lblCotizacion");
-            DataTable dataTable = new DataTable();
-            DataTable table = this.dal.getBuscarCotizacionGestion(control1.Text).Tables[0];
-            string str1 = "";
-            foreach (DataRow row in (InternalDataCollectionBase)table.Rows)
-                str1 = str1 + row["ID_COTIZACION"].ToString() + ",";
-            string str2 = str1.TrimEnd(',');
-            control2.Text = str2;
-        }
-
-        void cotizacionesSession()
-        {
-            dsCotizaciones = Session["DatosCotizaciones"] as DataSet;
-            grvCotizacionesCRM.DataSource = dsCotizaciones;
-            grvCotizacionesCRM.DataBind();
-        }
 
         protected void gvEmployeegrvCotizacionesCRM_Sorting(object sender, GridViewSortEventArgs e)
         {
@@ -515,8 +462,11 @@ namespace crm_fadonel
                 LinkButton lbtn = sender as LinkButton;
                 GridViewRow row = (GridViewRow)lbtn.NamingContainer;
                 Label _lblIdCotizacion = (Label)grvNotaVenta.Rows[row.RowIndex].FindControl("lblIdCotizacion");
-
+                
+                //Label _lblIdCotizacion2 = (Label)grvOrdenDeTrabajo.Rows[row.RowIndex].FindControl("lblIdCotizacion");
                 buscarDetalleCotizacion(_lblIdCotizacion.Text.Trim());
+
+                //buscarDetalleCotizacion(_lblIdCotizacion2.Text.Trim());
             }
             catch (Exception ex)
             {
@@ -525,6 +475,23 @@ namespace crm_fadonel
             }
         }
 
+        protected void lbtnDetalleCotizacionCotizacionesCRMOT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton lbtn = sender as LinkButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                
+                Label _lblIdCotizacion = (Label)grvOrdenDeTrabajo.Rows[row.RowIndex].FindControl("lblIdCotizacion");
+                buscarDetalleCotizacion(_lblIdCotizacion.Text.Trim());
+                
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
         void buscarDetalleCotizacion(string cotizacion)
         {
             lblNumeroCotizacionDetalle.Text = "Cotización Nro. " + cotizacion;
@@ -677,7 +644,8 @@ namespace crm_fadonel
                 this.tablaCliente.Visible = true;
                 this.buscarGestion(this.hfIdCliente.Value);
                 this.buscarGestionesCRM();
-                this.buscarNotaVenta();
+                BuscarNotaVenta();
+                BuscarOT();
                 this.factura();
                 this.limpiarContacto();
             }
@@ -1906,8 +1874,9 @@ namespace crm_fadonel
 
                 this.dal.setEditarRutaPdfNotaVenta(idNotaVenta, rutaPdf);
                 this.dal.setEditarEstadoCotizacion(idCotizacion, "3", (string)null, (string)null);
-                this.buscarCotizaciones(rut);
-                this.buscarNotaVenta();
+                buscarCotizaciones(rut);
+                BuscarNotaVenta();
+                BuscarOT();
                 ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdf + "','_blank');", true);
                 //ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdfOT + "','_blank');", true);
             }
@@ -1979,7 +1948,7 @@ namespace crm_fadonel
             }
         }
         
-        void buscarNotaVenta() 
+        void BuscarNotaVenta() 
         {
             //if (lblRut.Text != string.Empty)
             //{
@@ -1991,7 +1960,17 @@ namespace crm_fadonel
             this.grvNotaVenta.DataSource = (object)this.dal.getBuscarNotaVentaPorCliente(this.Session["IdCliente"].ToString());
             this.grvNotaVenta.DataBind();
         }
-        
+
+        void BuscarOT()
+        {
+            if (Session["IdCliente"] != null)
+            {
+                string idCliente = Session["IdCliente"].ToString();
+                grvOrdenDeTrabajo.DataSource = dal.getBuscarOrdenTrabajoPorCliente(idCliente);
+                grvOrdenDeTrabajo.DataBind();
+            }
+        }
+
 
         public string generarNotaVentaPdf(string notaVenta, string idCotizacion, string nombreEjecutivo)
         {
@@ -3110,7 +3089,7 @@ namespace crm_fadonel
 
                 dal.setEliminarNotaVenta(_lblIdNotaVenta.Text);
 
-                buscarNotaVenta();
+                BuscarNotaVenta();
             }
             catch (Exception ex)
             {
@@ -3124,6 +3103,8 @@ namespace crm_fadonel
             string idPerfil = Session["variablePerfil"].ToString();
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                e.Row.CssClass = "danger";
+
                 Label _lblRutaOrdenDeCompra = (Label)e.Row.FindControl("lblRutaOrdenDeCompra");
                 Label _lblIdOrdenTrabajo = (Label)e.Row.FindControl("lblIdOrdenTrabajo");
                 ImageButton _ibtnRutaOrdenCompra = (ImageButton)e.Row.FindControl("ibtnRutaOrdenCompra");
@@ -3153,13 +3134,13 @@ namespace crm_fadonel
                     _imgEliminar.Visible = false;
                 }
             }
-
+            
             if (e.Row.RowType == DataControlRowType.Pager)
             {
                 Label _lblPagina = (Label)e.Row.FindControl("lblPagina");
                 Label _lblTotal = (Label)e.Row.FindControl("lblTotal");
-                _lblPagina.Text = Convert.ToString(grvCotizacionesCRM.PageIndex + 1);
-                _lblTotal.Text = Convert.ToString(grvCotizacionesCRM.PageCount);
+                _lblPagina.Text = Convert.ToString(grvNotaVenta.PageIndex + 1);
+                _lblTotal.Text = Convert.ToString(grvNotaVenta.PageCount);
             }
         }
 
@@ -3416,6 +3397,8 @@ namespace crm_fadonel
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                e.Row.CssClass = "danger";
+
                 //Label _lblIdPago = (Label)e.Row.FindControl("lblIdPago");
                 //Label _lblIdFactura = (Label)e.Row.FindControl("lblIdFactura");
                 //ImageButton _imgEliminarPago = (ImageButton)e.Row.FindControl("ibtnEliminarPago");
@@ -3609,7 +3592,8 @@ namespace crm_fadonel
 
                 dal.setEditarRutaPdfOT(OT, rutaPdfOT);
 
-                this.buscarNotaVenta();
+                this.BuscarNotaVenta();
+                BuscarOT();
                 //ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdf + "','_blank');", true);
                 ScriptManager.RegisterStartupScript((Page)this, this.GetType(), this.UniqueID, "window.open('" + rutaPdfOT + "','_blank');", true);
             }
@@ -3620,10 +3604,101 @@ namespace crm_fadonel
             }
         }
 
+
+        protected void paginaciongrvCotizacionesCRM_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Pager)
+            {
+                Label _lblPagina = (Label)e.Row.FindControl("lblPagina");
+                Label _lblTotal = (Label)e.Row.FindControl("lblTotal");
+                _lblPagina.Text = Convert.ToString(grvCotizacionesCRM.PageIndex + 1);
+                _lblTotal.Text = Convert.ToString(grvCotizacionesCRM.PageCount);
+            }
+
+            string str1 = this.Session["variablePerfil"].ToString();
+            if (e.Row.RowType != DataControlRowType.DataRow)
+                return;
+
+            e.Row.CssClass = "success";
+            Label control3 = (Label)e.Row.FindControl("lblIdNotaVenta");
+            Label _lblIdEstadoCotizacion = (Label)e.Row.FindControl("lblIdEstadoCotizacion");
+            Label _lblEstadoCotizacion = (Label)e.Row.FindControl("lblEstadoCotizacion");
+            
+
+            ImageButton control5 = (ImageButton)e.Row.FindControl("ibtnGenerarNotaVenta");
+            ImageButton control6 = (ImageButton)e.Row.FindControl("imgPdf");
+            ImageButton control7 = (ImageButton)e.Row.FindControl("ibtnEliminarCotizacion");
+
+            if (_lblIdEstadoCotizacion.Text == "1")
+            {
+                _lblEstadoCotizacion.CssClass = "label label-warning";
+            }
+
+
+            if (control3.Text == string.Empty)
+                control5.Visible = true;
+            else
+                control5.Visible = false;
+            if (_lblIdEstadoCotizacion.Text == "5")
+                control6.Visible = false;
+            if (_lblIdEstadoCotizacion.Text == "5" || _lblIdEstadoCotizacion.Text == "4" || (_lblIdEstadoCotizacion.Text == "3" || _lblIdEstadoCotizacion.Text == "2"))
+                _lblEstadoCotizacion.CssClass = "label label-success";
+                control5.Visible = false;
+            if (str1 == "1")
+                control7.Visible = true;
+            else
+                control7.Visible = false;
+        }
+
+        protected void grvGestionesCRM_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType != DataControlRowType.DataRow)
+                return;
+            Label control1 = (Label)e.Row.FindControl("lblIdGestion");
+            Label control2 = (Label)e.Row.FindControl("lblCotizacion");
+            DataTable dataTable = new DataTable();
+            DataTable table = this.dal.getBuscarCotizacionGestion(control1.Text).Tables[0];
+            string str1 = "";
+            foreach (DataRow row in (InternalDataCollectionBase)table.Rows)
+                str1 = str1 + row["ID_COTIZACION"].ToString() + ",";
+            string str2 = str1.TrimEnd(',');
+            control2.Text = str2;
+        }
+
+        void cotizacionesSession()
+        {
+            dsCotizaciones = Session["DatosCotizaciones"] as DataSet;
+            grvCotizacionesCRM.DataSource = dsCotizaciones;
+            grvCotizacionesCRM.DataBind();
+        }
+
         protected void grvOrdenDeTrabajo_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             try
             {
+                string idPerfil = this.Session["variablePerfil"].ToString();
+                if (e.Row.RowType != DataControlRowType.DataRow)
+                    return;
+                e.Row.CssClass = "warning";
+
+                ImageButton _imgEliminarOT = (ImageButton)e.Row.FindControl("imgEliminarOT");
+                if (idPerfil=="1")
+                {
+                    _imgEliminarOT.Visible = true;
+                }
+                else
+                {
+                    _imgEliminarOT.Visible = false;
+                }
+
+                //if (e.Row.RowType == DataControlRowType.Pager)
+                //{
+                //    Label _lblPagina = (Label)e.Row.FindControl("lblPagina");
+                //    Label _lblTotal = (Label)e.Row.FindControl("lblTotal");
+                    
+                //    _lblPagina.Text = Convert.ToString(grvOrdenDeTrabajo.PageIndex + 1);
+                //    _lblTotal.Text = Convert.ToString(grvOrdenDeTrabajo.PageCount);
+                //}
 
             }
             catch (Exception ex)
@@ -3637,7 +3712,31 @@ namespace crm_fadonel
         {
             try
             {
+                ImageButton lbtn = sender as ImageButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                Label _lblIdOrdenDeTrabajo = (Label)grvOrdenDeTrabajo.Rows[row.RowIndex].FindControl("lblIdOrdenDeTrabajo");
+                dal.setEliminarOT(_lblIdOrdenDeTrabajo.Text);
 
+                BuscarOT();
+                BuscarNotaVenta();
+
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = ex.Message;
+                mdlInformacion.Show();
+            }
+        }
+
+        protected void imgPdfOT_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                ImageButton lbtn = sender as ImageButton;
+                GridViewRow row = (GridViewRow)lbtn.NamingContainer;
+                Label _lblRutaPdf = (Label)grvOrdenDeTrabajo.Rows[row.RowIndex].FindControl("lblRutaPdf");
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, "window.open('" + _lblRutaPdf.Text + "','_blank');", true);
             }
             catch (Exception ex)
             {

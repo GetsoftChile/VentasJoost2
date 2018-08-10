@@ -229,6 +229,42 @@ namespace crm_valvulas_industriales {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liExporteProductosVendidos;
         
         /// <summary>
+        /// Control liNotaVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liNotaVenta;
+        
+        /// <summary>
+        /// Control liNotasDeVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liNotasDeVentas;
+        
+        /// <summary>
+        /// Control liSupOt.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liSupOt;
+        
+        /// <summary>
+        /// Control liOT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liOT;
+        
+        /// <summary>
         /// Control liProcesos.
         /// </summary>
         /// <remarks>
@@ -371,15 +407,6 @@ namespace crm_valvulas_industriales {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMaterialesUsados;
-        
-        /// <summary>
-        /// Control liNotasDeVentas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liNotasDeVentas;
         
         /// <summary>
         /// Control lbtnUsuario.

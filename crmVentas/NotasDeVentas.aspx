@@ -77,7 +77,7 @@
                 </div>
 
                 <asp:GridView ID="grvNotaVenta" ShowFooter="True" runat="server" HeaderStyle-CssClass="active" CssClass="table table-bordered table-hover table-condensed small"
-                    AutoGenerateColumns="false" AllowPaging="True" PageSize="50" OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true">
+                    AutoGenerateColumns="false" AllowPaging="True" PageSize="200" OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

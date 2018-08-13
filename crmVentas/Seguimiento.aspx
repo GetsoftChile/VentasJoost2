@@ -75,7 +75,7 @@
 
                 <asp:GridView ID="grvSeguimiento" ShowFooter="true" runat="server" HeaderStyle-CssClass="active" 
                     CssClass="table table-bordered table-hover table-condensed small" 
-                    AutoGenerateColumns="false" AllowPaging="True" PageSize="30" 
+                    AutoGenerateColumns="false" AllowPaging="True" PageSize="200" 
                     OnRowDataBound="paginacion_RowDataBound" OnSorting="gvEmployee_Sorting" AllowSorting="true" >
                     <Columns>
                         <asp:TemplateField>

@@ -3787,7 +3787,7 @@ namespace DAL
 
 
         public string setIngresarOrdenTrabajo(string idNotaVenta, string idCotizacion, string direccionDespacho, string direccionFacturacion,
-            string referencia, string ordenDeCompra, string rutaOrdenDeCompra, string rutaOrdenDeCompra2, string fechaEntrega)
+            string referencia, string ordenDeCompra, string rutaOrdenDeCompra, string rutaOrdenDeCompra2, string fechaEntrega, string obs)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_IngresarOrdenTrabajo");
 
@@ -3800,6 +3800,7 @@ namespace DAL
             db.AddInParameter(cmd, "@rutaOrdenDeCompra", DbType.String, rutaOrdenDeCompra);
             db.AddInParameter(cmd, "@rutaOrdenDeCompra2", DbType.String, rutaOrdenDeCompra2);
             db.AddInParameter(cmd, "@fechaEntrega", DbType.String, fechaEntrega);
+            db.AddInParameter(cmd, "@obs", DbType.String, obs);
             
             try
             {

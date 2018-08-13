@@ -1570,6 +1570,15 @@ namespace crm_fadonel {
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender4;
         
         /// <summary>
+        /// Control txtObservacionOT.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionOT;
+        
+        /// <summary>
         /// Control btnGenerarOT.
         /// </summary>
         /// <remarks>

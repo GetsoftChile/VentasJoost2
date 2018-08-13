@@ -1715,6 +1715,12 @@
                                 </asp:CalendarExtender>
                             </td>
                         </tr>
+                        <tr class="active">
+                            <td><strong>Obsevación</strong></td>
+                            <td>
+                                <asp:TextBox ID="txtObservacionOT" runat="server" CssClass="form-control input-sm" TextMode="MultiLine" Height="50%"></asp:TextBox>
+                            </td>
+                        </tr>
                     </table>
                     <div class="panel-footer">
                         <asp:Button ID="btnGenerarOT" runat="server" Text="Generar OT" CssClass="btn btn-danger btn-sm" OnClick="btnGenerarOT_Click" />

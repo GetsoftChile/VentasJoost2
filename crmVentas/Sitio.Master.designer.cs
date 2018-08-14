@@ -157,6 +157,15 @@ namespace crm_valvulas_industriales {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPaneles;
         
         /// <summary>
+        /// Control liMetasVendedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMetasVendedor;
+        
+        /// <summary>
         /// Control liPanelClienteNuevos.
         /// </summary>
         /// <remarks>
@@ -407,6 +416,15 @@ namespace crm_valvulas_industriales {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMaterialesUsados;
+        
+        /// <summary>
+        /// Control liMetas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMetas;
         
         /// <summary>
         /// Control lbtnUsuario.

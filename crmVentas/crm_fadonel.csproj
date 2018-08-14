@@ -332,6 +332,7 @@
     <Content Include="Materiales.aspx" />
     <Content Include="MaterialesUsados.aspx" />
     <Content Include="Metas.aspx" />
+    <Content Include="metasVendedor.aspx" />
     <Content Include="NotasDeVentas.aspx" />
     <Content Include="notaVenta\index.html" />
     <Content Include="ordenCompra\index.html" />
@@ -611,6 +612,13 @@
     </Compile>
     <Compile Include="Metas.aspx.designer.cs">
       <DependentUpon>Metas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="metasVendedor.aspx.cs">
+      <DependentUpon>metasVendedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="metasVendedor.aspx.designer.cs">
+      <DependentUpon>metasVendedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotasDeVentas.aspx.cs">
       <DependentUpon>NotasDeVentas.aspx</DependentUpon>

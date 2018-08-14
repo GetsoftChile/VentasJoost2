@@ -2394,13 +2394,59 @@ namespace DAL
 
         }
 
+        
+
+        public DataSet getBuscarMetas(string idUsuario, string mes, string ano)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarMeta");
+            //@idUsuario varchar(10),@mes varchar(2),@ano varchar(4)
+
+            if (idUsuario == "0")
+            {
+                db.AddInParameter(cmd, "@idUsuario", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idUsuario", DbType.String, idUsuario);
+            }
+            if (mes == string.Empty)
+            {
+                db.AddInParameter(cmd, "@mes", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@mes", DbType.String, mes);
+            }
+            if (ano == string.Empty)
+            {
+                db.AddInParameter(cmd, "@ano", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@ano", DbType.String, ano);
+            }
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar la informaion de las metas, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar la informaion de las metas, " + ex.Message, ex);
+            }
+
+        }
 
         public DataSet getGraficoMetas(string idUsuario, string mes, string ano)
         {
             DbCommand cmd = db.GetStoredProcCommand("stp_GraficoMetas");
             //@idUsuario varchar(10),@mes varchar(2),@ano varchar(4)
 
-            if (idUsuario == string.Empty)
+            if (idUsuario == "0")
             {
                 db.AddInParameter(cmd, "@idUsuario", DbType.String, null);
             }
@@ -3109,6 +3155,31 @@ namespace DAL
             catch (Exception ex)
             {
                 throw new Exception("No se pudo buscar las cotizaciones seguimiento, " + ex.Message, ex);
+            }
+        }
+
+        
+        public void setInUpMetas(int metaVendido, string fechaCierre, string mes, string ano, string idUsuario)
+        {
+            //@metaVendido int, @fechaCierre varchar(15),@mes varchar(2), @ano varchar(4), @idVendedor varchar(10)
+            DbCommand cmd = db.GetStoredProcCommand("stp_InUpMetas");
+
+            db.AddInParameter(cmd, "@metaVendido", DbType.String, metaVendido);
+            db.AddInParameter(cmd, "@fechaCierre", DbType.String, fechaCierre);
+            db.AddInParameter(cmd, "@ano", DbType.String, ano);
+            db.AddInParameter(cmd, "@mes", DbType.String, mes);
+            db.AddInParameter(cmd, "@idVendedor", DbType.String, idUsuario);
+            try
+            {
+                db.ExecuteNonQuery(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se puede ingresar la condición comercial, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se puede ingresar la condición comercial, " + ex.Message, ex);
             }
         }
 

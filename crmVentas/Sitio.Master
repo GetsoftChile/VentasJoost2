@@ -98,6 +98,7 @@
                         <li id="liPaneles" runat="server" class="dropdown small">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="small">Paneles<b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                <li id="liMetasVendedor" runat="server"><a href="metasVendedor.aspx">Metas</a></li>
                                 <li id="liPanelClienteNuevos" runat="server"><a href="GrafClientesIngresados.aspx">Clientes Nuevos</a></li>
                                 <li id="liPanelGestionVentas" runat="server"><a href="GrafPanelGestionVentas.aspx">Gestión Ventas</a></li>
                                 <li id="liPanelSupervisor" runat="server"><a href="GrafPanelSupervisor.aspx">Supervisor</a></li>
@@ -161,7 +162,7 @@
                                 <li id="liProductosVendidos" runat="server"><a href="ProductosVendidos.aspx">Productos Vendidos</a></li>
                                 <li id="liMateriales" runat="server"><a href="Materiales.aspx">Materiales</a></li>
                                 <li id="liMaterialesUsados" runat="server"><a href="MaterialesUsados.aspx">Materiales Usados</a></li>
-                                
+                                <li id="liMetas" runat="server"><a href="Metas.aspx">Metas</a></li>
                             </ul>
                         </li>
                     </ul>

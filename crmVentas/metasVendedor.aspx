@@ -1,29 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Metas.aspx.cs" Inherits="crm_valvulas_industriales.Metas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="metasVendedor.aspx.cs" Inherits="crm_valvulas_industriales.metasVendedor" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+        <script type="text/javascript" language="javascript" src="assets/JSClass/FusionCharts.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
     <ol class="breadcrumb">
         <li><a href="Default.aspx">Inicio</a></li>
-        <li><a href="Default.aspx">Administración</a></li>
-        <li class="active">Metas</li>
+        <li class="active">Metas Vendedor</li>
     </ol>
 
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+<%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>--%>
+
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <strong>Metas</strong>
                 </div>
                 <table class="table table-condensed small">
-                    <tr class="success"> 
-                        <td>
-                            <strong>Vendedor</strong>
-                            <asp:DropDownList ID="ddlVendedor" runat="server" OnDataBound="ddlVendedor_DataBound" CssClass="form-control input-sm">
-                            </asp:DropDownList>
-                        </td>
+                    <tr class="success">
                         <td>
                             <strong>Mes</strong>
                             <asp:DropDownList ID="ddlMes" runat="server" CssClass="form-control input-sm">
@@ -54,57 +52,34 @@
                                 <asp:ListItem Value="2024"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                       
+                        <td>
+                            <strong>Vendedor</strong>
+                            <asp:DropDownList ID="ddlVendedor" runat="server" OnDataBound="ddlVendedor_DataBound" CssClass="form-control input-sm">
+                            </asp:DropDownList>
+                        </td>
                         <td>
                             <br />
                             <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-default btn-sm" Text="Buscar" OnClick="btnBuscar_Click" />
-                            <asp:Button ID="btnGrabar" runat="server" CssClass="btn btn-default btn-sm" Text="Grabar Meta" OnClick="btnGrabar_Click" />
                         </td>
                     </tr>
                 </table>
             </div>
 
-            <asp:GridView ID="grvMetas" runat="server"
-                CssClass="table table-bordered table-hover table-condensed table small"
-                HeaderStyle-CssClass="active" PagerStyle-CssClass="active" AutoGenerateColumns="false">
-                <Columns>
-                    <asp:TemplateField HeaderText="Vendedor">
-                        <ItemTemplate>
-                            <asp:Label ID="lblIdVendedor" runat="server" Text='<%# Bind("ID_USUARIO") %>' Visible="false"></asp:Label>
-                            <asp:Label ID="lblVendedor" runat="server" Text='<%# Bind("USUARIO") %>' Visible="true"></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Mes" Visible="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMes" runat="server" Text='<%# Bind("MES") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Ano" Visible="false">
-                        <ItemTemplate>
-                            <asp:Label ID="lblAno" runat="server" Text='<%# Bind("ANO") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="FechaCierre">
-                        <ItemTemplate>
-                            <asp:TextBox ID="txtFechaCierre" runat="server" CssClass="form-control input-sm" Text='<%# Bind("FECHA_CIERRE","{0:dd-MM-yyyy}") %>' ></asp:TextBox>
-                            <asp:CalendarExtender ID="ce_txtFechaDesdeAgendamiento" runat="server" 
-                                Enabled="True" FirstDayOfWeek="Monday" Format="dd-MM-yyyy" 
-                                TargetControlID="txtFechaCierre"></asp:CalendarExtender>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Meta Mensual">
-                        <ItemTemplate>
-                            <asp:TextBox ID="txtMetaMensual" runat="server" CssClass="form-control input-sm" Text='<%# Bind("META_VENDIDO") %>' ></asp:TextBox>
-
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    
-                </Columns>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                        </div>
+                        <div class="panel-body">
+                            <asp:Literal ID="litGrafico" runat="server"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-            </asp:GridView>
 
-            
+
             <asp:Button ID="btnActivarPopUp" runat="server" Style="display: none" />
             <asp:ModalPopupExtender ID="mdlInformacion" BackgroundCssClass="modalBackground" runat="server" PopupControlID="pnlInformacion" TargetControlID="btnActivarPopUp" BehaviorID="_mdlInformacion">
             </asp:ModalPopupExtender>
@@ -126,8 +101,10 @@
                 <%--MODALPOPUP CON BOOTSTRAP--%>
             </asp:Panel>
 
-        </ContentTemplate>
-    </asp:UpdatePanel>
+
+       <%-- </ContentTemplate>
+    </asp:UpdatePanel>--%>
+
 
 
 </asp:Content>
